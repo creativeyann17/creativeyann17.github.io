@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Col, Row, Spinner } from 'react-bootstrap';
+import { Container, Col, Row, Spinner, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
@@ -25,7 +25,17 @@ const Article = ({ articles }) => {
   return (
     <Container className="page">
       {!article ? (
-        <div>{state.timeout ? <h3>Article not found !</h3> : <Spinner animation="border" />}</div>
+        <div>
+          {state.timeout ? (
+            <Alert variant="danger">
+              <b>Article not found:</b> {id}
+            </Alert>
+          ) : (
+            <Alert variant="secondary">
+              <b>Looking for article:</b> {id} <Spinner animation="border" size="sm" />
+            </Alert>
+          )}
+        </div>
       ) : (
         <Row>
           <Col sm={12}>

@@ -15,12 +15,16 @@ const Home = ({ articles }) => {
       <Jumbotron>
         <h1>Welcome</h1>
         <p>
-          This web-site acts as my blog / portfolio / showcase ... somewhere ready to test an idea.
+          This web-site acts as my blog / portfolio / showcase / poc ... somewhere ready to test an
+          idea.
           <li>
             If you want to know more about the technicals you can click on the button below to be
             redirected to the GitHub repository.
           </li>
-          <li>If you want to contact me please use the Linkedin link + private message.</li>
+          <li>
+            If you want to contact me please use the Linkedin link + private message.{' '}
+            <b>Have a nice day :)</b>
+          </li>
         </p>
         <p>
           {externalIconLink(ROUTES.EXTERNALS.GITHUB_PAGE, '/github128.png')}

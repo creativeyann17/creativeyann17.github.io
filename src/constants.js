@@ -1,7 +1,6 @@
 export const PROD = process.env.NODE_ENV === 'production';
 export const DEV = !PROD;
 
-// in case we want to switch between HashRouter / BrowserRouter
 const ROUTES_PREFIX = '/';
 
 export const ROUTES = {
