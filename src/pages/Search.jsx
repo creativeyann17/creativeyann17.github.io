@@ -15,7 +15,7 @@ const Search = ({ articles, setArticlesFilter }) => {
   });
   const renderArticle = (article) => <ArticleCard key={article.id} article={article} />;
   return (
-    <Container className="page">
+    <Container className="page search">
       {filter && (
         <Alert variant="secondary">
           <b>Actual search:</b> {filter} <b>result(s): </b> {articlesFiltered.length}

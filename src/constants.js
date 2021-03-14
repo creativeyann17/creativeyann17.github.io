@@ -5,6 +5,7 @@ const ROUTES_PREFIX = '/';
 
 export const ROUTES = {
   HOME: ROUTES_PREFIX,
+  ARTICLES: ROUTES_PREFIX + 'articles',
   ARTICLE: ROUTES_PREFIX + 'article',
   SEARCH: ROUTES_PREFIX + 'search',
   EXTERNALS: {

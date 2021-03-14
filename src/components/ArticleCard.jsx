@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { THUMBAILS_FOLDER, ROUTES } from '../constants';
 import ArticleDetails from './ArticleDetails';
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article, promo }) => {
   const history = useHistory();
   const renderTag = (badge) => {
     return (
@@ -21,14 +21,14 @@ const ArticleCard = ({ article }) => {
     history.push(`${ROUTES.SEARCH}/${searchFilter}`);
   };
   return (
-    <Card>
+    <Card className="article">
       <Card.Img
         variant="top"
         src={`${THUMBAILS_FOLDER}${article.thumbnail}`}
         onClick={(e) => handleCardClick(e, article.id)}
       />
       <Card.Body>
-        <ArticleDetails article={article} />
+        <ArticleDetails article={article} promo={promo} />
         <Card.Text className="with-margin-top">{article.description}</Card.Text>
         <Card.Text>{map(article.tags, renderTag)}</Card.Text>
       </Card.Body>

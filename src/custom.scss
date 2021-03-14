@@ -154,17 +154,26 @@ div.col-xs-9 {
 }
 
 .card {
-  width: 18rem;
-  margin: 0 1rem 1rem 0;
   border-radius: 0.5rem;
 }
 
-.card .badge {
+.page.home .article {
+  width: auto;
+  margin: 0 0 2rem 2rem;
+}
+
+.page.articles .article,
+.page.search .article {
+  width: 18rem;
+  margin: 0 2rem 2rem 0;
+}
+
+.card .badge:not(.badge-success) {
   margin-right: 0.5rem;
   cursor: pointer;
 }
 
-.card .badge:hover {
+.card .badge:hover:not(.badge-success) {
   text-decoration: underline;
 }
 
@@ -199,6 +208,14 @@ div.col-xs-9 {
   margin: 0 0.25rem 0 0;
 }
 
+.skills svg {
+  color: var(--primary);
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 1rem;
+}
+
 /*
 
 Copy/paste of current boostrap media breakpoints. don't know how to use them in media as variables.
@@ -209,21 +226,24 @@ Copy/paste of current boostrap media breakpoints. don't know how to use them in 
 --breakpoint-lg: 992px;
 --breakpoint-xl: 1200px;
 */
-
-@media (max-width: 576px) {
+@media (max-width: 992px) {
   .back-to-top {
     bottom: 15px;
     margin-bottom: 15px;
     margin-right: 15px;
   }
 
-  .card {
+  .page.home .card {
+    width: auto;
+    margin-left: 0;
+  }
+
+  .page.articles .article,
+  .page.search .article {
     width: auto;
     margin-right: 0;
   }
-}
 
-@media (max-width: 992px) {
   .footer .row {
     justify-content: center;
   }

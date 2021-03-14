@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Form, FormControl, Container, InputGroup } from 'react-bootstrap';
+import {
+  Navbar,
+  Nav,
+  Form,
+  FormControl,
+  Container,
+  InputGroup,
+  NavDropdown,
+} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import trim from 'lodash/trim';
@@ -48,9 +56,17 @@ const Header = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {addNavLink(ROUTES.HOME, 'Home')}
-            {addNavLink(ROUTES.SEARCH + '/react', 'React')}
-            {addNavLink(ROUTES.SEARCH + '/spring-boot', 'Spring-boot')}
-            {addNavLink(ROUTES.SEARCH + '/micronaut', 'Micronaut')}
+            {addNavLink(ROUTES.ARTICLES, 'Articles')}
+            <NavDropdown title="Categories">
+              <NavDropdown.Item
+                onClick={(e) => handleNavLinkClick(e, ROUTES.SEARCH + '/spring-boot')}>
+                Spring-boot
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={(e) => handleNavLinkClick(e, ROUTES.SEARCH + '/micronaut')}>
+                Micronaut
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Form inline onSubmit={handleSearchSubmit}>
             <InputGroup>
