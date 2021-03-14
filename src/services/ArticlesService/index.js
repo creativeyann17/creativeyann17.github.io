@@ -6,7 +6,9 @@ import { ARTICLES_JSON } from '../../constants';
 
 export function* watchArticlesFetchRequest(action) {
   try {
-    const articles = yield axios.get(ARTICLES_JSON).then((res) => res.data);
+    const articles = yield axios
+      .get(`${ARTICLES_JSON}?timestamp=${new Date().getTime()}`) // timestamp to ignore server cache
+      .then((res) => res.data);
     yield put(articlesFetchSuccess(articles));
   } catch (e) {
     yield put(articlesFetchFailure(e.message));

@@ -1,8 +1,14 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner, Row } from 'react-bootstrap';
 
 const LoadingLayout = () => {
-  return <Container className="page"></Container>;
+  return (
+    <Container className="page">
+      <Row>
+        <Spinner animation="border" />
+      </Row>
+    </Container>
+  );
 };
 
 export default LoadingLayout;
