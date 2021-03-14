@@ -5,6 +5,7 @@
     "date": "14-03-2021",
     "title": "H2 console",
     "time": 1,
+    "promo": true,
     "description": "How to manually start H2 console using spring-boot or micronaut",
     "thumbnail": "thumbnail1.jpg",
     "markdown": "article1.md",
