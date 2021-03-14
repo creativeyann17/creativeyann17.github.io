@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import includes from 'lodash/includes';
@@ -14,7 +14,11 @@ const Search = ({ articles, setArticlesFilter }) => {
     return includes(article.tags, filter);
   });
   const renderArticle = (article) => <ArticleCard key={article.id} article={article} />;
-  return <Container className="page">{map(articlesFiltered, renderArticle)}</Container>;
+  return (
+    <Container className="page">
+      <Row>{map(articlesFiltered, renderArticle)}</Row>
+    </Container>
+  );
 };
 
 const mapStateToProps = (state) => {

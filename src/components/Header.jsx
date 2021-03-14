@@ -25,6 +25,7 @@ const Header = (props) => {
 
   const handleNavLinkClick = (event, path) => {
     event.preventDefault();
+    event.stopPropagation();
     history.push(path);
   };
 
@@ -37,7 +38,7 @@ const Header = (props) => {
   };
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg">
+    <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/">
           <img alt="" src="/favicon.ico" height="32" className="d-inline-block align-top" />{' '}

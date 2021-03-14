@@ -1,15 +1,9 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import { ROUTES } from '../constants';
-import { externalLink } from '../utils/utils';
+import { externalLink, externalIconLink } from '../utils/utils';
 
 const Footer = (props) => {
-  const externalIconLink = (path, icon) => (
-    <a target="_blank" rel="noreferrer" href={path}>
-      <img src={icon} alt={`external-links-to-${path}`} />
-    </a>
-  );
-
   const currentYear = new Date().getFullYear();
 
   return (

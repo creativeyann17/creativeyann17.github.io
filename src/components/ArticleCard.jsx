@@ -9,17 +9,15 @@ const ArticleCard = ({ article }) => {
   const history = useHistory();
   const renderTag = (badge) => {
     return (
-      <Badge key={badge} variant="light" onClick={() => handleSearch(badge)}>
+      <Badge key={badge} variant="light" onClick={() => handleTagSearch(badge)}>
         {badge}
       </Badge>
     );
   };
   const handleCardClick = (event, id) => {
-    event.preventDefault();
-    event.stopPropagation();
     history.push(`${ROUTES.ARTICLE}/${id}`);
   };
-  const handleSearch = (searchFilter) => {
+  const handleTagSearch = (searchFilter) => {
     history.push(`${ROUTES.SEARCH}/${searchFilter}`);
   };
   return (

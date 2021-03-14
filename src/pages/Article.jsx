@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
@@ -13,26 +13,28 @@ const Article = ({ articles }) => {
   const { id } = useParams();
   const article = find(articles, (article) => article.id.toString() === id); // number != string
 
-  if (!article) return <div></div>;
-
   return (
     <Container className="page">
-      <Row>
-        <Col sm={12}>
-          <h1>{article.description}</h1>
-          <div className="space-between">
-            <ArticleDetails article={article} />
-            <SocialIcons article={article} />
-          </div>
-          <img
-            className="title"
-            alt=""
-            src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
-            width={'100%'}
-          />
-          {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
-        </Col>
-      </Row>
+      {!article ? (
+        <Spinner animation="border" />
+      ) : (
+        <Row>
+          <Col sm={12}>
+            <h1>{article.description}</h1>
+            <div className="space-between">
+              <ArticleDetails article={article} />
+              <SocialIcons article={article} />
+            </div>
+            <img
+              className="title"
+              alt=""
+              src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
+              width={'100%'}
+            />
+            {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 };

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import CodeBlock from './CodeBlock';
 
+// using component for fun :)
 class Markdown extends Component {
   constructor(props) {
     super(props);
