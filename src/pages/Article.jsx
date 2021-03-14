@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -11,12 +11,21 @@ import { ARTICLES_FOLDER, THUMBAILS_FOLDER } from '../constants';
 
 const Article = ({ articles }) => {
   const { id } = useParams();
+  const [state, setstate] = useState({ timeout: false });
+
   const article = find(articles, (article) => article.id.toString() === id); // number != string
+
+  useEffect(() => {
+    let timeoutTimer = setTimeout(() => setstate({ ...state, timeout: true }), 2 * 1000);
+    return () => {
+      clearTimeout(timeoutTimer);
+    };
+  });
 
   return (
     <Container className="page">
       {!article ? (
-        <Spinner animation="border" />
+        <div>{state.timeout ? <h3>Article not found !</h3> : <Spinner animation="border" />}</div>
       ) : (
         <Row>
           <Col sm={12}>

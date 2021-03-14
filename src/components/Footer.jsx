@@ -19,8 +19,8 @@ const Footer = (props) => {
             <Row className="right">
               {externalLink(ROUTES.EXTERNALS.GITHUB_TOS, 'Terms of use')}
               {externalLink(ROUTES.EXTERNALS.GITHUB_PRIVACY, 'Privacy policy')}
-              {externalIconLink(ROUTES.EXTERNALS.GITHUB, '/github.png')}
-              {externalIconLink(ROUTES.EXTERNALS.LINKEDIN, '/linkedin.png')}
+              {externalIconLink(ROUTES.EXTERNALS.GITHUB, '/github128.png')}
+              {externalIconLink(ROUTES.EXTERNALS.LINKEDIN, '/linkedin128.png')}
             </Row>
             <Row className="right copyright">
               <span>© {currentYear} Yann MARCOU</span>

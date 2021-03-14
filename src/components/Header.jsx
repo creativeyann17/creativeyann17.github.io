@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Form, FormControl, Button, Container } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, InputGroup } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import trim from 'lodash/trim';
+import { FaSearch } from 'react-icons/fa';
 import { ROUTES } from '../constants';
 
 const Header = (props) => {
@@ -52,15 +53,17 @@ const Header = (props) => {
             {addNavLink(ROUTES.SEARCH + '/micronaut', 'Micronaut')}
           </Nav>
           <Form inline onSubmit={handleSearchSubmit}>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2"
-              onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
-            />
-            <Button variant="secondary" type="submit">
-              Search
-            </Button>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text>
+                  <FaSearch />
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                placeholder="Search"
+                onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
+              />
+            </InputGroup>
           </Form>
         </Navbar.Collapse>
       </Container>

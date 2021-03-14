@@ -11,20 +11,26 @@ $theme-colors: (
 @import '~bootstrap/scss/bootstrap.scss';
 
 body {
-  background-color: #fff;
+  background-color: white;
 }
 
-.container::after {
-  content: '';
-  background: url('./pages/background.jpg');
+a {
+  color: var(--secondary);
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+.jumbotron {
+  background: url('./pages/jumbotron.jpg');
   background-repeat: no-repeat;
-  opacity: 0.1;
-  top: 58px; // navbar height in case of sticky
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: -1;
+  background-size: cover;
+  padding: 3rem 2rem;
+}
+
+.jumbotron a {
+  margin: 0 1rem 0 0;
 }
 
 .row {
@@ -108,7 +114,7 @@ div.col-xs-9 {
 
 .footer a {
   color: var(--dark);
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .footer a.nav-link {
