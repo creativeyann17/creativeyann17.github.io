@@ -10,12 +10,7 @@ const Footer = (props) => {
     <div className="footer">
       <Container>
         <Row>
-          <Col sm={6}>
-            <Row>
-              <img alt="creativeyann17-logo" src="/logo.png" height="64" />
-            </Row>
-          </Col>
-          <Col sm={6}>
+          <Col sm={12}>
             <Row className="right">
               {externalLink(ROUTES.EXTERNALS.GITHUB_TOS, 'Terms of use')}
               {externalLink(ROUTES.EXTERNALS.GITHUB_PRIVACY, 'Privacy policy')}
