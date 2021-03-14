@@ -27,8 +27,8 @@ const DefaultLayout = () => {
             <Search />
           </Route>
         </Switch>
+        <BackToTop />
       </Router>
-      <BackToTop />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineToTop } from 'react-icons/ai';
+import { HashLink } from 'react-router-hash-link';
 
 const BackToTop = (props) => {
   const [isVisible, setVisible] = useState(false);
@@ -24,9 +25,9 @@ const BackToTop = (props) => {
 
   return (
     <div className="back-to-top">
-      <a href="#top">
+      <HashLink to="#top">
         <AiOutlineToTop />
-      </a>
+      </HashLink>
     </div>
   );
 };
