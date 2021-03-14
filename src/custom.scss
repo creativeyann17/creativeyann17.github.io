@@ -164,7 +164,7 @@ div.col-xs-9 {
 
 .page.articles .article,
 .page.search .article {
-  width: 18rem;
+  width: 20rem;
   margin: 0 2rem 2rem 0;
 }
 
@@ -200,6 +200,10 @@ div.col-xs-9 {
   color: var(--dark);
 }
 
+.article-details .badge-success {
+  font-size: medium;
+}
+
 .article-details .attribute {
   margin-right: 0.5rem;
 }
@@ -209,7 +213,7 @@ div.col-xs-9 {
 }
 
 .skills svg {
-  color: var(--primary);
+  color: var(--secondary);
   align-self: center;
   width: 32px;
   height: 32px;

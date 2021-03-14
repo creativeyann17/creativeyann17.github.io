@@ -33,9 +33,7 @@ const Home = ({ articles }) => {
             </p>
           </Jumbotron>
         </Col>
-        <Col lg={4}>
-          {articles && articles[0] && <ArticleCard article={articles[0]} promo={true} />}
-        </Col>
+        <Col lg={4}>{articles && articles[0] && <ArticleCard article={articles[0]} />}</Col>
       </Row>
       <Row>
         <Skills />

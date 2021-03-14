@@ -20,7 +20,7 @@ const ArticleDetails = ({ article, promo }) => {
         <MdTimer />
         {`${article.time} min`}
       </span>
-      {promo && <Badge variant="success">new</Badge>}
+      {article.promo && <Badge variant="success">new</Badge>}
     </div>
   );
 };

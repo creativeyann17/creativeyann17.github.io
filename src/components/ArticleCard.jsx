@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { THUMBAILS_FOLDER, ROUTES } from '../constants';
 import ArticleDetails from './ArticleDetails';
 
-const ArticleCard = ({ article, promo }) => {
+const ArticleCard = ({ article }) => {
   const history = useHistory();
   const renderTag = (badge) => {
     return (
@@ -28,7 +28,7 @@ const ArticleCard = ({ article, promo }) => {
         onClick={(e) => handleCardClick(e, article.id)}
       />
       <Card.Body>
-        <ArticleDetails article={article} promo={promo} />
+        <ArticleDetails article={article} />
         <Card.Text className="with-margin-top">{article.description}</Card.Text>
         <Card.Text>{map(article.tags, renderTag)}</Card.Text>
       </Card.Body>
