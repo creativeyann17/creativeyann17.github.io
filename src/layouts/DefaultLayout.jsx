@@ -6,12 +6,11 @@ import { Header, Footer, BackToTop } from '../components';
 import { ROUTES } from '../constants';
 
 const Home = React.lazy(() => import('../pages/Home'));
-const Articles = React.lazy(() => import('../pages/Articles'));
+const Article = React.lazy(() => import('../pages/Article'));
 const Search = React.lazy(() => import('../pages/Search'));
 
-const DefaultLayout = (props) => {
+const DefaultLayout = () => {
   const withParam = (url, param) => `${url}/:${param}`;
-  const withOptionalParam = (url, param) => `${url}/:${param}?`;
 
   return (
     <div>
@@ -21,8 +20,8 @@ const DefaultLayout = (props) => {
           <Route exact path={ROUTES.HOME}>
             <Home />
           </Route>
-          <Route path={withOptionalParam(ROUTES.ARTICLES, 'id')}>
-            <Articles />
+          <Route path={withParam(ROUTES.ARTICLE, 'id')}>
+            <Article />
           </Route>
           <Route path={withParam(ROUTES.SEARCH, 'filter')}>
             <Search />

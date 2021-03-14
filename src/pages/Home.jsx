@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { connect } from 'react-redux';
 import map from 'lodash/map';
+import { connect } from 'react-redux';
 import { getArticles } from '../services/ArticlesService/selectors';
 import ArticleCard from '../components/ArticleCard';
 
 const Home = ({ articles }) => {
-  const renderArticle = (article) => <ArticleCard article={article} />;
+  const renderArticle = (article) => <ArticleCard key={article.id} article={article} />;
   return <Container className="page">{map(articles, renderArticle)}</Container>;
 };
 

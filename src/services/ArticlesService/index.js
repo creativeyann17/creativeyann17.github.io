@@ -2,11 +2,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import { articlesFetchSuccess, articlesFetchFailure } from './actions';
-import { ARTICLES } from '../../constants';
+import { ARTICLES_JSON } from '../../constants';
 
 export function* watchArticlesFetchRequest(action) {
   try {
-    const articles = yield axios.get(ARTICLES).then((res) => res.data);
+    const articles = yield axios.get(ARTICLES_JSON).then((res) => res.data);
     yield put(articlesFetchSuccess(articles));
   } catch (e) {
     yield put(articlesFetchFailure(e.message));

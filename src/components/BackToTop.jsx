@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import { AiOutlineToTop } from 'react-icons/ai';
 
 const BackToTop = (props) => {
@@ -24,11 +23,11 @@ const BackToTop = (props) => {
   if (!isVisible) return null;
 
   return (
-    <Container className="back-to-top">
+    <div className="back-to-top">
       <a href="#top">
         <AiOutlineToTop />
       </a>
-    </Container>
+    </div>
   );
 };
 

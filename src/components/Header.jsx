@@ -28,7 +28,9 @@ const Header = (props) => {
     history.push(path);
   };
 
-  const handleSearchClick = () => {
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     if (state.searchFilter) {
       history.push(`${ROUTES.SEARCH}/${state.searchFilter}`);
     }
@@ -44,16 +46,18 @@ const Header = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {addNavLink(ROUTES.HOME, 'Home')}
-            {addNavLink(ROUTES.ARTICLES, 'Articles')}
+            {addNavLink(ROUTES.SEARCH + '/react', 'React')}
+            {addNavLink(ROUTES.SEARCH + '/spring-boot', 'Spring-boot')}
+            {addNavLink(ROUTES.SEARCH + '/micronaut', 'Micronaut')}
           </Nav>
-          <Form inline>
+          <Form inline onSubmit={handleSearchSubmit}>
             <FormControl
               type="text"
               placeholder="Search"
               className="mr-sm-2"
               onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
             />
-            <Button variant="secondary" onClick={handleSearchClick}>
+            <Button variant="secondary" type="submit">
               Search
             </Button>
           </Form>

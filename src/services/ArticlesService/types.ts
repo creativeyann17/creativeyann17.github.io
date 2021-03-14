@@ -16,7 +16,9 @@ interface ArticlesFetchFailureAction {
 
 export interface ArticlesType extends Array<ArticleType> {}
 
-export interface ArticleType {}
+export interface ArticleType {
+  tags: [string];
+}
 
 export interface Reducer {
   isFetching: boolean;

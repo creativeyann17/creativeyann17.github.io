@@ -3,7 +3,7 @@ import { Reducer } from './types';
 
 const initialState: Reducer = {
   isFetching: false,
-  articles: null,
+  articles: [],
   error: null,
 };
 
@@ -14,7 +14,7 @@ function reducer(state = initialState, action: any): Reducer {
     case actionTypes.ARTICLES_FETCH_SUCCESS:
       return { ...state, isFetching: false, error: null, articles: action.articles };
     case actionTypes.ARTICLES_FETCH_FAILURE:
-      return { ...state, isFetching: false, error: action.error };
+      return { ...state, isFetching: false, error: action.error, articles: [] };
     default:
       return state;
   }

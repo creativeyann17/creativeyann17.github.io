@@ -6,7 +6,7 @@ const ROUTES_PREFIX = '/';
 
 export const ROUTES = {
   HOME: ROUTES_PREFIX,
-  ARTICLES: ROUTES_PREFIX + 'articles',
+  ARTICLE: ROUTES_PREFIX + 'article',
   SEARCH: ROUTES_PREFIX + 'search',
   EXTERNALS: {
     GITHUB: 'https://github.com/creativeyann17',
@@ -16,5 +16,7 @@ export const ROUTES = {
   },
 };
 
-export const ARTICLES = 'articles.json';
-export const THUMBAILS = 'thumbnails/';
+export const ARTICLES_JSON = '/articles.json';
+
+export const ARTICLES_FOLDER = '/articles/';
+export const THUMBAILS_FOLDER = '/thumbnails/';
