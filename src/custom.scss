@@ -1,0 +1,228 @@
+// change the theme
+// https://getbootstrap.com/docs/4.1/getting-started/theming/#css-variables
+$theme-colors: (
+  'primary': #19375a,
+  'secondary': #4682b4,
+  'light': #e5e7eb,
+  'dark': #555,
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  background-color: white;
+}
+
+a {
+  color: var(--secondary);
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+.jumbotron {
+  background: url('./pages/jumbotron.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3rem 2rem;
+}
+
+.jumbotron a {
+  margin: 0 1rem 0 0;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.col,
+div.col-lg-1,
+div.col-lg-10,
+div.col-lg-11,
+div.col-lg-12,
+div.col-lg-2,
+div.col-lg-3,
+div.col-lg-4,
+div.col-lg-5,
+div.col-lg-6,
+div.col-lg-7,
+div.col-lg-8,
+div.col-lg-9,
+div.col-md-1,
+div.col-md-10,
+div.col-md-11,
+div.col-md-12,
+div.col-md-2,
+div.col-md-3,
+div.col-md-4,
+div.col-md-5,
+div.col-md-6,
+div.col-md-7,
+div.col-md-8,
+div.col-md-9,
+div.col-sm-1,
+div.col-sm-10,
+div.col-sm-11,
+div.col-sm-12,
+div.col-sm-2,
+div.col-sm-3,
+div.col-sm-4,
+div.col-sm-5,
+div.col-sm-6,
+div.col-sm-7,
+div.col-sm-8,
+div.col-sm-9,
+div.col-xs-1,
+div.col-xs-10,
+div.col-xs-11,
+div.col-xs-12,
+div.col-xs-2,
+div.col-xs-3,
+div.col-xs-4,
+div.col-xs-5,
+div.col-xs-6,
+div.col-xs-7,
+div.col-xs-8,
+div.col-xs-9 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.page {
+  min-height: 700px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer {
+  background-color: #fafafa;
+  border-top: 0.05rem solid #e5e7eb;
+  padding: 3em 0 2rem 0;
+}
+
+.footer .row {
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer .row.right {
+  justify-content: flex-end;
+}
+
+.footer a {
+  color: var(--dark);
+  margin-left: 1rem;
+}
+
+.footer a.nav-link {
+  margin-left: 1rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .copyright {
+  font-size: small;
+  color: var(--dark);
+}
+
+.back-to-top {
+  display: flex;
+  justify-content: flex-end;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 25px; // need to be set for sticky
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.back-to-top svg {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 10%;
+}
+
+.card {
+  width: 18rem;
+  margin: 0 1rem 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.card .badge {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.card .badge:hover {
+  text-decoration: underline;
+}
+
+.card .with-margin-top {
+  margin-top: 1rem;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 2rem 0 2rem 0;
+}
+
+.article-details {
+  font-size: small;
+  color: var(--dark);
+}
+
+.article-details .attribute {
+  margin-right: 0.5rem;
+}
+
+.article-details svg {
+  margin: 0 0.25rem 0 0;
+}
+
+.card img {
+  cursor: pointer;
+}
+
+/*
+
+Copy/paste of current boostrap media breakpoints. don't know how to use them in media as variables.
+
+--breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+*/
+
+@media (max-width: 576px) {
+  .back-to-top {
+    bottom: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+  }
+
+  .card {
+    width: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer .row {
+    justify-content: center;
+  }
+  .footer .row.right {
+    justify-content: center;
+  }
+}
