@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import LoadingLayout from './LoadingLayout';
 import { Header, Footer, BackToTop } from '../components';
 import { ROUTES } from '../constants';
 
@@ -15,20 +16,22 @@ const DefaultLayout = () => {
     <div>
       <Router>
         <Header />
-        <Switch>
-          <Route exact path={ROUTES.HOME}>
-            <Home />
-          </Route>
-          <Route path={ROUTES.ARTICLES}>
-            <Articles />
-          </Route>
-          <Route path={withParam(ROUTES.ARTICLE, 'id')}>
-            <Article />
-          </Route>
-          <Route path={withParam(ROUTES.SEARCH, 'filter')}>
-            <Search />
-          </Route>
-        </Switch>
+        <Suspense fallback={<LoadingLayout />}>
+          <Switch>
+            <Route exact path={ROUTES.HOME}>
+              <Home />
+            </Route>
+            <Route path={ROUTES.ARTICLES}>
+              <Articles />
+            </Route>
+            <Route path={withParam(ROUTES.ARTICLE, 'id')}>
+              <Article />
+            </Route>
+            <Route path={withParam(ROUTES.SEARCH, 'filter')}>
+              <Search />
+            </Route>
+          </Switch>
+        </Suspense>
         <BackToTop />
       </Router>
       <Footer />

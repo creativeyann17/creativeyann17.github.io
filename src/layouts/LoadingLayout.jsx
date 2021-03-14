@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const LoadingLayout = () => {
-  return <div></div>;
+  return <Container className="page"></Container>;
 };
 
 export default LoadingLayout;
