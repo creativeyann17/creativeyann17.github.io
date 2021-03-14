@@ -46,12 +46,29 @@ const Header = (props) => {
     }
   };
 
+  const renderSearchForm = (className) => (
+    <Form inline onSubmit={handleSearchSubmit} className={className}>
+      <InputGroup>
+        <InputGroup.Prepend>
+          <InputGroup.Text>
+            <FaSearch />
+          </InputGroup.Text>
+        </InputGroup.Prepend>
+        <FormControl
+          placeholder="Search"
+          onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
+        />
+      </InputGroup>
+    </Form>
+  );
+
   return (
     <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/">
           <img alt="" src="/favicon.ico" height="32" className="d-inline-block align-top" />{' '}
         </Navbar.Brand>
+        {renderSearchForm('search-form-mobile')}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -68,20 +85,8 @@ const Header = (props) => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline onSubmit={handleSearchSubmit}>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text>
-                  <FaSearch />
-                </InputGroup.Text>
-              </InputGroup.Prepend>
-              <FormControl
-                placeholder="Search"
-                onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
-              />
-            </InputGroup>
-          </Form>
         </Navbar.Collapse>
+        {renderSearchForm('search-form-web')}
       </Container>
     </Navbar>
   );
