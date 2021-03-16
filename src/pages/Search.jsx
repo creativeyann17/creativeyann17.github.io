@@ -2,18 +2,15 @@ import React from 'react';
 import { Container, Row, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import includes from 'lodash/includes';
-import _filter from 'lodash/filter';
 import map from 'lodash/map';
 import { Col } from 'react-bootstrap';
 import { getArticles } from '../services/ArticlesService/selectors';
 import ArticleCard from '../components/ArticleCard';
+import { findArticlesByFilter } from '../utils';
 
 const Search = ({ articles }) => {
   const { filter } = useParams();
-  const articlesFiltered = _filter(articles, (article) => {
-    return includes(article.tags, filter);
-  });
+  const articlesFiltered = findArticlesByFilter(articles, filter);
   const renderArticle = (article) => (
     <Col md={4} lg={3} key={article.id}>
       <ArticleCard key={article.id} article={article} />
