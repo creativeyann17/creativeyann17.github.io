@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineToTop } from 'react-icons/ai';
 import { HashLink } from 'react-router-hash-link';
+import cx from 'classnames';
+import { BACK_TO_TOP_THRESHOLD } from '../constants';
 
-const BackToTop = (props) => {
+const BackToTop = ({ className }) => {
   const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > 100 && !isVisible) {
+      if (currentScrollY > BACK_TO_TOP_THRESHOLD && !isVisible) {
         setVisible(true);
       }
-      if (currentScrollY < 100 && isVisible) {
+      if (currentScrollY < BACK_TO_TOP_THRESHOLD && isVisible) {
         setVisible(false);
       }
     };
@@ -21,10 +23,11 @@ const BackToTop = (props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isVisible]);
 
-  if (!isVisible) return null;
-
+  // using CSS visibility instead of return null because it doesn't resize the page
   return (
-    <div className="back-to-top">
+    <div
+      className={cx(className, 'back-to-top')}
+      style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
       <HashLink to="#top">
         <AiOutlineToTop />
       </HashLink>

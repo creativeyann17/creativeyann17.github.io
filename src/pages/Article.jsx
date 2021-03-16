@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Col, Row, Spinner, Alert } from 'react-bootstrap';
+import { Container, Spinner, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
@@ -7,7 +7,7 @@ import { getArticles } from '../services/ArticlesService/selectors';
 import Markdown from '../components/Markdown';
 import ArticleDetails from '../components/ArticleDetails';
 import SocialIcons from '../components/SocialIcons';
-import { ARTICLES_FOLDER, THUMBAILS_FOLDER } from '../constants';
+import { ARTICLES_FOLDER, THUMBAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
 
 const Article = ({ articles }) => {
   const { id } = useParams();
@@ -16,14 +16,17 @@ const Article = ({ articles }) => {
   const article = find(articles, (article) => article.id.toString() === id); // number != string
 
   useEffect(() => {
-    let timeoutTimer = setTimeout(() => setstate({ ...state, timeout: true }), 2 * 1000);
+    let timeoutTimer = setTimeout(
+      () => setstate({ ...state, timeout: true }),
+      GLOBAL_REQUEST_TIMEOUT * 1000
+    );
     return () => {
       clearTimeout(timeoutTimer);
     };
   });
 
   return (
-    <Container className="page">
+    <Container className="page page-article">
       {!article ? (
         <div>
           {state.timeout ? (
@@ -37,22 +40,20 @@ const Article = ({ articles }) => {
           )}
         </div>
       ) : (
-        <Row>
-          <Col sm={12}>
-            <h1>{article.description}</h1>
-            <div className="space-between">
-              <ArticleDetails article={article} />
-              <SocialIcons article={article} />
-            </div>
-            <img
-              className="title"
-              alt=""
-              src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
-              width={'100%'}
-            />
-            {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
-          </Col>
-        </Row>
+        <div>
+          <h1>{article.description}</h1>
+          <div className="d-flex justify-content-between">
+            <ArticleDetails article={article} />
+            <SocialIcons article={article} />
+          </div>
+          <img
+            className="mb-3"
+            alt=""
+            src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
+            width={'100%'}
+          />
+          {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
+        </div>
       )}
     </Container>
   );

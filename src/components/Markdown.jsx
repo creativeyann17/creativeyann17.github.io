@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
-import PropTypes from 'prop-types';
 import CodeBlock from './CodeBlock';
 
 // using component for fun :)
@@ -29,9 +28,5 @@ class Markdown extends Component {
     );
   }
 }
-
-Markdown.propTypes = {
-  source: PropTypes.string.isRequired,
-};
 
 export default Markdown;

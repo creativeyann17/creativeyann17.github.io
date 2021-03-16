@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import LoadingLayout from './LoadingLayout';
+import { Alert, Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getError } from '../services/ArticlesService/selectors';
+import LoadingPage from '../pages/LoadingPage';
 import { Header, Footer, BackToTop } from '../components';
 import { ROUTES } from '../constants';
 
@@ -9,14 +12,23 @@ const Articles = React.lazy(() => import('../pages/Articles'));
 const Article = React.lazy(() => import('../pages/Article'));
 const Search = React.lazy(() => import('../pages/Search'));
 
-const DefaultLayout = () => {
+const DefaultLayout = ({ articlesFetchError }) => {
   const withParam = (url, param) => `${url}/:${param}`;
 
   return (
     <div>
       <Router>
         <Header />
-        <Suspense fallback={<LoadingLayout />}>
+        {articlesFetchError && (
+          <div>
+            <Container>
+              <Alert variant="danger" className="mt-3">
+                <b>Failed to get articles list:</b> {articlesFetchError}
+              </Alert>
+            </Container>
+          </div>
+        )}
+        <Suspense fallback={<LoadingPage />}>
           <Switch>
             <Route exact path={ROUTES.HOME}>
               <Home />
@@ -39,4 +51,10 @@ const DefaultLayout = () => {
   );
 };
 
-export default DefaultLayout;
+const mapStateToProps = (state) => {
+  return {
+    articlesFetchError: getError(state),
+  };
+};
+
+export default connect(mapStateToProps)(DefaultLayout);

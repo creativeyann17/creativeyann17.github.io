@@ -12,37 +12,31 @@ import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import trim from 'lodash/trim';
 import { FaSearch } from 'react-icons/fa';
-import { ROUTES } from '../constants';
+import cx from 'classnames';
+import { ROUTES, TAGS } from '../constants';
+import { openSearchByFilter, openInternalLink } from '../utils';
 
-const Header = (props) => {
+const Header = ({ className }) => {
   const location = useLocation();
   const history = useHistory();
   const [state, setState] = useState({ searchFilter: null });
 
-  const isActiveLocation = (path) => {
-    return path === location.pathname;
-  };
-
-  const addNavLink = (path, name) => (
+  const renderNavLink = (path, name) => (
     <Nav.Link
       href={path}
-      active={isActiveLocation(path)}
-      onClick={(e) => handleNavLinkClick(e, path)}>
+      active={path === location.pathname}
+      onClick={(e) => openInternalLink(history, path, e)}>
       {name}
     </Nav.Link>
   );
 
-  const handleNavLinkClick = (event, path) => {
-    event.preventDefault();
-    event.stopPropagation();
-    history.push(path);
-  };
+  const renderNavDropdownItem = (path, name) => (
+    <NavDropdown.Item onClick={(e) => openInternalLink(history, path, e)}>{name}</NavDropdown.Item>
+  );
 
   const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
     if (state.searchFilter) {
-      history.push(`${ROUTES.SEARCH}/${state.searchFilter}`);
+      openSearchByFilter(history, state.searchFilter, event);
     }
   };
 
@@ -63,26 +57,25 @@ const Header = (props) => {
   );
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
+    <Navbar
+      bg="primary"
+      variant="dark"
+      expand="lg"
+      sticky="top"
+      className={cx('header', className)}>
       <Container>
         <Navbar.Brand href="/">
-          <img alt="" src="/favicon.ico" height="32" className="d-inline-block align-top" />{' '}
+          <img alt="logo" src="/favicon.ico" height="32" />
         </Navbar.Brand>
         {renderSearchForm('search-form-mobile')}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            {addNavLink(ROUTES.HOME, 'Home')}
-            {addNavLink(ROUTES.ARTICLES, 'Articles')}
+          <Nav>
+            {renderNavLink(ROUTES.HOME, 'Home')}
+            {renderNavLink(ROUTES.ARTICLES, 'Articles')}
             <NavDropdown title="Categories">
-              <NavDropdown.Item
-                onClick={(e) => handleNavLinkClick(e, ROUTES.SEARCH + '/spring-boot')}>
-                Spring-boot
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                onClick={(e) => handleNavLinkClick(e, ROUTES.SEARCH + '/micronaut')}>
-                Micronaut
-              </NavDropdown.Item>
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

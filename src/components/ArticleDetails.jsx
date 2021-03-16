@@ -2,25 +2,27 @@ import React from 'react';
 import { Badge } from 'react-bootstrap';
 import { MdUpdate, MdTimer } from 'react-icons/md';
 import { BiGitRepoForked } from 'react-icons/bi';
-import { externalLink } from '../utils/utils';
+import cx from 'classnames';
+import { renderExternalLinkByUrlAndLabel } from '../utils';
 
-// https://react-icons.github.io/react-icons/search?q=top
-
-const ArticleDetails = ({ article, promo }) => {
+const ArticleDetails = ({ className, article }) => {
   return (
-    <div className="article-details">
-      <span className="attribute">
-        <MdUpdate /> {article.date}
-      </span>
-      <span className="attribute">
+    <div className={cx('article-details', className, 'mb-3')}>
+      <div className="article-details-attribute mr-2">
+        <MdUpdate />
+        &nbsp;{article.date}
+      </div>
+      <div className="article-details-attribute mr-2">
         <BiGitRepoForked />
-        {externalLink(article.repository, 'sources')}
-      </span>
-      <span className="attribute">
+        &nbsp;{renderExternalLinkByUrlAndLabel(article.repository, 'sources')}
+      </div>
+      <div className="article-details-attribute mr-2">
         <MdTimer />
-        {`${article.time} min`}
-      </span>
-      {article.promo && <Badge variant="success">new</Badge>}
+        &nbsp;{`${article.time} min`}
+      </div>
+      <div className="article-details-attribute">
+        &nbsp;{article.promo && <Badge variant="success">new</Badge>}
+      </div>
     </div>
   );
 };

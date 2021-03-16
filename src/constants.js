@@ -1,6 +1,9 @@
 export const PROD = process.env.NODE_ENV === 'production';
 export const DEV = !PROD;
 
+export const BACK_TO_TOP_THRESHOLD = 100;
+export const GLOBAL_REQUEST_TIMEOUT = 5;
+
 const ROUTES_PREFIX = '/';
 
 export const ROUTES = {
@@ -17,7 +20,12 @@ export const ROUTES = {
   },
 };
 
+export const TAGS = {
+  SPRING_BOOT: 'spring-boot',
+  MICRONAUT: 'micronaut',
+};
+
 export const ARTICLES_JSON = '/articles.json';
 
-export const ARTICLES_FOLDER = '/articles/';
-export const THUMBAILS_FOLDER = '/thumbnails/';
+export const ARTICLES_FOLDER = '/articles';
+export const THUMBAILS_FOLDER = '/thumbnails';

@@ -1,0 +1,140 @@
+// https://getbootstrap.com/docs/4.1/getting-started/theming/#css-variables
+$theme-colors: (
+  'primary': #19375a,
+  'secondary': #4682b4,
+  'light': #e5e7eb,
+  'dark': #555,
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+a,
+a:hover {
+  color: var(--secondary);
+}
+
+.page {
+  margin-top: 1rem;
+  min-height: calc(100vh - 100px);
+}
+
+.page-home .jumbotron {
+  background: url('./pages/images/jumbotron.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-home .jumbotron a {
+  margin-right: 1rem;
+}
+
+.footer {
+  background-color: #fafafa;
+  border-top: 0.05rem solid #e5e7eb;
+}
+
+.footer .row {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer a {
+  color: var(--dark);
+  margin-left: 1rem;
+}
+
+.footer-copyright {
+  font-size: small;
+  color: var(--dark);
+}
+
+.back-to-top {
+  display: flex;
+  justify-content: flex-end;
+  position: -webkit-sticky; /* safari */
+  position: sticky;
+  bottom: 25px; // need to be set for sticky
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.back-to-top svg {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--secondary);
+  color: white;
+  border-radius: 10%;
+}
+
+.article-card-badge:not(.badge-success) {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.article-card-badge:hover:not(.badge-success) {
+  text-decoration: underline;
+}
+
+.article-card img {
+  cursor: pointer;
+}
+
+.article-details {
+  font-size: small;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.article-details-attribute .badge-success {
+  font-size: medium;
+}
+
+.skills svg {
+  color: var(--secondary);
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 1rem;
+}
+
+.search-form-mobile {
+  display: none;
+}
+
+.search-form-web {
+  display: block;
+}
+
+/*
+Copy/paste of current boostrap media breakpoints. don't know how to use them in media as variables.
+
+--breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+*/
+
+@media (max-width: 992px) {
+  .search-form-mobile {
+    display: block;
+  }
+
+  .search-form-web {
+    display: none;
+  }
+
+  .back-to-top {
+    bottom: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+  }
+
+  .footer .row {
+    justify-content: center;
+  }
+}

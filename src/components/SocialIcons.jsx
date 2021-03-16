@@ -2,12 +2,14 @@
 
 import React from 'react';
 import SocialMediaButtons from 'react-social-media-buttons';
-import { buildArticleUrl } from '../utils/utils';
+import cx from 'classnames';
+import { getArticleUrl } from '../utils';
 
-const SocialIcons = ({ article }) => {
-  const url = buildArticleUrl(article);
+const SocialIcons = ({ className, article }) => {
+  const url = getArticleUrl(article);
   return (
     <SocialMediaButtons
+      className={cx('social-icons', className)}
       links={[
         'https://www.facebook.com/sharer.php?u=' + url,
         'https://twitter.com/home', // TODO

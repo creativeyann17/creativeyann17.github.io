@@ -1,15 +1,19 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import map from 'lodash/map';
 import { connect } from 'react-redux';
 import { getArticles } from '../services/ArticlesService/selectors';
 import { ArticleCard } from '../components';
 
 const Articles = ({ articles }) => {
-  const renderArticle = (article) => <ArticleCard key={article.id} article={article} />;
+  const renderArticle = (article) => (
+    <Col md={4} lg={3} key={article.id}>
+      <ArticleCard key={article.id} article={article} />
+    </Col>
+  );
 
   return (
-    <Container className="page articles">
+    <Container className="page page-articles ">
       <Row>{map(articles, renderArticle)}</Row>
     </Container>
   );

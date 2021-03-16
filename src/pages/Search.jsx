@@ -5,17 +5,22 @@ import { connect } from 'react-redux';
 import includes from 'lodash/includes';
 import _filter from 'lodash/filter';
 import map from 'lodash/map';
+import { Col } from 'react-bootstrap';
 import { getArticles } from '../services/ArticlesService/selectors';
 import ArticleCard from '../components/ArticleCard';
 
-const Search = ({ articles, setArticlesFilter }) => {
+const Search = ({ articles }) => {
   const { filter } = useParams();
   const articlesFiltered = _filter(articles, (article) => {
     return includes(article.tags, filter);
   });
-  const renderArticle = (article) => <ArticleCard key={article.id} article={article} />;
+  const renderArticle = (article) => (
+    <Col md={4} lg={3} key={article.id}>
+      <ArticleCard key={article.id} article={article} />
+    </Col>
+  );
   return (
-    <Container className="page search">
+    <Container className="page page-search">
       {filter && (
         <Alert variant="secondary">
           <b>Actual search:</b> {filter} <b>result(s): </b> {articlesFiltered.length}

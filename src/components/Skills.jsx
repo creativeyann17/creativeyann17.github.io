@@ -1,19 +1,19 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
 import { BsGear } from 'react-icons/bs';
 import { AiOutlineCode } from 'react-icons/ai';
 import { FiDatabase } from 'react-icons/fi';
 import { BiMicrochip } from 'react-icons/bi';
 import { GiSkills } from 'react-icons/gi';
 import { BsCloud } from 'react-icons/bs';
+import cx from 'classnames';
 
-const Skills = () => {
+const Skills = ({ className }) => {
   return (
-    <Col className="skills">
+    <div className={cx(className, 'skills', 'mb-3')}>
       <p>
         <AiOutlineCode />
         <b>Frameworks: </b>
-        <span>Spring-boot | Micronaut | React.js</span>
+        <span>Spring-boot | Micronaut | React.js | Bootstrap</span>
       </p>
       <p>
         <BsGear />
@@ -40,7 +40,7 @@ const Skills = () => {
         <b>Extra skills: </b>
         <span>Tech lead | Shopify | Gimp | Blender | Agile methods</span>
       </p>
-    </Col>
+    </div>
   );
 };
 

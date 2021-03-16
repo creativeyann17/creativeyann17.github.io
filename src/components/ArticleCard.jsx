@@ -1,31 +1,31 @@
 import React from 'react';
 import { Card, Badge } from 'react-bootstrap';
+import cx from 'classnames';
 import map from 'lodash/map';
 import { useHistory } from 'react-router-dom';
-import { THUMBAILS_FOLDER, ROUTES } from '../constants';
+import { THUMBAILS_FOLDER } from '../constants';
+import { openArticleById, openSearchByFilter } from '../utils';
 import ArticleDetails from './ArticleDetails';
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ className, article }) => {
   const history = useHistory();
   const renderTag = (badge) => {
     return (
-      <Badge key={badge} variant="light" onClick={() => handleTagSearch(badge)}>
+      <Badge
+        className="article-card-badge"
+        key={badge}
+        variant="light"
+        onClick={() => openSearchByFilter(history, badge)}>
         {badge}
       </Badge>
     );
   };
-  const handleCardClick = (event, id) => {
-    history.push(`${ROUTES.ARTICLE}/${id}`);
-  };
-  const handleTagSearch = (searchFilter) => {
-    history.push(`${ROUTES.SEARCH}/${searchFilter}`);
-  };
   return (
-    <Card className="article">
+    <Card className={cx('article-card', className, 'mb-3')}>
       <Card.Img
         variant="top"
-        src={`${THUMBAILS_FOLDER}${article.thumbnail}`}
-        onClick={(e) => handleCardClick(e, article.id)}
+        src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
+        onClick={() => openArticleById(history, article.id)}
       />
       <Card.Body>
         <ArticleDetails article={article} />
