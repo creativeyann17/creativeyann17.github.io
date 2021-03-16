@@ -41,7 +41,7 @@ const Home = ({ articles }) => {
             </p>
             <p>
               {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'mr-3')}
-              Follow me on twitter and be notified first about new content!
+              Follow me on twitter and be notified first about new content.
             </p>
             <p>
               Summary list of my <b>skills</b> and <b>knowledge</b>:

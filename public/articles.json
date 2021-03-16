@@ -5,7 +5,7 @@
     "date": "2021-03-14",
     "duration": 1,
     "featured": true,
-    "title": "How to manually start H2 console using spring-boot or micronaut",
+    "description": "How to manually start H2 console using spring-boot or micronaut.",
     "thumbnail": "thumbnail1.jpg",
     "markdown": "article1.md",
     "repository": "https://github.com/creativeyann17/creativeyann-react"

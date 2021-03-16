@@ -13,6 +13,7 @@ const ArticleCard = ({ className, article }) => {
     return (
       <Badge
         role="button"
+        aria-label="Search all articles that match this tag"
         className="article-card-badge mb-2 mr-2"
         key={badge}
         variant="light"
@@ -26,6 +27,7 @@ const ArticleCard = ({ className, article }) => {
       {article.featured && <Card.Header>Featured article</Card.Header>}
       <Card.Img
         role="button"
+        aria-label="Open the article"
         alt={article.thumbnail}
         variant="top"
         src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
@@ -33,7 +35,7 @@ const ArticleCard = ({ className, article }) => {
       />
       <Card.Body>
         <ArticleDetails article={article} />
-        <Card.Text>{article.title}</Card.Text>
+        <Card.Text>{article.description}</Card.Text>
         <Card.Text>{map(article.tags, renderTag)}</Card.Text>
       </Card.Body>
     </Card>

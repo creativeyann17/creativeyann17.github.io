@@ -41,11 +41,6 @@ const Article = ({ articles }) => {
         </div>
       ) : (
         <div>
-          <h1>{article.description}</h1>
-          <div className="d-flex justify-content-between">
-            <ArticleDetails article={article} />
-            <SocialIcons article={article} />
-          </div>
           <img
             className="mb-3"
             alt={article.thumbnail}
@@ -53,6 +48,10 @@ const Article = ({ articles }) => {
             width={'100%'}
             height={'auto'}
           />
+          <div className="d-flex justify-content-between ">
+            <ArticleDetails article={article} />
+            <SocialIcons article={article} />
+          </div>
           {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
         </div>
       )}

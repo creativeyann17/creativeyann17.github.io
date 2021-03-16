@@ -47,7 +47,9 @@ const Header = ({ className }) => {
           placeholder="Search"
           onChange={(e) => setState({ ...state, searchFilter: trim(sanitizeText(e.target.value)) })}
         />
-        <InputGroup.Append role="button">
+        <InputGroup.Append
+          role="button"
+          aria-label="Search an article based on current filter text">
           <InputGroup.Text onClick={(e) => handleSearchSubmit(e)}>
             <FaSearch />
           </InputGroup.Text>
