@@ -1,4 +1,4 @@
-import { findArticlesByFilter } from '../index';
+import { findArticlesByFilter, isArticleNew } from '../index';
 
 describe('findArticlesByFilter', () => {
   const mockArticles = [
@@ -32,5 +32,18 @@ describe('findArticlesByFilter', () => {
   });
   test('split _', () => {
     assertFilter(mockArticles, 'h2_console', 'console');
+  });
+});
+
+describe('isArticleNew', () => {
+  test('new', () => {
+    expect(isArticleNew({ date: '2021-03-16' })).toEqual(true);
+  });
+  test('old', () => {
+    expect(isArticleNew({ date: '2021-03-10' })).toEqual(false);
+  });
+  test('invalid date', () => {
+    expect(isArticleNew({ date: null })).toEqual(false);
+    expect(isArticleNew({ date: 'foo' })).toEqual(false);
   });
 });

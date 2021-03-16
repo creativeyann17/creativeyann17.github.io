@@ -3,7 +3,7 @@ import { Badge } from 'react-bootstrap';
 import { MdUpdate, MdTimer } from 'react-icons/md';
 import { BiGitRepoForked } from 'react-icons/bi';
 import cx from 'classnames';
-import { renderExternalLinkByUrlAndLabel } from '../utils';
+import { renderExternalLinkByUrlAndLabel, isArticleNew } from '../utils';
 
 const ArticleDetails = ({ className, article }) => {
   return (
@@ -18,11 +18,13 @@ const ArticleDetails = ({ className, article }) => {
       </div>
       <div className="article-details-attribute mr-2">
         <MdTimer />
-        &nbsp;{`${article.time} min`}
+        &nbsp;{`${article.duration} min`}
       </div>
-      <div className="article-details-attribute">
-        &nbsp;{article.promo && <Badge variant="success">new</Badge>}
-      </div>
+      {isArticleNew(article) && (
+        <div className="article-details-attribute">
+          &nbsp;<Badge variant="success">new</Badge>
+        </div>
+      )}
     </div>
   );
 };

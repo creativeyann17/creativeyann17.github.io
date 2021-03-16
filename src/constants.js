@@ -29,3 +29,5 @@ export const ARTICLES_JSON = '/articles.json';
 
 export const ARTICLES_FOLDER = '/articles';
 export const THUMBAILS_FOLDER = '/thumbnails';
+
+export const ARTICLE_IS_NEW_UP_TO_DAYS = 5;

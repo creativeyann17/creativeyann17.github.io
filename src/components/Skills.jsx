@@ -9,37 +9,49 @@ import cx from 'classnames';
 
 const Skills = ({ className }) => {
   return (
-    <div className={cx(className, 'skills', 'mb-3')}>
-      <p>
-        <AiOutlineCode />
-        <b>Frameworks: </b>
+    <div className={cx(className, 'skills')}>
+      <div className="skills-item mb-3">
+        <span>
+          <AiOutlineCode />
+          <b>Frameworks: </b>
+        </span>
         <span>Spring-boot | Micronaut | React.js | Bootstrap</span>
-      </p>
-      <p>
-        <BsGear />
-        <b>Tools: </b>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <BsGear />
+          <b>Tools: </b>{' '}
+        </span>
         <span>Intellij | VSCode | Github | Bitbucket | npm | yarn | maven | bash</span>
-      </p>
-      <p>
-        <FiDatabase />
-        <b>Databases: </b>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <FiDatabase />
+          <b>Databases: </b>{' '}
+        </span>
         <span>MongoDB | Oracle | PostgreSQL | H2 | Neo4j</span>
-      </p>
-      <p>
-        <BsCloud />
-        <b>CI / CD / Cloud: </b>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <BsCloud />
+          <b>CI / CD / Cloud: </b>{' '}
+        </span>
         <span>Jenkins | Circle-ci | Heroku | Openshift</span>
-      </p>
-      <p>
-        <BiMicrochip />
-        <b>Embedded: </b>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <BiMicrochip />
+          <b>Embedded: </b>{' '}
+        </span>
         <span>Arduino | Raspberry-pi</span>
-      </p>
-      <p>
-        <GiSkills />
-        <b>Extra skills: </b>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <GiSkills />
+          <b>Extra skills: </b>{' '}
+        </span>
         <span>Tech lead | Shopify | Gimp | Blender | Agile methods</span>
-      </p>
+      </div>
     </div>
   );
 };

@@ -5,13 +5,13 @@ import trim from 'lodash/trim';
 import replace from 'lodash/replace';
 import split from 'lodash/split';
 import isEmpty from 'lodash/isEmpty';
-import toString from 'lodash/toString';
-import { DEV } from '../constants';
+import find from 'lodash/find';
+import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
 
 export const debug = (message, ...args) => {
   if (DEV) {
-    if (!isEmpty) {
-      console.log(message, toString(args));
+    if (!isEmpty(args)) {
+      console.log(message, args);
     } else {
       console.log(message);
     }
@@ -66,12 +66,23 @@ export const renderExternalLinkByUrlAndIcon = (url, icon) => (
 export const getArticleUrl = (article) =>
   `${window.location.origin.toString()}${ROUTES.ARTICLE}/${article.id}`;
 
-// search
+// articles
+
+export const findFeaturedArticle = (articles) => find(articles, { featured: true });
+
+const ONE_DAY = 1000 * 60 * 60 * 24;
+
+export const isArticleNew = (article) => {
+  const date = Date.parse(article.date);
+  const now = new Date();
+  const diff = Math.abs(now - date);
+  return Math.round(diff / ONE_DAY) <= ARTICLE_IS_NEW_UP_TO_DAYS;
+};
 
 export const findArticlesByFilter = (articles, searchFiler) => {
   const filterWords = split(replace(replace(toLower(trim(searchFiler)), '-', ' '), '_', ' '), ' '); // could be from query param, need to be cleaned
   return filter(articles, (article) => {
-    // easier to read than direct return
+    // using indirect return because easier to read than direct return
     return !isEmpty(
       filter(filterWords, (word) => {
         return !isEmpty(

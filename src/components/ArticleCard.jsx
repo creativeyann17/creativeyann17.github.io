@@ -22,6 +22,7 @@ const ArticleCard = ({ className, article }) => {
   };
   return (
     <Card className={cx('article-card', className, 'mb-3')}>
+      {article.featured && <Card.Header>Featured article</Card.Header>}
       <Card.Img
         variant="top"
         src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}

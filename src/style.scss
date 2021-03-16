@@ -23,6 +23,7 @@ a:hover {
   background: url('./pages/images/jumbotron.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  // text-align: justify; should be avoid according to differents sources
 }
 
 .page-home .jumbotron a {
@@ -124,6 +125,11 @@ Copy/paste of current boostrap media breakpoints. don't know how to use them in 
 */
 
 @media (max-width: 992px) {
+  .skills-item {
+    display: flex;
+    flex-direction: column;
+  }
+
   .search-form-mobile {
     display: block;
   }
