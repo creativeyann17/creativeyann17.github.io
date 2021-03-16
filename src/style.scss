@@ -102,6 +102,10 @@ a:hover {
 }
 
 .search-form-mobile {
+  width: 200px; // to big for some devices
+}
+
+.search-form-mobile {
   display: none;
 }
 
