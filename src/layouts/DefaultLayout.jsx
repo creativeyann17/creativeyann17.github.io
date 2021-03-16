@@ -17,7 +17,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
   const withParam = (url, param) => `${url}/:${param}`;
 
   return (
-    <div>
+    <div id="main">
       <Router onUpdate={() => window.scrollTo(0, 0)}>
         <Header />
         {articlesFetchError && (

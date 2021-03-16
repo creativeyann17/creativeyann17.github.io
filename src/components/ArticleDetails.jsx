@@ -22,8 +22,8 @@ const ArticleDetails = ({ className, article, margin }) => {
         &nbsp;{`${article.duration} min`}
       </div>
       {isArticleNew(article) && (
-        <div className={margin}>
-          &nbsp;<Badge variant="success">new</Badge>
+        <div className={cx(margin)}>
+          <Badge variant="success">new</Badge>
         </div>
       )}
     </div>

@@ -8,21 +8,26 @@ const Footer = ({ className }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className={cx('footer', className)}>
+    <footer className={cx('footer', className)}>
       <Container className="py-5">
         <Col>
           <Row className="mb-3">
-            {renderExternalLinkByUrlAndLabel(ROUTES.EXTERNALS.GITHUB_TOS, 'Terms of use')}
-            {renderExternalLinkByUrlAndLabel(ROUTES.EXTERNALS.GITHUB_PRIVACY, 'Privacy policy')}
-            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB, '/github128.png')}
-            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKEDIN, '/linkedin128.png')}
+            {renderExternalLinkByUrlAndLabel(ROUTES.EXTERNALS.GITHUB_TOS, 'Terms of use', 'ml-3')}
+            {renderExternalLinkByUrlAndLabel(
+              ROUTES.EXTERNALS.GITHUB_PRIVACY,
+              'Privacy policy',
+              'ml-3'
+            )}
+            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB, '/github128.png', 'ml-3')}
+            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKEDIN, '/linkedin128.png', 'ml-3')}
+            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'ml-3')}
           </Row>
           <Row>
-            <span className="footer-copyright">© {currentYear} Yann MARCOU</span>
+            <p className="footer-copyright">© {currentYear} Yann MARCOU</p>
           </Row>
         </Col>
       </Container>
-    </div>
+    </footer>
   );
 };
 

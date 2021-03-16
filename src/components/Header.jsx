@@ -14,7 +14,7 @@ import trim from 'lodash/trim';
 import { FaSearch } from 'react-icons/fa';
 import cx from 'classnames';
 import { ROUTES, TAGS } from '../constants';
-import { openSearchByFilter, openInternalLink } from '../utils';
+import { openSearchByFilter, openInternalLink, sanitizeText } from '../utils';
 
 const Header = ({ className }) => {
   const location = useLocation();
@@ -43,45 +43,42 @@ const Header = ({ className }) => {
   const renderSearchForm = (className) => (
     <Form inline onSubmit={handleSearchSubmit} className={className}>
       <InputGroup>
-        <InputGroup.Prepend>
-          <InputGroup.Text>
-            <FaSearch />
-          </InputGroup.Text>
-        </InputGroup.Prepend>
         <FormControl
           placeholder="Search"
-          onChange={(e) => setState({ ...state, searchFilter: trim(e.target.value) })}
+          onChange={(e) => setState({ ...state, searchFilter: trim(sanitizeText(e.target.value)) })}
         />
+        <InputGroup.Append role="button">
+          <InputGroup.Text onClick={(e) => handleSearchSubmit(e)}>
+            <FaSearch />
+          </InputGroup.Text>
+        </InputGroup.Append>
       </InputGroup>
     </Form>
   );
 
   return (
-    <Navbar
-      bg="primary"
-      variant="dark"
-      expand="lg"
-      sticky="top"
-      className={cx('header', className)}>
-      <Container>
-        <Navbar.Brand href="/">
-          <img alt="logo" src="/favicon.ico" height="32" />
-        </Navbar.Brand>
-        <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            {renderNavLink(ROUTES.HOME, 'Home')}
-            {renderNavLink(ROUTES.ARTICLES, 'Articles')}
-            <NavDropdown title="Categories">
-              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
-              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-        {renderSearchForm('search-form-web')}
-      </Container>
-    </Navbar>
+    <header>
+      <Navbar bg="primary" variant="dark" expand="lg" sticky="top" className={cx('nav', className)}>
+        <Container>
+          <Navbar.Brand href="/">
+            <img alt="logo" src="/favicon.ico" height="32" />
+          </Navbar.Brand>
+          <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              {renderNavLink(ROUTES.HOME, 'Home')}
+              {renderNavLink(ROUTES.ARTICLES, 'Articles')}
+              <NavDropdown title="Categories">
+                {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
+                {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+          {renderSearchForm('search-form-web')}
+        </Container>
+      </Navbar>
+    </header>
   );
 };
 

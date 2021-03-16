@@ -25,7 +25,7 @@ describe('findArticlesByFilter', () => {
     assertFilter(mockArticles, ' console ', 'console');
   });
   test('contains', () => {
-    assertFilter(mockArticles, 'spring', 'spring-boot');
+    assertFilter(mockArticles, 'spri', 'spring-boot');
   });
   test('split -', () => {
     assertFilter(mockArticles, 'h2-console', 'console');
@@ -37,10 +37,13 @@ describe('findArticlesByFilter', () => {
 
 describe('isArticleNew', () => {
   test('new', () => {
-    expect(isArticleNew({ date: '2021-03-16' })).toEqual(true);
+    const now = new Date();
+    expect(isArticleNew({ date: now.toISOString() })).toEqual(true);
   });
   test('old', () => {
-    expect(isArticleNew({ date: '2021-03-10' })).toEqual(false);
+    const now = new Date();
+    now.setDate(now.getDate() - 6);
+    expect(isArticleNew({ date: now.toISOString() })).toEqual(false);
   });
   test('invalid date', () => {
     expect(isArticleNew({ date: null })).toEqual(false);

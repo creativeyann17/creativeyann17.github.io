@@ -24,15 +24,27 @@ const Home = ({ articles }) => {
               I want to test an idea quickly.
             </p>
             <p>
-              {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB_PAGE, '/github128.png')}The
-              GitHub repository of this web-site and all my others personnal projects.
+              {renderExternalLinkByUrlAndIcon(
+                ROUTES.EXTERNALS.GITHUB_PAGE,
+                '/github128.png',
+                'mr-3'
+              )}
+              The GitHub repository of this web-site and all my others personnal projects.
             </p>
             <p>
-              {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKEDIN, '/linkedin128.png')}If you
-              want to contact me, please use LinkedIn.
+              {renderExternalLinkByUrlAndIcon(
+                ROUTES.EXTERNALS.LINKEDIN,
+                '/linkedin128.png',
+                'mr-3'
+              )}
+              If you want to contact me, please use LinkedIn.
             </p>
             <p>
-              My little list of <b>skills</b> and <b>knowledge</b>
+              {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'mr-3')}
+              Follow me on twitter and be notified first about new content!
+            </p>
+            <p>
+              Summary list of my <b>skills</b> and <b>knowledge</b>:
             </p>
             <Skills className="my-3" />
             <p>

@@ -12,7 +12,8 @@ const ArticleCard = ({ className, article }) => {
   const renderTag = (badge) => {
     return (
       <Badge
-        className="article-card-badge"
+        role="button"
+        className="article-card-badge mb-2 mr-2"
         key={badge}
         variant="light"
         onClick={() => openSearchByFilter(history, badge)}>
@@ -24,13 +25,15 @@ const ArticleCard = ({ className, article }) => {
     <Card className={cx('article-card', className, 'mb-3')}>
       {article.featured && <Card.Header>Featured article</Card.Header>}
       <Card.Img
+        role="button"
+        alt={article.thumbnail}
         variant="top"
         src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
         onClick={() => openArticleById(history, article.id)}
       />
       <Card.Body>
         <ArticleDetails article={article} />
-        <Card.Text className="with-margin-top">{article.description}</Card.Text>
+        <Card.Text>{article.title}</Card.Text>
         <Card.Text>{map(article.tags, renderTag)}</Card.Text>
       </Card.Body>
     </Card>

@@ -26,9 +26,10 @@ const BackToTop = ({ className }) => {
   // using CSS visibility instead of return null because it doesn't resize the page
   return (
     <div
+      role="button"
       className={cx(className, 'back-to-top')}
       style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
-      <HashLink to="#top">
+      <HashLink to="#main">
         <AiOutlineToTop />
       </HashLink>
     </div>

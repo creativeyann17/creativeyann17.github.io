@@ -48,9 +48,10 @@ const Article = ({ articles }) => {
           </div>
           <img
             className="mb-3"
-            alt=""
+            alt={article.thumbnail}
             src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
             width={'100%'}
+            height={'auto'}
           />
           {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
         </div>

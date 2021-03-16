@@ -3,18 +3,16 @@ import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
 import trim from 'lodash/trim';
 import replace from 'lodash/replace';
-import split from 'lodash/split';
 import isEmpty from 'lodash/isEmpty';
 import find from 'lodash/find';
+import words from 'lodash/words';
 import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
 
 export const debug = (message, ...args) => {
-  if (DEV) {
-    if (!isEmpty(args)) {
-      console.log(message, args);
-    } else {
-      console.log(message);
-    }
+  if (DEV && !isEmpty(args)) {
+    console.log(message, args);
+  } else {
+    console.log(message);
   }
 };
 
@@ -24,6 +22,8 @@ export const stopEvent = (event) => {
     event.stopPropagation();
   }
 };
+
+export const sanitizeText = (text) => replace(text, /[^a-zA-Z0-9-_@ ]/g, '');
 
 // routing
 
@@ -49,15 +49,15 @@ export const openExternalLink = (link, event) => {
 
 // render
 
-export const renderExternalLinkByUrlAndLabel = (url, label) => (
-  <a target="_blank" rel="noreferrer" href={url}>
+export const renderExternalLinkByUrlAndLabel = (url, label, className) => (
+  <a target="_blank" rel="noreferrer" href={url} className={className}>
     {label}
   </a>
 );
 
-export const renderExternalLinkByUrlAndIcon = (url, icon) => (
-  <a target="_blank" rel="noreferrer" href={url}>
-    <img src={icon} alt={`external-links-to-${url}`} width={32} />
+export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
+  <a target="_blank" rel="noreferrer" href={url} className={className}>
+    <img src={icon} alt={`external-links-to-${url}`} height={32} width={32} />
   </a>
 );
 
@@ -80,7 +80,9 @@ export const isArticleNew = (article) => {
 };
 
 export const findArticlesByFilter = (articles, searchFiler) => {
-  const filterWords = split(replace(replace(toLower(trim(searchFiler)), '-', ' '), '_', ' '), ' '); // could be from query param, need to be cleaned
+  const filterWords = words(
+    replace(replace(toLower(trim(sanitizeText(searchFiler))), '-', ' '), '_', ' ')
+  ); // could be from query param, need to be cleaned
   return filter(articles, (article) => {
     // using indirect return because easier to read than direct return
     return !isEmpty(

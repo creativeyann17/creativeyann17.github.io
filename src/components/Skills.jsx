@@ -1,8 +1,7 @@
 import React from 'react';
-import { BsGear } from 'react-icons/bs';
-import { AiOutlineCode } from 'react-icons/ai';
+import { AiOutlineCode, AiOutlineCodeSandbox } from 'react-icons/ai';
 import { FiDatabase } from 'react-icons/fi';
-import { BiMicrochip } from 'react-icons/bi';
+import { BiMicrochip, BiCode } from 'react-icons/bi';
 import { GiSkills } from 'react-icons/gi';
 import { BsCloud } from 'react-icons/bs';
 import cx from 'classnames';
@@ -12,14 +11,21 @@ const Skills = ({ className }) => {
     <div className={cx(className, 'skills')}>
       <div className="skills-item mb-3">
         <span>
-          <AiOutlineCode />
+          <AiOutlineCodeSandbox />
           <b>Frameworks: </b>
         </span>
-        <span>Spring-boot | Micronaut | React.js | Bootstrap</span>
+        <span>Spring-boot | Micronaut | React.js | Bootstrap | Qt</span>
       </div>
       <div className="skills-item mb-3">
         <span>
-          <BsGear />
+          <BiCode />
+          <b>Languages: </b>
+        </span>
+        <span>Java | JavaScript | HTML/CSS | C# | C/C++</span>
+      </div>
+      <div className="skills-item mb-3">
+        <span>
+          <AiOutlineCode />
           <b>Tools: </b>{' '}
         </span>
         <span>Intellij | VSCode | Github | Bitbucket | npm | yarn | maven | bash</span>
@@ -43,7 +49,7 @@ const Skills = ({ className }) => {
           <BiMicrochip />
           <b>Embedded: </b>{' '}
         </span>
-        <span>Arduino | Raspberry-pi</span>
+        <span>Arduino | Raspberry-pi | Teensy-usb</span>
       </div>
       <div className="skills-item mb-3">
         <span>

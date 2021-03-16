@@ -17,6 +17,7 @@ export const ROUTES = {
     GITHUB_PRIVACY: 'https://docs.github.com/en/github/site-policy/github-privacy-statement',
     GITHUB_TOS: 'https://docs.github.com/en/github/site-policy/github-terms-of-service',
     LINKEDIN: 'https://www.linkedin.com/in/yann-marcou-21280267/',
+    TWITTER: 'https://twitter.com/CreativeYann17',
   },
 };
 
