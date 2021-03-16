@@ -63,7 +63,7 @@ const Header = ({ className }) => {
       <Navbar bg="primary" variant="dark" expand="lg" sticky="top" className={cx('nav', className)}>
         <Container>
           <Navbar.Brand href="/">
-            <img alt="logo" src="/favicon.ico" height="32" />
+            <img alt="logo" src="/favicon.ico" height="32" width="32" />
           </Navbar.Brand>
           <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
