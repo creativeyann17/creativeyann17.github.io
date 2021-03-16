@@ -67,10 +67,10 @@ const Header = ({ className }) => {
         <Navbar.Brand href="/">
           <img alt="logo" src="/favicon.ico" height="32" />
         </Navbar.Brand>
-        {renderSearchForm('search-form-mobile')}
+        <Nav className="xr-auto">{renderSearchForm('search-form-mobile')}</Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
+          <Nav className="mr-auto">
             {renderNavLink(ROUTES.HOME, 'Home')}
             {renderNavLink(ROUTES.ARTICLES, 'Articles')}
             <NavDropdown title="Categories">
