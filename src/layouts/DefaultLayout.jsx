@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Alert, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import ScrollToTop from 'react-router-scroll-top';
 import { getError } from '../services/ArticlesService/selectors';
 import LoadingPage from '../pages/LoadingPage';
 import { Header, Footer, BackToTop } from '../components';
@@ -17,7 +18,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
 
   return (
     <div>
-      <Router>
+      <Router onUpdate={() => window.scrollTo(0, 0)}>
         <Header />
         {articlesFetchError && (
           <div>
@@ -29,20 +30,23 @@ const DefaultLayout = ({ articlesFetchError }) => {
           </div>
         )}
         <Suspense fallback={<LoadingPage />}>
-          <Switch>
-            <Route exact path={ROUTES.HOME}>
-              <Home />
-            </Route>
-            <Route path={ROUTES.ARTICLES}>
-              <Articles />
-            </Route>
-            <Route path={withParam(ROUTES.ARTICLE, 'id')}>
-              <Article />
-            </Route>
-            <Route path={withParam(ROUTES.SEARCH, 'filter')}>
-              <Search />
-            </Route>
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              <Route exact path={ROUTES.HOME}>
+                <Home />
+              </Route>
+              <Route path={ROUTES.ARTICLES}>
+                <Articles />
+              </Route>
+              <Route path={withParam(ROUTES.ARTICLE, 'id')}>
+                <ScrollToTop top={0} />
+                <Article />
+              </Route>
+              <Route path={withParam(ROUTES.SEARCH, 'filter')}>
+                <Search />
+              </Route>
+            </Switch>
+          </ScrollToTop>
         </Suspense>
         <BackToTop />
       </Router>

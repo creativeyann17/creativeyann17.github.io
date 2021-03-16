@@ -1,32 +1,48 @@
 // https://react-social-media-buttons.vercel.app/
 
 import React from 'react';
-import SocialMediaButtons from 'react-social-media-buttons';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  RedditShareButton,
+  RedditIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { getArticleUrl } from '../utils';
 
-const SocialIcons = ({ className, article }) => {
+const SocialIcons = ({ className, article, size, margin }) => {
   const url = getArticleUrl(article);
   return (
-    <SocialMediaButtons
-      className={cx('social-icons', className)}
-      links={[
-        'https://www.facebook.com/sharer.php?u=' + url,
-        'https://twitter.com/home', // TODO
-        'https://www.instagram.com/instagram/', // TODO
-        'https://www.linkedin.com/shareArticle?mini=true&url=' + url,
-      ]}
-      buttonStyle={{
-        width: '25px',
-        height: '25px',
-        margin: '0px 10px',
-        backgroundColor: '#4682b4',
-        borderRadius: '50%',
-      }}
-      iconStyle={{ color: '#ffffff' }}
-      openNewTab={true}
-    />
+    <div className={cx('social-icons', className)}>
+      <FacebookShareButton url={url} className={margin}>
+        <FacebookIcon size={size} round />
+      </FacebookShareButton>
+      <LinkedinShareButton url={url} className={margin}>
+        <LinkedinIcon size={size} round />
+      </LinkedinShareButton>
+      <RedditShareButton url={url} className={margin}>
+        <RedditIcon size={size} round />
+      </RedditShareButton>
+      <TwitterShareButton url={url} className={margin}>
+        <TwitterIcon size={size} round />
+      </TwitterShareButton>
+    </div>
   );
+};
+
+SocialIcons.propTypes = {
+  size: PropTypes.number,
+  margin: PropTypes.string,
+};
+
+SocialIcons.defaultProps = {
+  size: 32,
+  margin: 'ml-3 mb-2',
 };
 
 export default SocialIcons;
