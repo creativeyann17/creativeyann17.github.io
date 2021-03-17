@@ -1,7 +1,7 @@
 export const PROD = process.env.NODE_ENV === 'production';
 export const DEV = !PROD;
 
-export const GA_TRACKING_ID = 'G-G8513G40BB';
+export const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
 export const BACK_TO_TOP_THRESHOLD = 100;
 export const GLOBAL_REQUEST_TIMEOUT = 5;
