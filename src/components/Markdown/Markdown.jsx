@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Loading from '../Loading';
 import CodeBlock from './CodeBlock';
 import Headings from './Headings';
 
@@ -26,12 +27,14 @@ class Markdown extends Component {
     const { text } = this.state;
     return (
       <div className="markdown">
-        {text && (
+        {text ? (
           <ReactMarkdown
             className="markdown-body"
             source={text}
             renderers={{ code: CodeBlock, heading: Headings }}
           />
+        ) : (
+          <Loading />
         )}
       </div>
     );

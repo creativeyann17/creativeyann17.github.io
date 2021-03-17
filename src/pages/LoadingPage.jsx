@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Spinner } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Loading } from '../components';
 
 const LoadingPage = () => {
   return (
     <Container className="page page-loading d-flex">
-      <Spinner animation="border" className="mx-auto mb-3" />
+      <Loading />
     </Container>
   );
 };
