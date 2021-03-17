@@ -5,4 +5,5 @@ export { default as ArticleCard } from './ArticleCard';
 export { default as ArticleDetails } from './ArticleDetails';
 export { default as Skills } from './Skills';
 export { default as SocialIcons } from './SocialIcons';
+export { default as Analytics } from './Analytics';
 export { Markdown } from './Markdown';

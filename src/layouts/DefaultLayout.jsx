@@ -3,11 +3,10 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Alert, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ScrollToTop from 'react-router-scroll-top';
-import Analytics from 'react-router-ga';
 import { getError } from '../services/ArticlesService/selectors';
 import LoadingPage from '../pages/LoadingPage';
-import { Header, Footer, BackToTop } from '../components';
-import { ROUTES, DEV, GA_TRACKING_ID } from '../constants';
+import { Header, Footer, BackToTop, Analytics } from '../components';
+import { ROUTES } from '../constants';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const Articles = React.lazy(() => import('../pages/Articles'));
@@ -21,7 +20,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
   return (
     <div id="main">
       <Router onUpdate={() => window.scrollTo(0, 0)}>
-        <Analytics id={GA_TRACKING_ID} debug={DEV}>
+        <Analytics>
           <Header />
           {articlesFetchError && (
             <div>
