@@ -1,16 +1,10 @@
----
-# The following is WIP for integration test only
----
-
 # Introduction
 
-By default H2 console is enabled using spring-boot with Tomcat server but sometimes we may also want to enable it in another environment such as Undertown or Netty or even. The following article will explain how to achive the implementation for both Spring-boot and Micronaut frameworks.
-
-The implementation is really easy and looks almost the same for both frameworks :)
+The following article explains how to manually start and stop H2 console with our API. The implementation will be for both Spring-boot and Micronaut frameworks.
 
 ## Update pom.xml
 
-Most commun implementation of H2 is to use it at runtime / test. In our situation we need it for compilation in order to import the needed classes.
+Verify H2 is available at compilation and not runtime only.
 
 ```xml
 <dependency>
@@ -20,10 +14,9 @@ Most commun implementation of H2 is to use it at runtime / test. In our situatio
 </dependency>
 ```
 
-## Configuration
+## Custom configuration
 
-We are going to create our own H2 console configuration. This one has to be different from existing H2 configurations to void conflicts.
-For example like the following (but you can choose whatever you want) at the root of the configuration file: **application.yml**
+In order to avoid others existing H2 console configuration let's create our own like the following in **application.yml**:
 
 ```yml
 h2:
@@ -32,11 +25,16 @@ h2:
     port: 8081
 ```
 
-In a normal Spring-boot + Tomcat, H2 console would have start on the same port than the server (ex: 8080) but in our situation we need to define separated port number like **8081**
+**Note:** We can't start our API and H2 on the same port like spring-boot/tomcat will usually do, so we need a custom port instead like **8081**.
 
 ## Implementation
 
-Both implementations are simple and very similar. The logic remains the same, we are going to create a bean which will catch both **startup** and **shutdown** event of our API then inside both event we respectively start / stop H2 console. The bean **H2ConsoleService** will start only if the property **h2.console.enabled=true** this way it's easy to define different values for differents execution profiles.
+Logic of the implementation:
+
+- API startup -> start H2 console
+- API shutdown -> stop H2 console
+
+Both implementations are simple and very similar. The main differences are the way to catch the **startup** and **shutdown** events and to conditionaly create the bean based on our **h2.console.enabled=true** flag.
 
 ### Spring-boot
 
@@ -112,3 +110,7 @@ public class H2ConsoleService {
 
 }
 ```
+
+# Conclusion
+
+We can now start our API, H2 console will be available at: **http://localhost:8081**

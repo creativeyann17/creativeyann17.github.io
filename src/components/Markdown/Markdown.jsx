@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 import Headings from './Headings';
 
+import './style.css';
+
 // using component for fun :)
 class Markdown extends Component {
   constructor(props) {
@@ -24,7 +26,13 @@ class Markdown extends Component {
     const { text } = this.state;
     return (
       <div className="markdown">
-        {text && <ReactMarkdown source={text} renderers={{ code: CodeBlock, heading: Headings }} />}
+        {text && (
+          <ReactMarkdown
+            className="markdown-body"
+            source={text}
+            renderers={{ code: CodeBlock, heading: Headings }}
+          />
+        )}
       </div>
     );
   }

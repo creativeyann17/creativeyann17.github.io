@@ -1,13 +1,13 @@
 [
   {
-    "id": "h2console",
+    "id": 1,
     "tags": ["h2", "console", "spring-boot", "micronaut"],
     "date": "2021-03-14",
     "duration": 1,
     "featured": true,
     "description": "How to manually start H2 console using spring-boot or micronaut.",
-    "thumbnail": "h2console.jpg",
-    "markdown": "h2console.md",
+    "thumbnail": "article1.jpg",
+    "markdown": "article1.md",
     "repository": null
   }
 ]
