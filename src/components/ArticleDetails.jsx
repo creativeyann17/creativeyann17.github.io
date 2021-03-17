@@ -13,10 +13,12 @@ const ArticleDetails = ({ className, article, margin }) => {
         <MdUpdate />
         &nbsp;{article.date}
       </div>
-      <div className={margin}>
-        <BiGitRepoForked />
-        &nbsp;{renderExternalLinkByUrlAndLabel(article.repository, 'sources')}
-      </div>
+      {article.repository && (
+        <div className={margin}>
+          <BiGitRepoForked />
+          &nbsp;{renderExternalLinkByUrlAndLabel(article.repository, 'sources')}
+        </div>
+      )}
       <div className={margin}>
         <MdTimer />
         &nbsp;{`${article.duration} min`}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
+import Headings from './Headings';
 
 // using component for fun :)
 class Markdown extends Component {
@@ -23,7 +24,7 @@ class Markdown extends Component {
     const { text } = this.state;
     return (
       <div className="markdown">
-        {text && <ReactMarkdown source={text} renderers={{ code: CodeBlock }} />}
+        {text && <ReactMarkdown source={text} renderers={{ code: CodeBlock, heading: Headings }} />}
       </div>
     );
   }

@@ -12,6 +12,7 @@ const Home = React.lazy(() => import('../pages/Home'));
 const Articles = React.lazy(() => import('../pages/Articles'));
 const Article = React.lazy(() => import('../pages/Article'));
 const Search = React.lazy(() => import('../pages/Search'));
+const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 const DefaultLayout = ({ articlesFetchError }) => {
   const withParam = (url, param) => `${url}/:${param}`;
@@ -44,6 +45,9 @@ const DefaultLayout = ({ articlesFetchError }) => {
               </Route>
               <Route path={withParam(ROUTES.SEARCH, 'filter')}>
                 <Search />
+              </Route>
+              <Route>
+                <NotFound />
               </Route>
             </Switch>
           </ScrollToTop>

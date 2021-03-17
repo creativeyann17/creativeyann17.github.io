@@ -4,9 +4,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
 import { getArticles } from '../services/ArticlesService/selectors';
-import Markdown from '../components/Markdown';
-import ArticleDetails from '../components/ArticleDetails';
-import SocialIcons from '../components/SocialIcons';
+import { Markdown, ArticleDetails, SocialIcons } from '../components';
 import { ARTICLES_FOLDER, THUMBAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
 
 const Article = ({ articles }) => {
@@ -30,7 +28,7 @@ const Article = ({ articles }) => {
       {!article ? (
         <div>
           {state.timeout ? (
-            <Alert variant="danger">
+            <Alert variant="warning">
               <b>Article not found:</b> {id}
             </Alert>
           ) : (

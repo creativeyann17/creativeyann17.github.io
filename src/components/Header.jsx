@@ -8,8 +8,7 @@ import {
   InputGroup,
   NavDropdown,
 } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import trim from 'lodash/trim';
 import { FaSearch } from 'react-icons/fa';
 import cx from 'classnames';

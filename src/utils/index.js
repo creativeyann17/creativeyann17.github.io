@@ -9,10 +9,12 @@ import words from 'lodash/words';
 import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
 
 export const debug = (message, ...args) => {
-  if (DEV && !isEmpty(args)) {
-    console.log(message, args);
-  } else {
-    console.log(message);
+  if (DEV) {
+    if (!isEmpty(args)) {
+      console.log(message, args);
+    } else {
+      console.log(message);
+    }
   }
 };
 
