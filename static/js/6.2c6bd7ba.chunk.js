@@ -1,0 +1,2 @@
+(this["webpackJsonpcreativeyann17.github.io"]=this["webpackJsonpcreativeyann17.github.io"]||[]).push([[6],{747:function(a,e,n){"use strict";n.r(e);n(1);var t=n(726),c=n(743),i=n(13),s=n(3);e.default=function(a){a.articles;var e=Object(i.g)();return Object(s.jsx)(t.a,{className:"page page-not-found ",children:Object(s.jsxs)(c.a,{variant:"warning",className:"mt-3",children:[Object(s.jsx)("b",{children:"Page not found:"})," ",e.pathname]})})}}}]);
+//# sourceMappingURL=6.2c6bd7ba.chunk.js.map
