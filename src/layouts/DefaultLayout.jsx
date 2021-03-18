@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ScrollToTop from 'react-router-scroll-top';
 import { getError } from '../services/ArticlesService/selectors';
 import LoadingPage from '../pages/LoadingPage';
-import { Header, Footer, BackToTop, Analytics } from '../components';
+import { Header, Footer, BackToTop, RouterAnalytics } from '../components';
 import { ROUTES } from '../constants';
 
 const Home = React.lazy(() => import('../pages/Home'));
@@ -20,7 +20,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
   return (
     <div id="main">
       <Router onUpdate={() => window.scrollTo(0, 0)}>
-        <Analytics>
+        <RouterAnalytics>
           <Header />
           {articlesFetchError && (
             <div>
@@ -54,7 +54,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
             </ScrollToTop>
           </Suspense>
           <BackToTop />
-        </Analytics>
+        </RouterAnalytics>
       </Router>
       <Footer />
     </div>
