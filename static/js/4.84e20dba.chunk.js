@@ -1,2 +1,0 @@
-(this["webpackJsonpcreativeyann17.github.io"]=this["webpackJsonpcreativeyann17.github.io"]||[]).push([[4],{742:function(e,t,a){"use strict";a.r(t);a(1);var c=a(723),i=a(724),n=a(140),r=a.n(n),s=a(73),u=a(139),b=a(14),h=a(2);t.default=Object(s.b)((function(e){return{articles:Object(u.a)(e)}}))((function(e){var t=e.articles;return Object(h.jsx)(c.a,{className:"page page-articles ",children:Object(h.jsx)(i.a,{children:r()(t,b.i)})})}))}}]);
-//# sourceMappingURL=4.84e20dba.chunk.js.map
