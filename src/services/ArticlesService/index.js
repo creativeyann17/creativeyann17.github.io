@@ -2,6 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import { articlesFetchSuccess, articlesFetchFailure } from './actions';
+import orderBy from 'lodash/orderBy';
 import { ARTICLES_JSON } from '../../constants';
 
 export function* watchArticlesFetchRequest(action) {
@@ -9,7 +10,7 @@ export function* watchArticlesFetchRequest(action) {
     const articles = yield axios
       .get(`${ARTICLES_JSON}?timestamp=${new Date().getTime()}`) // timestamp to ignore server cache
       .then((res) => res.data);
-    yield put(articlesFetchSuccess(articles));
+    yield put(articlesFetchSuccess(orderBy(articles, ['date'], ['desc'])));
   } catch (e) {
     yield put(articlesFetchFailure(e.message));
   }
