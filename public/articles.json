@@ -9,5 +9,16 @@
     "thumbnail": "article1.jpg",
     "markdown": "article1.md",
     "repository": null
+  },
+  {
+    "id": "jpa-converter",
+    "tags": ["h2", "jpa", "database", "sql"],
+    "date": "2021-03-18",
+    "duration": 1,
+    "featured": false,
+    "description": "How to avoid using SQL jointure when not necessary.",
+    "thumbnail": "article2.jpg",
+    "markdown": "article2.md",
+    "repository": null
   }
 ]

@@ -1,4 +1,5 @@
-import { ROUTES, ROUTER_PREFIX } from '../constants';
+import { Col } from 'react-bootstrap';
+import { ArticleCard } from '../components';
 import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
 import trim from 'lodash/trim';
@@ -6,6 +7,7 @@ import replace from 'lodash/replace';
 import isEmpty from 'lodash/isEmpty';
 import find from 'lodash/find';
 import words from 'lodash/words';
+import { ROUTES, ROUTER_PREFIX } from '../constants';
 import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
 
 export const debug = (message, ...args) => {
@@ -61,6 +63,12 @@ export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
   <a target="_blank" rel="noreferrer" href={url} className={className}>
     <img src={icon} alt={`external-links-to-${url}`} height={32} width={32} />
   </a>
+);
+
+export const renderArticleInsideColumn = (article) => (
+  <Col md={4} lg={3} key={article.id}>
+    <ArticleCard key={article.id} article={article} />
+  </Col>
 );
 
 // toString

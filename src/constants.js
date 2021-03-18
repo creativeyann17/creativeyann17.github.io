@@ -20,7 +20,7 @@ export const ROUTES = {
     GITHUB_PAGE: 'https://github.com/creativeyann17/creativeyann17.github.io',
     GITHUB_PRIVACY: 'https://docs.github.com/en/github/site-policy/github-privacy-statement',
     GITHUB_TOS: 'https://docs.github.com/en/github/site-policy/github-terms-of-service',
-    LINKEDIN: 'https://www.linkedin.com/in/yann-marcou-21280267/',
+    LINKED_IN: 'https://www.linkedin.com/in/yann-marcou-21280267/',
     TWITTER: 'https://twitter.com/CreativeYann17',
   },
 };
@@ -33,6 +33,6 @@ export const TAGS = {
 export const ARTICLES_JSON = '/articles.json';
 
 export const ARTICLES_FOLDER = '/articles';
-export const THUMBAILS_FOLDER = '/thumbnails';
+export const THUMBNAILS_FOLDER = '/thumbnails';
 
 export const ARTICLE_IS_NEW_UP_TO_DAYS = 5;

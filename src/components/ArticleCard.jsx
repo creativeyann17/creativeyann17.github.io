@@ -3,7 +3,7 @@ import { Card, Badge } from 'react-bootstrap';
 import cx from 'classnames';
 import map from 'lodash/map';
 import { useHistory } from 'react-router-dom';
-import { THUMBAILS_FOLDER } from '../constants';
+import { THUMBNAILS_FOLDER } from '../constants';
 import { openArticleById, openSearchByFilter } from '../utils';
 import ArticleDetails from './ArticleDetails';
 
@@ -30,7 +30,7 @@ const ArticleCard = ({ className, article }) => {
         aria-label="Open the article"
         alt={article.thumbnail}
         variant="top"
-        src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
+        src={`${THUMBNAILS_FOLDER}/${article.thumbnail}`}
         onClick={() => openArticleById(history, article.id)}
       />
       <Card.Body>

@@ -33,7 +33,7 @@ const Home = ({ articles }) => {
             </p>
             <p>
               {renderExternalLinkByUrlAndIcon(
-                ROUTES.EXTERNALS.LINKEDIN,
+                ROUTES.EXTERNALS.LINKED_IN,
                 '/linkedin128.png',
                 'mr-3'
               )}

@@ -17,7 +17,7 @@ const Footer = ({ className }) => {
           </div>
           <div className="mb-3">
             {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB, '/github128.png', 'mr-3')}
-            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKEDIN, '/linkedin128.png', 'mr-3')}
+            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKED_IN, '/linkedin128.png', 'mr-3')}
             {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png')}
           </div>
         </Row>

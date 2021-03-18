@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import find from 'lodash/find';
 import { getArticles } from '../services/ArticlesService/selectors';
 import { Markdown, ArticleDetails, SocialIcons } from '../components';
-import { ARTICLES_FOLDER, THUMBAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
+import { ARTICLES_FOLDER, THUMBNAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
 
 const Article = ({ articles }) => {
   const { id } = useParams();
-  const [state, setstate] = useState({ timeout: false });
+  const [state, setState] = useState({ timeout: false });
 
   const article = find(articles, (article) => article.id.toString() === id); // number != string
 
   useEffect(() => {
     let timeoutTimer = setTimeout(
-      () => setstate({ ...state, timeout: true }),
+      () => setState({ ...state, timeout: true }),
       GLOBAL_REQUEST_TIMEOUT * 1000
     );
     return () => {
@@ -42,7 +42,7 @@ const Article = ({ articles }) => {
           <img
             className="mb-3"
             alt={article.thumbnail}
-            src={`${THUMBAILS_FOLDER}/${article.thumbnail}`}
+            src={`${THUMBNAILS_FOLDER}/${article.thumbnail}`}
             width={'100%'}
             height={'auto'}
           />
