@@ -16,7 +16,7 @@ Verify H2 is available at compilation and not runtime only.
 
 ## Custom configuration
 
-In order to avoid others existing H2 console configuration let's create our own like the following in **application.yml**:
+In order to avoid others existing H2 console configurations let's create our own like the following in **application.yml**:
 
 ```yml
 h2:
@@ -34,7 +34,7 @@ Logic of the implementation:
 - API startup -> start H2 console
 - API shutdown -> stop H2 console
 
-Both implementations are simple and very similar. The main differences are the way to catch the **startup** and **shutdown** events and to conditionaly create the bean based on our **h2.console.enabled=true** flag.
+Both implementations are simple and very similar. The main differences are the way to catch the **startup** and **shutdown** events and to conditionally create the bean based on our **h2.console.enabled=true** flag.
 
 ### Spring-boot
 
