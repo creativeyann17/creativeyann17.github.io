@@ -101,4 +101,4 @@ We use a comma separator to convert a **Set** to **String** and back, very simpl
 
 This is the result of two persisted users using this JPA approach, as you can see the **ADMIN** user has both _USER_ and _ADMIN_ roles.
 
-![H2 console test result image](images/article2_1.png 'Logo Title Text 1')
+![H2 console test result image](articles/images/article2_1.png 'Logo Title Text 1')
