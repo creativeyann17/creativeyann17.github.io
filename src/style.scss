@@ -28,11 +28,21 @@ a:hover {
   min-height: calc(100vh - 100px);
 }
 
+body {
+  background: url('./pages/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  background-position-y: 0;
+  background-position-x: 0;
+  background-attachment: fixed;
+}
+
 .page-home .jumbotron {
   background: url('./pages/images/jumbotron.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  // text-align: justify; should be avoid according to differents sources
+  // text-align: justify; should be avoid according to different sources
 }
 
 .footer {
@@ -105,7 +115,7 @@ a:hover {
 }
 
 /*
-Copy/paste of current boostrap media breakpoints. don't know how to use them in media as variables.
+Copy/paste of current bootstrap media breakpoints. don't know how to use them in media as variables.
 
 --breakpoint-xs: 0;
 --breakpoint-sm: 576px;
