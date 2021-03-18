@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.a6709ded.chunk.css",
-    "main.js": "/static/js/main.1e698aed.chunk.js",
-    "main.js.map": "/static/js/main.1e698aed.chunk.js.map",
+    "main.css": "/static/css/main.07b574a7.chunk.css",
+    "main.js": "/static/js/main.70a1276c.chunk.js",
+    "main.js.map": "/static/js/main.70a1276c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.777f538a.js",
     "runtime-main.js.map": "/static/js/runtime-main.777f538a.js.map",
     "static/js/2.57a1398d.chunk.js": "/static/js/2.57a1398d.chunk.js",
@@ -18,14 +18,14 @@
     "static/js/7.2db786d3.chunk.js": "/static/js/7.2db786d3.chunk.js",
     "static/js/7.2db786d3.chunk.js.map": "/static/js/7.2db786d3.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a6709ded.chunk.css.map": "/static/css/main.a6709ded.chunk.css.map",
+    "static/css/main.07b574a7.chunk.css.map": "/static/css/main.07b574a7.chunk.css.map",
     "static/js/2.57a1398d.chunk.js.LICENSE.txt": "/static/js/2.57a1398d.chunk.js.LICENSE.txt",
     "static/media/style.scss": "/static/media/jumbotron.648cff45.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.777f538a.js",
     "static/js/2.57a1398d.chunk.js",
-    "static/css/main.a6709ded.chunk.css",
-    "static/js/main.1e698aed.chunk.js"
+    "static/css/main.07b574a7.chunk.css",
+    "static/js/main.70a1276c.chunk.js"
   ]
 }

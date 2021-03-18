@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "h2-console",
     "tags": ["h2", "console", "spring-boot", "micronaut"],
     "date": "2021-03-14",
     "duration": 1,
