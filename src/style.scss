@@ -33,7 +33,7 @@ body {
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
-  background-position-y: 0;
+  background-position-y: 59px; /* sticky header is 42.5 + 8 + 8*/
   background-position-x: 0;
   background-attachment: fixed;
 }

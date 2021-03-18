@@ -58,28 +58,32 @@ const Header = ({ className }) => {
   );
 
   return (
-    <header>
-      <Navbar bg="primary" variant="dark" expand="lg" sticky="top" className={cx('nav', className)}>
-        <Container>
-          <Navbar.Brand href="/">
-            <img alt="logo" src="/favicon.ico" height="32" width="32" />
-          </Navbar.Brand>
-          <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              {renderNavLink(ROUTES.HOME, 'Home')}
-              {renderNavLink(ROUTES.ARTICLES, 'Articles')}
-              <NavDropdown title="Categories">
-                {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
-                {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-          {renderSearchForm('search-form-web')}
-        </Container>
-      </Navbar>
-    </header>
+    <Navbar
+      bg="primary"
+      variant="dark"
+      expand="lg"
+      sticky="top"
+      collapseOnSelect
+      className={cx('header', className)}>
+      <Container>
+        <Navbar.Brand href="/">
+          <img alt="logo" src="/favicon.ico" height="32" width="32" />
+        </Navbar.Brand>
+        <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            {renderNavLink(ROUTES.HOME, 'Home')}
+            {renderNavLink(ROUTES.ARTICLES, 'Articles')}
+            <NavDropdown title="Categories">
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+        {renderSearchForm('search-form-web')}
+      </Container>
+    </Navbar>
   );
 };
 
