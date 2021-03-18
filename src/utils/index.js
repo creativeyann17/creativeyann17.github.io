@@ -65,9 +65,9 @@ export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
   </a>
 );
 
-export const renderArticleInsideColumn = (article) => (
-  <Col md={4} lg={3} key={article.id}>
-    <ArticleCard key={article.id} article={article} />
+export const renderArticleInsideColumn = (article, withFeatured = false) => (
+  <Col md={4} lg={3} key={article.id} className="d-flex align-items-stretch">
+    <ArticleCard key={article.id} article={article} withFeatured={withFeatured} />
   </Col>
 );
 

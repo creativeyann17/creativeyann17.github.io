@@ -16,8 +16,8 @@ const Home = ({ articles }) => {
             <p>
               <b>Hello</b>, my name is Yann, French software developer. Until today I have worked on
               several personal/professional projects based on various kind of solutions: web,
-              desktop and embedded. Differents technologies were used like JAVA,
-              JavaScript/HTML/CSS, C#, C/C++. I'm currently working abroad at <u>Montreal</u>.
+              desktop and embedded. Different technologies were used like JAVA, JavaScript/HTML/CSS,
+              C#, C/C++. I'm currently working abroad at <u>Montreal</u>.
             </p>
             <p>
               This web-site acts as my blog / portfolio / showcase / poc ... or simply somewhere if
@@ -29,7 +29,7 @@ const Home = ({ articles }) => {
                 '/github128.png',
                 'mr-3'
               )}
-              The GitHub repository of this web-site and all my others personnal projects.
+              The GitHub repository of this web-site and all my others personal projects.
             </p>
             <p>
               {renderExternalLinkByUrlAndIcon(
@@ -52,7 +52,9 @@ const Home = ({ articles }) => {
             </p>
           </Jumbotron>
         </Col>
-        <Col lg={4}>{featuredArticle && <ArticleCard article={featuredArticle} />}</Col>
+        <Col lg={4}>
+          {featuredArticle && <ArticleCard article={featuredArticle} withFeatured />}
+        </Col>
       </Row>
     </Container>
   );

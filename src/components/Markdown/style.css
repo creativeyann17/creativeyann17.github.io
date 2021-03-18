@@ -16,6 +16,10 @@
   line-height: 1.25;
 }
 
+.markdown-body img {
+  max-width: 100%;
+}
+
 .markdown-body pre {
   margin-bottom: 1rem !important;
   padding: 1rem !important;

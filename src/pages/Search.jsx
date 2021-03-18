@@ -16,7 +16,7 @@ const Search = ({ articles }) => {
           <b>Actual search:</b> {filter} <b>result(s): </b> {articlesFiltered.length}
         </Alert>
       )}
-      <Row>{map(articlesFiltered, renderArticleInsideColumn)}</Row>
+      <Row>{map(articlesFiltered, (article) => renderArticleInsideColumn(article))}</Row>
     </Container>
   );
 };

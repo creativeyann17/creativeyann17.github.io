@@ -8,7 +8,7 @@ import { renderArticleInsideColumn } from '../utils';
 const Articles = ({ articles }) => {
   return (
     <Container className="page page-articles ">
-      <Row>{map(articles, renderArticleInsideColumn)}</Row>
+      <Row>{map(articles, (article) => renderArticleInsideColumn(article))}</Row>
     </Container>
   );
 };

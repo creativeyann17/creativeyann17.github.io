@@ -2,13 +2,15 @@ import React from 'react';
 import { Card, Badge } from 'react-bootstrap';
 import cx from 'classnames';
 import map from 'lodash/map';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { THUMBNAILS_FOLDER } from '../constants';
 import { openArticleById, openSearchByFilter } from '../utils';
 import ArticleDetails from './ArticleDetails';
 
-const ArticleCard = ({ className, article }) => {
+const ArticleCard = ({ className, article, withFeatured }) => {
   const history = useHistory();
+  const displayFeatured = withFeatured && article.featured;
   const renderTag = (badge) => {
     return (
       <Badge
@@ -24,7 +26,7 @@ const ArticleCard = ({ className, article }) => {
   };
   return (
     <Card className={cx('article-card', className, 'mb-3')}>
-      {article.featured && <Card.Header>Featured article</Card.Header>}
+      {displayFeatured && <Card.Header>Featured article</Card.Header>}
       <Card.Img
         role="button"
         aria-label="Open the article"
@@ -42,4 +44,11 @@ const ArticleCard = ({ className, article }) => {
   );
 };
 
+ArticleCard.propTypes = {
+  withFeatured: PropTypes.bool,
+};
+
+ArticleCard.defaultProps = {
+  withFeatured: false,
+};
 export default ArticleCard;
