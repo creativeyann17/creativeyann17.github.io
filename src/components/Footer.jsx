@@ -22,7 +22,7 @@ const Footer = ({ className }) => {
           </div>
         </Row>
         <Row noGutters>
-          <p className="footer-copyright">© {currentYear} Yann MARCOU</p>
+          <p className="footer-copyright">© {currentYear} CreativeYann17</p>
         </Row>
       </Container>
     </footer>

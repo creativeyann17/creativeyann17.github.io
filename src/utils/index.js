@@ -1,4 +1,4 @@
-import { ROUTES } from '../constants';
+import { ROUTES, ROUTER_PREFIX } from '../constants';
 import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
 import trim from 'lodash/trim';
@@ -66,7 +66,7 @@ export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
 // toString
 
 export const getArticleUrl = (article) =>
-  `${window.location.origin.toString()}${ROUTES.ARTICLE}/${article.id}`;
+  `${window.location.origin.toString()}${ROUTER_PREFIX}${ROUTES.ARTICLE}/${article.id}`;
 
 // articles
 
