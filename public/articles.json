@@ -4,7 +4,7 @@
     "tags": ["h2", "console", "spring-boot", "micronaut"],
     "date": "2021-03-14",
     "duration": 7,
-    "featured": true,
+    "featured": false,
     "description": "How to manually start H2 console using spring-boot or micronaut.",
     "thumbnail": "article1.jpg",
     "markdown": "article1.md",
@@ -31,5 +31,16 @@
     "thumbnail": "article3.jpg",
     "markdown": "article3.md",
     "repository": null
+  },
+  {
+    "id": "spring-boot-jwt-ready",
+    "tags": ["spring-boot", "jwt", "database", "security", "undertow", "bcrypt"],
+    "date": "2021-03-19",
+    "duration": 25,
+    "featured": true,
+    "description": "A ready to work Spring-boot project with JWT authentication, user repository, Undertow, global exception handling ...",
+    "thumbnail": "article4.jpg",
+    "markdown": "article4.md",
+    "repository": "https://github.com/creativeyann17/spring-boot-jwt-ready"
   }
 ]
