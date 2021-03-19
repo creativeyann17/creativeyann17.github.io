@@ -12,13 +12,24 @@
   },
   {
     "id": "jpa-converter",
-    "tags": ["h2", "jpa", "database", "sql"],
+    "tags": ["h2", "jpa", "database", "sql", "spring-boot", "micronaut"],
     "date": "2021-03-18",
     "duration": 1,
     "featured": false,
     "description": "How to avoid using SQL jointure when not necessary.",
     "thumbnail": "article2.jpg",
     "markdown": "article2.md",
+    "repository": null
+  },
+  {
+    "id": "bcrypt-encoder",
+    "tags": ["bcrypt", "micronaut", "database"],
+    "date": "2021-03-18",
+    "duration": 1,
+    "featured": false,
+    "description": "How to add BCrypt encoder in Micronaut.",
+    "thumbnail": "article3.jpg",
+    "markdown": "article3.md",
     "repository": null
   }
 ]
