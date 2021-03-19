@@ -3,8 +3,8 @@
     "id": "h2-console",
     "tags": ["h2", "console", "spring-boot", "micronaut"],
     "date": "2021-03-14",
-    "duration": 1,
-    "featured": true,
+    "duration": 7,
+    "featured": false,
     "description": "How to manually start H2 console using spring-boot or micronaut.",
     "thumbnail": "article1.jpg",
     "markdown": "article1.md",
@@ -14,7 +14,7 @@
     "id": "jpa-converter",
     "tags": ["h2", "jpa", "database", "sql", "spring-boot", "micronaut"],
     "date": "2021-03-18",
-    "duration": 1,
+    "duration": 10,
     "featured": false,
     "description": "How to avoid using SQL jointure when not necessary.",
     "thumbnail": "article2.jpg",
@@ -25,11 +25,22 @@
     "id": "bcrypt-encoder",
     "tags": ["bcrypt", "micronaut", "database"],
     "date": "2021-03-18",
-    "duration": 1,
+    "duration": 5,
     "featured": false,
     "description": "How to add BCrypt encoder in Micronaut.",
     "thumbnail": "article3.jpg",
     "markdown": "article3.md",
     "repository": null
+  },
+  {
+    "id": "spring-boot-jwt-ready",
+    "tags": ["spring-boot", "jwt", "database", "security", "undertow", "bcrypt"],
+    "date": "2021-03-19",
+    "duration": 25,
+    "featured": true,
+    "description": "A ready to work Spring-boot project with JWT authentication, user repository, Undertow, global exception handling ...",
+    "thumbnail": "article4.jpg",
+    "markdown": "article4.md",
+    "repository": "https://github.com/creativeyann17/spring-boot-jwt-ready"
   }
 ]
