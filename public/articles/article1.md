@@ -31,6 +31,8 @@ h2:
 
 Logic of the implementation:
 
+- Create a **H2ConsoleService** bean if **h2.console.enabled=true**
+- Extract the console port from configuration **h2.console.port** or use **8081** by default
 - API startup -> start H2 console
 - API shutdown -> stop H2 console
 
