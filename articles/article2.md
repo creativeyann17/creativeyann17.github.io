@@ -7,7 +7,7 @@ _"I wish there could be another solution than @ManyToMany ..."_ and in fact ther
 
 The **javax.persistence.Converter** annotation provides a simple way to convert (and un-convert) a JAVA class into JDBC type. You can easily convert a **List** into **String** like the example below.
 
-**Note:** @Convert should be used only for specific cases where you know that using a join table will be to much.
+**Note:** @Convert should be used only for specific cases where you know that using a join table will be too much.
 
 ## User with roles example
 
@@ -81,7 +81,7 @@ public class RoleSetConverter implements AttributeConverter<Set<User.Role>, Stri
 
 We use a comma separator to convert a **Set** to **String** and back, very simple.
 
-**Note:** This solution is generic and use **java Stream** but **spring-boot** provides some really nice utils functions from **org.springframework.util.StringUtils** that can improve or code like this:
+**Note:** This solution is generic and use **java Stream** but **spring-boot** provides some really nice utils functions from **org.springframework.util.StringUtils** that can improve our code like this:
 
 ```java
   @Override

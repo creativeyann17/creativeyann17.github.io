@@ -38,7 +38,7 @@
     "date": "2021-03-19",
     "duration": 25,
     "featured": true,
-    "description": "A ready to work Spring-boot project with JWT authentication, user repository, Undertow, global exception handling ...",
+    "description": "A ready to work Spring-Boot project with JWT authentication, user repository, Undertow, global exception handling ...",
     "thumbnail": "article4.jpg",
     "markdown": "article4.md",
     "repository": "https://github.com/creativeyann17/spring-boot-jwt-ready"
