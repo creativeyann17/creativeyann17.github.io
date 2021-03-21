@@ -1,6 +1,6 @@
 # Introduction
 
-In this example we will see how to implement the **BCrypt** encoder using the **spring-security-crypto** dependency same as available in a Spring-boot Security API. This dependency contains set of cryptographic functions with almost nothing related to Spring-boot so don't worry about import it into your Micronaut project. Be able to use a password encoder is mandatory in case you want to store critical information in database server-side.
+In this example we will see how to implement the **BCrypt** encoder using the **spring-security-crypto** dependency same as available in a Spring-boot Security API. This dependency contains set of cryptographic functions with almost nothing related to Spring-boot so don't worry about importing it into your Micronaut project. Be able to use a password encoder is mandatory in case you want to store critical information in database server-side.
 
 ## Update pom.xml
 
