@@ -3,6 +3,8 @@ import { Container, Spinner, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
+import { Helmet } from 'react-helmet';
+import replace from 'lodash/replace';
 import { getArticles } from '../services/ArticlesService/selectors';
 import { Markdown, ArticleDetails, SocialIcons } from '../components';
 import { ARTICLES_FOLDER, THUMBNAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
@@ -23,6 +25,8 @@ const Article = ({ articles }) => {
     };
   });
 
+  const thumbnailUrl = article ? `${THUMBNAILS_FOLDER}/${article.thumbnail}` : '';
+
   return (
     <Container className="page page-article">
       {!article ? (
@@ -39,10 +43,15 @@ const Article = ({ articles }) => {
         </div>
       ) : (
         <div>
+          <Helmet>
+            <title>{replace(article.id, new RegExp('-', 'g'), ' ')}</title>
+            <meta name="image" property="og:image" content={thumbnailUrl} />
+            <meta name="description" property="og:description" content={article.description} />
+          </Helmet>
           <img
             className="mb-3"
             alt={article.thumbnail}
-            src={`${THUMBNAILS_FOLDER}/${article.thumbnail}`}
+            src={thumbnailUrl}
             width={'100%'}
             height={'auto'}
           />
