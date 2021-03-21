@@ -25,7 +25,9 @@ const ArticleDetails = ({ className, article, margin }) => {
       </div>
       {isArticleNew(article) && (
         <div className={cx(margin)}>
-          <Badge variant="success">new</Badge>
+          <Badge variant="success" className="article-details-badge-new">
+            new
+          </Badge>
         </div>
       )}
     </div>

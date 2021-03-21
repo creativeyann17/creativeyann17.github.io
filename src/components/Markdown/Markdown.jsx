@@ -31,6 +31,7 @@ class Markdown extends Component {
           <ReactMarkdown
             className="markdown-body"
             source={text}
+            linkTarget="_blank"
             renderers={{ code: CodeBlock, heading: Headings }}
           />
         ) : (

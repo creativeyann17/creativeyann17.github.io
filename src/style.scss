@@ -19,10 +19,6 @@ a:hover {
   color: var(--secondary);
 }
 
-.badge {
-  font-size: medium;
-}
-
 .page {
   margin-top: 1rem;
   min-height: calc(100vh - 100px);
@@ -82,7 +78,11 @@ body {
   border-radius: 10%;
 }
 
-.article-card-badge:hover:not(.badge-success) {
+.article-details-badge-new {
+  font-size: 100%;
+}
+
+.article-card-badge:hover {
   text-decoration: underline;
 }
 
