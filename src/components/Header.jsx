@@ -71,7 +71,7 @@ const Header = ({ className }) => {
         </Navbar.Brand>
         <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="mx-3">
+        <Navbar.Collapse className="mx-3">
           <Nav className="mr-auto">
             {renderNavLink(ROUTES.HOME, 'Home')}
             {renderNavLink(ROUTES.ARTICLES, 'Articles')}

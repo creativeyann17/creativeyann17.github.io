@@ -20,49 +20,47 @@ const DefaultLayout = ({ articlesFetchError }) => {
   const withParam = (url, param) => `${url}/:${param}`;
 
   return (
-    <div id="main">
-      <Router onUpdate={() => window.scrollTo(0, 0)}>
-        <RouterAnalyticsLayout>
-          <Header />
-          {articlesFetchError && (
-            <div>
-              <Container>
-                <Alert variant="danger" className="mt-3">
-                  <b>Failed to get articles list:</b> {articlesFetchError}
-                </Alert>
-              </Container>
-            </div>
-          )}
-          <Suspense fallback={<LoadingPage />}>
-            <ScrollToTop>
-              <Switch>
-                <Route exact path={ROUTES.HOME}>
-                  <Home />
-                </Route>
-                <Route path={ROUTES.ARTICLES}>
-                  <Articles />
-                </Route>
-                <Route path={withParam(ROUTES.ARTICLE, 'id')}>
-                  <ScrollToTop top={0} />
-                  <Article />
-                </Route>
-                <Route path={withParam(ROUTES.SEARCH, 'filter')}>
-                  <Search />
-                </Route>
-                <Route path={ROUTES.ABOUT}>
-                  <About />
-                </Route>
-                <Route>
-                  <NotFound />
-                </Route>
-              </Switch>
-            </ScrollToTop>
-          </Suspense>
-          <BackToTop />
-        </RouterAnalyticsLayout>
-      </Router>
-      <Footer />
-    </div>
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
+      <RouterAnalyticsLayout>
+        <Header />
+        {articlesFetchError && (
+          <div>
+            <Container>
+              <Alert variant="danger" className="mt-3">
+                <b>Failed to get articles list:</b> {articlesFetchError}
+              </Alert>
+            </Container>
+          </div>
+        )}
+        <Suspense fallback={<LoadingPage />}>
+          <ScrollToTop>
+            <Switch>
+              <Route exact path={ROUTES.HOME}>
+                <Home />
+              </Route>
+              <Route path={ROUTES.ARTICLES}>
+                <Articles />
+              </Route>
+              <Route path={withParam(ROUTES.ARTICLE, 'id')}>
+                <ScrollToTop top={0} />
+                <Article />
+              </Route>
+              <Route path={withParam(ROUTES.SEARCH, 'filter')}>
+                <Search />
+              </Route>
+              <Route path={ROUTES.ABOUT}>
+                <About />
+              </Route>
+              <Route>
+                <NotFound />
+              </Route>
+            </Switch>
+          </ScrollToTop>
+        </Suspense>
+        <BackToTop />
+        <Footer />
+      </RouterAnalyticsLayout>
+    </Router>
   );
 };
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Spinner, Alert } from 'react-bootstrap';
+import { Container, Spinner, Alert, Row, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
 import { Helmet } from 'react-helmet';
+import FadeIn from 'react-fade-in';
 import replace from 'lodash/replace';
 import { TableOfContents } from '../components';
 import { getArticles } from '../services/ArticlesService/selectors';
@@ -49,19 +50,25 @@ const Article = ({ articles }) => {
             <meta name="image" property="og:image" content={thumbnailUrl} />
             <meta name="description" property="og:description" content={article.description} />
           </Helmet>
-          <img
-            className="mb-3"
-            alt={article.thumbnail}
-            src={thumbnailUrl}
-            width={'100%'}
-            height={'auto'}
-          />
-          <div className="d-flex justify-content-between ">
-            <ArticleDetails article={article} />
-            <SocialIcons article={article} />
-          </div>
-          <TableOfContents />
-          {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
+          <Row>
+            <Col lg={3}>
+              <FadeIn>
+                <img
+                  className="mb-3"
+                  alt={article.thumbnail}
+                  src={thumbnailUrl}
+                  width={'100%'}
+                  height={'auto'}
+                />
+                <div className="d-flex justify-content-between ">
+                  <ArticleDetails article={article} />
+                  <SocialIcons article={article} />
+                </div>
+              </FadeIn>
+              <TableOfContents />
+            </Col>
+            <Col lg={9}>{<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}</Col>
+          </Row>
         </div>
       )}
     </Container>

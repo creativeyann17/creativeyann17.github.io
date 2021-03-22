@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import FadeIn from 'react-fade-in';
 import { Skills } from '../components';
 import { getArticles } from '../services/ArticlesService/selectors';
 
@@ -11,7 +12,9 @@ const About = () => {
       <Helmet>
         <title>About</title>
       </Helmet>
-      <Skills />
+      <FadeIn>
+        <Skills />
+      </FadeIn>
     </Container>
   );
 };

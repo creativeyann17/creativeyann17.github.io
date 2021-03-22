@@ -6,6 +6,7 @@ import { getArticles } from '../services/ArticlesService/selectors';
 import { getNews } from '../services/NewsService/selectors';
 import map from 'lodash/map';
 import slice from 'lodash/slice';
+import FadeIn from 'react-fade-in';
 import { ArticleCard, News } from '../components';
 import { findFeaturedArticle, renderPagination } from '../utils';
 import { NEWS_PAGINATION } from '../constants';
@@ -24,10 +25,12 @@ const Home = ({ news, articles }) => {
       </Helmet>
       <Row>
         <Col lg={8}>
-          {map(slice(news, newsPageStart, newsPageEnd), (n, index) => (
-            <News key={index} news={n} />
-          ))}
-          {renderPagination(news, NEWS_PAGINATION, newsPage, setNewsPage)}
+          <FadeIn>
+            {map(slice(news, newsPageStart, newsPageEnd), (n, index) => (
+              <News key={index} news={n} />
+            ))}
+            {renderPagination(news, NEWS_PAGINATION, newsPage, setNewsPage)}
+          </FadeIn>
         </Col>
         <Col lg={4}>
           {featuredArticle && <ArticleCard article={featuredArticle} withFeatured />}

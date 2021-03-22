@@ -1,4 +1,5 @@
 import { Col, Pagination } from 'react-bootstrap';
+import FadeIn from 'react-fade-in';
 import { ArticleCard } from '../components';
 import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
@@ -69,7 +70,9 @@ export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
 
 export const renderArticleInsideColumn = (article, withFeatured = false) => (
   <Col md={4} lg={3} key={article.id} className="d-flex align-items-stretch">
-    <ArticleCard key={article.id} article={article} withFeatured={withFeatured} />
+    <FadeIn>
+      <ArticleCard key={article.id} article={article} withFeatured={withFeatured} />
+    </FadeIn>
   </Col>
 );
 

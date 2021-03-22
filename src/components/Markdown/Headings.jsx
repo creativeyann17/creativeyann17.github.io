@@ -13,7 +13,12 @@ const Headings = ({ level, children, pushArticleContent }) => {
   pushArticleContent({ level: level, title: heading, tag: anchor });
 
   // Utility
-  const container = (children) => <span id={anchor}>{children}</span>;
+  const container = (children) => (
+    <div>
+      <div className="anchor" id={anchor} />
+      <span>{children}</span>
+    </div>
+  );
 
   switch (level) {
     case 1:

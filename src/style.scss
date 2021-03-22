@@ -2,6 +2,7 @@
 $theme-colors: (
   'primary': #222,
   'secondary': #2b5380,
+  'light': #eee,
 );
 
 // Import Bootstrap and its default variables
@@ -15,6 +16,13 @@ $theme-colors: (
   --secondary-background-border-color: #e5e7eb;
 }
 
+.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
 .center {
   display: flex;
   width: 100%;
@@ -23,6 +31,7 @@ $theme-colors: (
 
 .alert-light {
   color: var(--primary);
+  background-color: white;
 }
 
 .news-date {
@@ -38,6 +47,10 @@ a:hover {
 .page {
   margin-top: 2rem;
   min-height: calc(100vh - 200px);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -72,10 +85,14 @@ body {
   color: var(--dark);
 }
 
+.table-of-contents {
+  position: sticky;
+  top: 70px; // need to be set for sticky
+}
+
 .back-to-top {
   display: flex;
   justify-content: flex-end;
-  position: -webkit-sticky; /* safari */
   position: sticky;
   bottom: 25px; // need to be set for sticky
   margin-bottom: 25px;
@@ -90,7 +107,7 @@ body {
   border-radius: 10%;
 }
 
-.article-details-badge-new {
+.badge {
   font-size: 100%;
 }
 
