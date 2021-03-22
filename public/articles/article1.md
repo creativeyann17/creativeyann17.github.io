@@ -2,7 +2,7 @@
 
 The following article explains how to manually start and stop H2 console with our API. The implementation will be for both Spring-boot and Micronaut frameworks.
 
-## Update pom.xml
+# Update pom.xml
 
 Verify H2 is available at compilation and not runtime only.
 
@@ -14,7 +14,7 @@ Verify H2 is available at compilation and not runtime only.
 </dependency>
 ```
 
-## Custom configuration
+# Custom configuration
 
 In order to avoid others existing H2 console configurations let's create our own like the following in **application.yml**:
 
@@ -27,7 +27,7 @@ h2:
 
 **Note:** We can't start our API and H2 on the same port like spring-boot/tomcat will usually do, so we need a custom port instead like **8081**.
 
-## Implementation
+# Implementation
 
 Logic of the implementation:
 
@@ -38,7 +38,7 @@ Logic of the implementation:
 
 Both implementations are simple and very similar. The main differences are the way to catch the **startup** and **shutdown** events and to conditionally create the bean based on our **h2.console.enabled=true** flag.
 
-### Spring-boot
+## Spring-boot
 
 ```java
 import lombok.extern.slf4j.Slf4j;
@@ -74,7 +74,7 @@ public class H2ConsoleService {
 }
 ```
 
-### Micronaut
+## Micronaut
 
 ```java
 import io.micronaut.context.annotation.Requires;

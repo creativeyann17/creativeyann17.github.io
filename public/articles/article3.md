@@ -2,7 +2,7 @@
 
 In this example we will see how to implement the **BCrypt** encoder using the **spring-security-crypto** dependency same as available in a Spring-boot Security API. This dependency contains set of cryptographic functions with almost nothing related to Spring-boot so don't worry about importing it into your Micronaut project. Be able to use a password encoder is mandatory in case you want to store critical information in database server-side.
 
-## Update pom.xml
+# Update pom.xml
 
 ```xml
   <dependency>
@@ -12,7 +12,7 @@ In this example we will see how to implement the **BCrypt** encoder using the **
   </dependency>
 ```
 
-## PasswordEncoder interface
+# PasswordEncoder interface
 
 This part is optional but in case you would like to have different encoder implementations you need a generic interface to inject in your beans. Following is an equivalent of the one used in Spring-Boot:
 
@@ -28,7 +28,7 @@ public interface PasswordEncoder {
 }
 ```
 
-## BCryptPasswordEncoderService
+# BCryptPasswordEncoderService
 
 Now we are going to implement **PasswordEncoder** with for BCrypt:
 
@@ -67,5 +67,5 @@ Our **PasswordEncoder** is ready and we can inject it where it's necessary using
   ...
   passwordEncoder.encode(rawPassword);
   ...
-  passwordEncoder.matches(bcryptPasswordFromDatabase, bcryptPasswordFromRequest);
+  passwordEncoder.matches(rawPasswordFromRequest, bcryptPasswordFromDatabase);
 ```
