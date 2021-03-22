@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import find from 'lodash/find';
 import { Helmet } from 'react-helmet';
 import replace from 'lodash/replace';
+import { TableOfContents } from '../components';
 import { getArticles } from '../services/ArticlesService/selectors';
 import { Markdown, ArticleDetails, SocialIcons } from '../components';
 import { ARTICLES_FOLDER, THUMBNAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
@@ -59,6 +60,7 @@ const Article = ({ articles }) => {
             <ArticleDetails article={article} />
             <SocialIcons article={article} />
           </div>
+          <TableOfContents />
           {<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}
         </div>
       )}

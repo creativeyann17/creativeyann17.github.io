@@ -71,6 +71,9 @@ export const renderArticleInsideColumn = (article, withFeatured = false) => (
   </Col>
 );
 
+export const renderTabFromName = (name) =>
+  replace(replace(toLower(name), /[^a-zA-Z0-9 ]/g, ''), / /g, '-');
+
 // toString
 
 export const getArticleUrl = (article) =>

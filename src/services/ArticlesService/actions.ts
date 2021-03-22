@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import { ArticlesServiceActionTypes, ArticlesType } from './types';
+import { ArticlesServiceActionTypes, ArticlesType, ArticleContent } from './types';
 
 export const articlesFetchRequest = (): ArticlesServiceActionTypes => {
   return {
@@ -17,6 +17,19 @@ export const articlesFetchSuccess = (articles: ArticlesType): ArticlesServiceAct
 export const articlesFetchFailure = (error: any): ArticlesServiceActionTypes => {
   return {
     type: actionTypes.ARTICLES_FETCH_FAILURE,
-    error: error,
+    error,
+  };
+};
+
+export const articlesResetTableOfContents = (): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_RESET_TABLE_OF_CONTENTS,
+  };
+};
+
+export const articlesPushArticleContent = (content: ArticleContent): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_PUSH_ARTICLE_CONTENT,
+    content,
   };
 };

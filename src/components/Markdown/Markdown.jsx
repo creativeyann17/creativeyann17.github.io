@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { connect } from 'react-redux';
+import { articlesResetTableOfContents } from '../../services/ArticlesService/actions';
 import Loading from '../Loading';
 import CodeBlock from './CodeBlock';
 import Headings from './Headings';
@@ -25,6 +27,7 @@ class Markdown extends Component {
 
   render() {
     const { text } = this.state;
+    this.props.resetTableOfContents();
     return (
       <div className="markdown">
         {text ? (
@@ -42,4 +45,10 @@ class Markdown extends Component {
   }
 }
 
-export default Markdown;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    resetTableOfContents: () => dispatch(articlesResetTableOfContents()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Markdown);

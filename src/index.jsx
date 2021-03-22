@@ -11,7 +11,7 @@ import './style.scss';
 initGA(GA_TRACKING_ID);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Helmet>
       <title>(C) reativeYann17</title>
       <meta name="image" property="og:image" content="/logo.jpg" />
@@ -22,7 +22,7 @@ ReactDOM.render(
       />
     </Helmet>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 

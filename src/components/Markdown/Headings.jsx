@@ -1,17 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { renderTabFromName } from '../../utils';
+import { articlesPushArticleContent } from '../../services/ArticlesService/actions';
 
-const Headings = ({ level, children }) => {
+const Headings = ({ level, children, pushArticleContent }) => {
   // Access actual (string) value of heading
   const heading = children[0].props.value;
 
   // If we have a heading, make it lower case
-  let anchor = typeof heading === 'string' ? heading.toLowerCase() : '';
+  let anchor = typeof heading === 'string' ? renderTabFromName(heading) : '';
 
-  // Clean anchor (replace special characters whitespaces).
-  // Alternatively, use encodeURIComponent() if you don't care about
-  // pretty anchor links
-  anchor = anchor.replace(/[^a-zA-Z0-9 ]/g, '');
-  anchor = anchor.replace(/ /g, '-');
+  pushArticleContent({ level: level, title: heading, tag: anchor });
 
   // Utility
   const container = (children) => <span id={anchor}>{children}</span>;
@@ -29,4 +28,10 @@ const Headings = ({ level, children }) => {
   }
 };
 
-export default Headings;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    pushArticleContent: (content) => dispatch(articlesPushArticleContent(content)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Headings);
