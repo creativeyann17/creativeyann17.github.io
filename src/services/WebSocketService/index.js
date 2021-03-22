@@ -9,7 +9,7 @@ import { debug } from '../../utils';
 
 const buildUrl = (path) => {
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  return new URL(path, protocol + API_URL);
+  return new URL(path, protocol + '//' + API_URL);
 };
 
 const isOpen = (socket) => {
@@ -88,7 +88,7 @@ export function* watchOpen() {
       yield fork(watchOnClose, ws);
     }
   } else {
-    console.error('WebSocket is disabled');
+    console.warn('WebSocket is disabled');
   }
 }
 
