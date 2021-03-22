@@ -1,17 +1,33 @@
 // https://getbootstrap.com/docs/4.1/getting-started/theming/#css-variables
 $theme-colors: (
-  'primary': #19375a,
-  'secondary': #4682b4,
-  'light': #e5e7eb,
-  'dark': #555,
+  'primary': #222,
+  'secondary': #2b5380,
 );
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
+// header font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');
+
 :root {
   --secondary-background-color: #fafafa;
   --secondary-background-border-color: #e5e7eb;
+}
+
+.center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.alert-light {
+  color: var(--primary);
+}
+
+.news-date {
+  color: var(--gray);
+  font-size: small;
 }
 
 a,
@@ -20,25 +36,21 @@ a:hover {
 }
 
 .page {
-  margin-top: 1rem;
-  min-height: calc(100vh - 100px);
+  margin-top: 2rem;
+  min-height: calc(100vh - 200px);
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 90%;
+
   background: url('./pages/images/background.jpg');
   background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
-  background-position-y: 58px; /* sticky header is 42.5 + 8 + 8*/
+  background-position: center;
+  background-size: cover;
+  background-position-y: 0;
   background-position-x: 0;
   background-attachment: fixed;
-}
-
-.page-home .jumbotron {
-  background: url('./pages/images/jumbotron.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  // text-align: justify; should be avoid according to different sources
 }
 
 .footer {
@@ -73,7 +85,7 @@ body {
 .back-to-top svg {
   width: 50px;
   height: 50px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   color: white;
   border-radius: 10%;
 }
@@ -87,8 +99,8 @@ body {
 }
 
 .article-details {
+  color: var(--gray);
   font-size: small;
-  color: var(--dark);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -103,15 +115,13 @@ body {
 }
 
 .search-form-mobile {
-  width: 200px; // to big for some devices
-}
-
-.search-form-mobile {
   display: none;
+  width: 150px;
 }
 
 .search-form-web {
   display: block;
+  width: 31%;
 }
 
 /*

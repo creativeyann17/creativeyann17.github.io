@@ -66,12 +66,12 @@ const Header = ({ className }) => {
       collapseOnSelect
       className={cx('header', className)}>
       <Container>
-        <Navbar.Brand href="/">
-          <img alt="logo" src="/favicon.ico" height="32" width="32" />
+        <Navbar.Brand href="/" className="mr-0">
+          <img alt="logo" src="/title.png" height="32" width="auto" />
         </Navbar.Brand>
         <Nav className="mx-auto">{renderSearchForm('search-form-mobile')}</Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="mx-3">
           <Nav className="mr-auto">
             {renderNavLink(ROUTES.HOME, 'Home')}
             {renderNavLink(ROUTES.ARTICLES, 'Articles')}
@@ -79,6 +79,7 @@ const Header = ({ className }) => {
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
             </NavDropdown>
+            {renderNavLink(ROUTES.ABOUT, 'About')}
           </Nav>
         </Navbar.Collapse>
         {renderSearchForm('search-form-web')}

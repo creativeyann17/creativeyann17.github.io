@@ -15,6 +15,7 @@ export const ROUTES = {
   ARTICLES: ROUTES_PREFIX + 'articles',
   ARTICLE: ROUTES_PREFIX + 'article',
   SEARCH: ROUTES_PREFIX + 'search',
+  ABOUT: ROUTES_PREFIX + 'about',
   EXTERNALS: {
     GITHUB: 'https://github.com/creativeyann17',
     GITHUB_PAGE: 'https://github.com/creativeyann17/creativeyann17.github.io',
@@ -30,7 +31,10 @@ export const TAGS = {
   MICRONAUT: 'micronaut',
 };
 
+export const NEWS_PAGINATION = 3;
+
 export const ARTICLES_JSON = '/articles.json';
+export const NEWS_JSON = '/news.json';
 
 export const ARTICLES_FOLDER = '/articles';
 export const THUMBNAILS_FOLDER = '/thumbnails';

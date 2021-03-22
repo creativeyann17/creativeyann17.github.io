@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { renderTabFromName } from '../../utils';
+import { renderAnchorFromName } from '../../utils';
 import { articlesPushArticleContent } from '../../services/ArticlesService/actions';
 
 const Headings = ({ level, children, pushArticleContent }) => {
@@ -8,7 +8,7 @@ const Headings = ({ level, children, pushArticleContent }) => {
   const heading = children[0].props.value;
 
   // If we have a heading, make it lower case
-  let anchor = typeof heading === 'string' ? renderTabFromName(heading) : '';
+  let anchor = typeof heading === 'string' ? renderAnchorFromName(heading) : '';
 
   pushArticleContent({ level: level, title: heading, tag: anchor });
 

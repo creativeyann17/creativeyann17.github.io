@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2021-03-14",
+    "title": "Initial release",
+    "description": "Hello! It's has been a busy week coding the skeleton of the web-site with React and trying to have something that work. Good news is it's done and it works properly! Now it's time to improve and write some articles."
+  },
+  {
+    "date": "2021-03-16",
+    "title": "Goodbye CSS ...",
+    "description": "I just discovered that Bootstrap provides pre-defined classnames that can set margin / padding without putting any CSS styles and be responsive at the same time! No need to say I updated the entire components and reduced the amount of CSS by a lot."
+  },
+  {
+    "date": "2021-03-21",
+    "title": "New article: Spring-boot-jwt-ready",
+    "description": "I'm kind of proud of this article because it summarizes lot of work done under the hood to have a spring-boot application that manage JWT out of the box. Moreover it includes Undertow, JPA, global error handling and more ... I'm happy :)"
+  },
+  {
+    "date": "2021-03-21",
+    "title": "New feature: table of contents in articles",
+    "description": "After hours of Googling I didn't find the secret receipt that will work with my current Markdown implementation. Still there is a way to add custom anchor when a header is displayed so I made a small computation of that, pushing every anchor in the reducer when the article has one; React doesn't like the solution because it dispatch action during rendering, will see later how to do that better."
+  },
+  {
+    "date": "2021-03-22",
+    "title": "Update web-site design",
+    "description": "After watching some Youtube videos it becomes clear that the site need some kind of makeover in term of UI/UX because it looks to much like default Boostrap design. It's done, with new font, reworked header, a dedicated About page + news feed and more ..."
+  }
+]

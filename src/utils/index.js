@@ -1,4 +1,4 @@
-import { Col } from 'react-bootstrap';
+import { Col, Pagination } from 'react-bootstrap';
 import { ArticleCard } from '../components';
 import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
@@ -7,6 +7,8 @@ import replace from 'lodash/replace';
 import isEmpty from 'lodash/isEmpty';
 import find from 'lodash/find';
 import words from 'lodash/words';
+import size from 'lodash/size';
+import round from 'lodash/round';
 import { ROUTES, ROUTER_PREFIX } from '../constants';
 import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
 
@@ -71,8 +73,28 @@ export const renderArticleInsideColumn = (article, withFeatured = false) => (
   </Col>
 );
 
-export const renderTabFromName = (name) =>
+export const renderAnchorFromName = (name) =>
   replace(replace(toLower(name), /[^a-zA-Z0-9 ]/g, ''), / /g, '-');
+
+export const renderPagination = (array, maxPageSize, selectedPage, callback) => {
+  const countOfPages = round(size(array) / maxPageSize);
+  let items = [];
+  for (let number = 1; number <= countOfPages; number++) {
+    items.push(
+      <Pagination.Item
+        key={number}
+        active={number === selectedPage}
+        onClick={() => callback(number)}>
+        {number}
+      </Pagination.Item>
+    );
+  }
+  return (
+    <div className="center">
+      <Pagination>{items}</Pagination>
+    </div>
+  );
+};
 
 // toString
 

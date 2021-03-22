@@ -13,7 +13,7 @@ initGA(GA_TRACKING_ID);
 ReactDOM.render(
   <React.Fragment>
     <Helmet>
-      <title>(C) reativeYann17</title>
+      <title>Welcome</title>
       <meta name="image" property="og:image" content="/logo.jpg" />
       <meta
         name="description"

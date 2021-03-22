@@ -45,7 +45,7 @@
       "mockito",
       "actuators"
     ],
-    "date": "2021-03-19",
+    "date": "2021-03-21",
     "duration": 25,
     "featured": true,
     "description": "A ready to work Spring-Boot project with JWT authentication, user repository, Undertow, actuators, mockito, global exception handling ...",

@@ -1,56 +1,33 @@
-import React from 'react';
-import { Container, Row, Jumbotron, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { getArticles } from '../services/ArticlesService/selectors';
-import { ArticleCard, Skills } from '../components';
-import { ROUTES } from '../constants';
-import { renderExternalLinkByUrlAndIcon, findFeaturedArticle } from '../utils';
+import { getNews } from '../services/NewsService/selectors';
+import map from 'lodash/map';
+import slice from 'lodash/slice';
+import { ArticleCard, News } from '../components';
+import { findFeaturedArticle, renderPagination } from '../utils';
+import { NEWS_PAGINATION } from '../constants';
 
-const Home = ({ articles }) => {
+const Home = ({ news, articles }) => {
   const featuredArticle = findFeaturedArticle(articles);
+  const [newsPage, setNewsPage] = useState(1);
+
+  const newsPageStart = (newsPage - 1) * NEWS_PAGINATION;
+  const newsPageEnd = (newsPage - 1) * NEWS_PAGINATION + NEWS_PAGINATION;
+
   return (
     <Container className="page page-home">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Row>
         <Col lg={8}>
-          <Jumbotron>
-            <p>
-              <b>Hello</b>, my name is Yann, French software developer. Until today I have worked on
-              several personal/professional projects based on various kind of solutions: web,
-              desktop and embedded. Different technologies were used like JAVA, JavaScript/HTML/CSS,
-              C#, C/C++. I'm currently working abroad at <u>Montreal</u>.
-            </p>
-            <p>
-              This web-site acts as my blog / portfolio / showcase / poc ... or simply somewhere if
-              I want to test an idea quickly.
-            </p>
-            <p>
-              {renderExternalLinkByUrlAndIcon(
-                ROUTES.EXTERNALS.GITHUB_PAGE,
-                '/github128.png',
-                'mr-3'
-              )}
-              The GitHub repository of this web-site and all my others personal projects.
-            </p>
-            <p>
-              {renderExternalLinkByUrlAndIcon(
-                ROUTES.EXTERNALS.LINKED_IN,
-                '/linkedin128.png',
-                'mr-3'
-              )}
-              If you want to contact me, please use LinkedIn.
-            </p>
-            <p>
-              {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'mr-3')}
-              Follow me on twitter and be notified first about new content.
-            </p>
-            <p>
-              Summary list of my <b>skills</b> and <b>knowledge</b>:
-            </p>
-            <Skills className="my-3" />
-            <p>
-              <b>Have a nice day :&#41;</b>
-            </p>
-          </Jumbotron>
+          {map(slice(news, newsPageStart, newsPageEnd), (n, index) => (
+            <News key={index} news={n} />
+          ))}
+          {renderPagination(news, NEWS_PAGINATION, newsPage, setNewsPage)}
         </Col>
         <Col lg={4}>
           {featuredArticle && <ArticleCard article={featuredArticle} withFeatured />}
@@ -63,6 +40,7 @@ const Home = ({ articles }) => {
 const mapStateToProps = (state) => {
   return {
     articles: getArticles(state),
+    news: getNews(state),
   };
 };
 

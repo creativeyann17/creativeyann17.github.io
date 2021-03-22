@@ -6,5 +6,6 @@ export { default as ArticleDetails } from './ArticleDetails';
 export { default as Skills } from './Skills';
 export { default as SocialIcons } from './SocialIcons';
 export { default as Loading } from './Loading';
+export { default as News } from './News';
 export { default as TableOfContents } from './Markdown/TableOfContents';
 export { Markdown } from './Markdown';
