@@ -37,7 +37,7 @@ const Article = ({ articles }) => {
               <b>Article not found:</b> {id}
             </Alert>
           ) : (
-            <Alert variant="secondary">
+            <Alert variant="light">
               <b>Looking for article:</b> {id} <Spinner animation="border" size="sm" />
             </Alert>
           )}
