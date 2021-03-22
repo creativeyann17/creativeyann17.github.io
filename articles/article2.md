@@ -3,13 +3,13 @@
 Working with documents databases like **Mongo-db** make us forget how SQL databases work with all the jointures between tables. Sometimes you really feel like:
 _"I wish there could be another solution than @ManyToMany ..."_ and in fact there is one, please consider the **@Convert** approach.
 
-## @Convert annotation
+# @Convert annotation
 
 The **javax.persistence.Converter** annotation provides a simple way to convert (and un-convert) a JAVA class into JDBC type. You can easily convert a **List** into **String** like the example below.
 
 **Note:** @Convert should be used only for specific cases where you know that using a join table will be too much.
 
-## User with roles example
+# User with roles example
 
 Let's consider a **User** with different **Roles** that we need to persist into database _(This example is using Lombok)_:
 

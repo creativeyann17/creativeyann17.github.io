@@ -14,7 +14,7 @@ As we would like to make this example kind of a template for future projects we 
 
 Full source code of the article is available [here](https://github.com/creativeyann17/spring-boot-jwt-ready).
 
-## Undertow
+# Undertow
 
 By default Spring-boot uses **Tomcat** as embedded servlet container. **Undertow** has shown really good performances and requires no change in term of code, this is why we want to use it here.
 
@@ -47,11 +47,11 @@ When you start the API the console should display:
 Undertow started on port(s) 8080 (http)
 ```
 
-## JSON Web Token (JWT)
+# JSON Web Token (JWT)
 
 **JWT** have become a common way to store user credentials and is exchanged between client and server for every request. In most case you will rely on a external provider such as **Okta** to create + validate such token but in our case we want to do it on our own.
 
-### Configuration
+## Configuration
 
 **JWT** tokens need two mandatory information:
 
@@ -97,7 +97,7 @@ public class JwtProperties {
 
 **Note:** We use spring-boot **validation** to validate that the properties are filled as expected otherwise the API will fail at startup and display the reason.
 
-### Utils
+## Utils
 
 We are going to implement a **JwtUtils** class in charge of creating + validating our tokens. As spring-boot doesn't provide anything to do that we need to import some dependencies in our **pom.xml**:
 
@@ -185,11 +185,11 @@ public class JwtUtils {
 
 ```
 
-## Authentication
+# Authentication
 
 Now that we have the foundation of our JWT token creation + validation let see how to connect it to the spring-boot security part.
 
-### User & roles
+## User & roles
 
 First we will create a **User** repository where our users are stored and we can query them out by username:
 
@@ -247,7 +247,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 Our repository contains all the **CrudRepository** methods (findById, findAll, save ...) + we define a custom one to find by _username_.
 
-### User details
+## User details
 
 We are now going to define a custom **UserDetailsService** which is going to explain to spring-boot security how do we construct a **UserDetails** based on a **username**:
 
@@ -304,7 +304,7 @@ The implementation logic is:
 
 **Note:** spring-boot security uses internally a prefix for every role: **ROLE\_** and as we don't want to store this prefix into database we can add it here.
 
-### Auth. controller
+## Auth. controller
 
 We are now going to implement the **AuthController** in charge of creating a new token when a user requests one:
 
@@ -366,7 +366,7 @@ The implementation logic is:
 
 **Note:** passwordEncoder.matches(rawPassword, encodedPassword) first param is the raw (not encoded) password, no need to encode it before.
 
-## Security
+# Security
 
 In order to access our **AuthController** we need to allow the **/auth/signin** route in spring-boot security because for now if we try to access it it will return **403 FORBIDDEN**.
 
@@ -448,7 +448,7 @@ And retrieve a nice **JWT**
 
 Important to note that **JWT** aren't encoded and the derails they contains can be seen using this tools [jwt.io](https://jwt.io/).
 
-### JWT Request filter
+## JWT Request filter
 
 Now that we can authenticate our user we need to validate all the requests and extract the token from them, it can be done using a **OncePerRequestFilter** that spring-boot security will call at each request:
 
@@ -524,7 +524,7 @@ Creating the filter itself isn't sufficient, we need to add it to the list of ex
 
 Now our filter is enabled.
 
-## Global exception handling
+# Global exception handling
 
 We now need to add a little of code to fix an issue we have with our **JwtRequestFilter**. Indeed if we throw an exception it will not be handled and format like an exception coming out of a **Controller**. To do that we will encapsulate all our filters with another one in charge of catching exceptions:
 
@@ -607,9 +607,9 @@ public class GlobalExceptionHandlerService {
 
 ```
 
-## Additional properties
+# Additional properties
 
-### Jackson
+## Jackson
 
 We can format our JSON responses to always be **SNAKE_CASE** and ignore null fields:
 
