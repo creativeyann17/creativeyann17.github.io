@@ -4,12 +4,15 @@ import createSagaMiddleware from 'redux-saga';
 // reducers
 import articlesServiceReducer from './ArticlesService/reducer';
 import newsServiceReducer from './NewsService/reducer';
+import websocketServiceReducer from './WebSocketService/reducer';
 // reducers types
 import { Reducer as ArticlesServiceReducerType } from './ArticlesService/types';
 import { Reducer as NewsServiceReducerType } from './NewsService/types';
 // saga
 import articlesServiceSaga from './ArticlesService';
 import newsServiceSaga from './NewsService';
+import websocketServiceSaga from './WebSocketService';
+
 import { DEV } from '../constants';
 
 export interface State {
@@ -21,9 +24,10 @@ export default function configureStore() {
   const rootReducer = combineReducers({
     articlesServiceReducer,
     newsServiceReducer,
+    websocketServiceReducer,
   });
   function* rootSaga() {
-    yield all([articlesServiceSaga(), newsServiceSaga()]);
+    yield all([articlesServiceSaga(), newsServiceSaga(), websocketServiceSaga()]);
   }
 
   const sagaMiddleware = createSagaMiddleware();

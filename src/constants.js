@@ -2,9 +2,15 @@ export const PROD = process.env.NODE_ENV === 'production';
 export const DEV = !PROD;
 
 export const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
+export const API_URL = process.env.REACT_APP_API_URL;
 
 export const BACK_TO_TOP_THRESHOLD = 100;
 export const GLOBAL_REQUEST_TIMEOUT = 5;
+
+export const WEBSOCKET_RETRY = {
+  DELAY: 5000,
+  MAX_ATTEMPTS: 10,
+};
 
 export const ROUTER_PREFIX = '/#';
 
@@ -29,6 +35,7 @@ export const ROUTES = {
 export const TAGS = {
   SPRING_BOOT: 'spring-boot',
   MICRONAUT: 'micronaut',
+  REACT: 'react',
 };
 
 export const NEWS_PAGINATION = 3;
