@@ -6,7 +6,7 @@ import { MdUpdate } from 'react-icons/md';
 const News = ({ className, news }) => {
   return (
     <Alert variant="light" className={cx(className, 'news')}>
-      <h4>{news.title}</h4>
+      <h5>{news.title}</h5>
       <p className="news-date mb-2">
         <MdUpdate />
         &nbsp;{news.date}
