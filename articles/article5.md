@@ -229,7 +229,7 @@ The logic of retry is based on the event **ON_ERROR** that occurred in two situa
 - failed to connect
 - error after being connected
 
-Normally **ON_ERROR** will be triggered as well but in case it 's not we force to close the websocket:
+Normally **ON_CLOSE** will be triggered as well but in case it 's not we force to close the websocket:
 
 ```js
 yield takeLatest(actionTypes.WEBSOCKET_SERVICE_ON_ERROR, watchClose);

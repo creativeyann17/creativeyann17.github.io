@@ -57,7 +57,7 @@
     "id": "websocket-redux-saga",
     "tags": ["react.js", "redux", "saga", "websocket"],
     "date": "2021-03-22",
-    "duration": 5,
+    "duration": 15,
     "featured": false,
     "description": "How to integrate websocket with redux-saga.",
     "thumbnail": "article5.jpg",
