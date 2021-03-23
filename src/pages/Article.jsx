@@ -7,11 +7,12 @@ import { Helmet } from 'react-helmet';
 import FadeIn from 'react-fade-in';
 import replace from 'lodash/replace';
 import { TableOfContents } from '../components';
+import { articlesSetSelected } from '../services/ArticlesService/actions';
 import { getArticles } from '../services/ArticlesService/selectors';
 import { Markdown, ArticleDetails, SocialIcons } from '../components';
 import { ARTICLES_FOLDER, THUMBNAILS_FOLDER, GLOBAL_REQUEST_TIMEOUT } from '../constants';
 
-const Article = ({ articles }) => {
+const Article = ({ articles, setSelectedArticle }) => {
   const { id } = useParams();
   const [state, setState] = useState({ timeout: false });
 
@@ -22,6 +23,11 @@ const Article = ({ articles }) => {
       () => setState({ ...state, timeout: true }),
       GLOBAL_REQUEST_TIMEOUT * 1000
     );
+
+    if (article && state.timeout === false) {
+      setSelectedArticle(article.id);
+    }
+
     return () => {
       clearTimeout(timeoutTimer);
     };
@@ -81,4 +87,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Article);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSelectedArticle: (article) => dispatch(articlesSetSelected(article)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

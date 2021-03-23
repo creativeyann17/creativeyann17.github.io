@@ -11,7 +11,7 @@ import words from 'lodash/words';
 import size from 'lodash/size';
 import round from 'lodash/round';
 import { ROUTES, ROUTER_PREFIX } from '../constants';
-import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS } from '../constants';
+import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS, API_URL } from '../constants';
 
 export const debug = (message, ...args) => {
   if (DEV) {
@@ -31,6 +31,10 @@ export const stopEvent = (event) => {
 };
 
 export const sanitizeText = (text) => replace(text, /[^a-zA-Z0-9-_@ ]/g, '');
+
+export const buildAPIRequestUrl = (path) => {
+  return new URL(path, window.location.protocol + '//' + API_URL).toString();
+};
 
 // routing
 

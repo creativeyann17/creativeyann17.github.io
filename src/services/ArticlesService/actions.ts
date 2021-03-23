@@ -21,6 +21,38 @@ export const articlesFetchFailure = (error: any): ArticlesServiceActionTypes => 
   };
 };
 
+export const articlesSetSelected = (id: string): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_SET_SELECTED,
+    id,
+  };
+};
+
+export const articlesViewsFetchRequest = (id: string): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_VIEWS_FETCH_REQUEST,
+    id,
+  };
+};
+
+export const articlesViewsFetchSuccess = (
+  id: string,
+  count: number
+): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_VIEWS_FETCH_SUCCESS,
+    id,
+    count,
+  };
+};
+
+export const articlesViewsFetchFailure = (error: any): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_VIEWS_FETCH_FAILURE,
+    error,
+  };
+};
+
 export const articlesResetTableOfContents = (): ArticlesServiceActionTypes => {
   return {
     type: actionTypes.ARTICLES_RESET_TABLE_OF_CONTENTS,

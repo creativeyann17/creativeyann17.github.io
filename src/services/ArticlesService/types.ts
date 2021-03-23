@@ -9,6 +9,27 @@ interface ArticlesFetchSuccessAction {
   articles: ArticlesType;
 }
 
+interface ArticlesViewsFetchFailureAction {
+  type: typeof actionTypes.ARTICLES_VIEWS_FETCH_FAILURE;
+  error: null | any;
+}
+
+interface ArticlesSetSelectedAction {
+  type: typeof actionTypes.ARTICLES_SET_SELECTED;
+  article: string;
+}
+
+interface ArticlesViewsFetchRequestAction {
+  type: typeof actionTypes.ARTICLES_VIEWS_FETCH_REQUEST;
+  id: string;
+}
+
+interface ArticlesViewsFetchSuccessAction {
+  type: typeof actionTypes.ARTICLES_VIEWS_FETCH_SUCCESS;
+  id: string;
+  count: number;
+}
+
 interface ArticlesFetchFailureAction {
   type: typeof actionTypes.ARTICLES_FETCH_FAILURE;
   error: null | any;
@@ -37,14 +58,22 @@ export interface ArticleContent {
 
 export interface Reducer {
   isFetching: boolean;
+  isViewsFetching: boolean;
   articles: null | ArticlesType;
+  selected: null | string;
+  views: null | any;
   tableOfContents: any | TableOfContents;
   error: null | any;
+  viewsError: null | any;
 }
 
 export type ArticlesServiceActionTypes =
   | ArticlesFetchRequestAction
   | ArticlesFetchSuccessAction
   | ArticlesFetchFailureAction
+  | ArticlesSetSelectedAction
+  | ArticlesViewsFetchRequestAction
+  | ArticlesViewsFetchSuccessAction
+  | ArticlesViewsFetchFailureAction
   | ArticlesResetTableOfContentsAction
   | ArticlesPushArticleContentsAction;
