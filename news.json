@@ -21,6 +21,16 @@
   },
   {
     "date": "2021-03-22",
+    "title": "New feature: article count of views",
+    "description": "When reading an article the web-site will increase by one (if never read before) or get the count of views of the article. Every others current online users will be notified by websocket of the change in realtime. The web-site will remember if the article has been read before or not by storing a value in thr browser local storage."
+  },
+  {
+    "date": "2021-03-22",
+    "title": "New feature: websocket + article",
+    "description": "The web-site will connect to the API websocket service with the possibility to retry after a delay for an amount of max attempts. This feature uses a classic javascript websocket object embedded inside a redux/saga."
+  },
+  {
+    "date": "2021-03-22",
     "title": "Update web-site design",
     "description": "After watching some Youtube videos it becomes clear that the site need some kind of makeover in term of UI/UX because it looks to much like default Boostrap design. It's done, with new font, reworked header, a dedicated About page + news feed, rework article structure and more ..."
   }
