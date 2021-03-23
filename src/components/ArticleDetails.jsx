@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 import { getViews } from '../services/ArticlesService/selectors';
 import { renderExternalLinkByUrlAndLabel, isArticleNew } from '../utils';
 
-const ArticleDetails = ({ className, article, views, margin }) => {
-  const view = get(views, article.id);
+const ArticleDetails = ({ className, article, views, showViews, margin }) => {
+  const view = showViews ? get(views, article.id) : null;
 
   return (
     <div className={cx('article-details', className)}>
@@ -48,10 +48,12 @@ const ArticleDetails = ({ className, article, views, margin }) => {
 
 ArticleDetails.propTypes = {
   margin: PropTypes.string,
+  showViews: PropTypes.bool,
 };
 
 ArticleDetails.defaultProps = {
   margin: 'mr-3 mb-2',
+  showViews: false,
 };
 
 const mapStateToProps = (state) => {

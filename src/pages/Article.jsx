@@ -57,7 +57,7 @@ const Article = ({ articles, setSelectedArticle }) => {
             <meta name="description" property="og:description" content={article.description} />
           </Helmet>
           <Row>
-            <Col lg={3}>
+            <Col lg={4}>
               <FadeIn>
                 <img
                   className="mb-3"
@@ -67,13 +67,13 @@ const Article = ({ articles, setSelectedArticle }) => {
                   height={'auto'}
                 />
                 <div className="d-flex justify-content-between ">
-                  <ArticleDetails article={article} />
+                  <ArticleDetails article={article} showViews />
                   <SocialIcons article={article} />
                 </div>
               </FadeIn>
               <TableOfContents />
             </Col>
-            <Col lg={9}>{<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}</Col>
+            <Col lg={8}>{<Markdown source={`${ARTICLES_FOLDER}/${article.markdown}`} />}</Col>
           </Row>
         </div>
       )}
