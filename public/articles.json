@@ -34,21 +34,11 @@
   },
   {
     "id": "spring-boot-jwt-ready",
-    "tags": [
-      "spring-boot",
-      "jwt",
-      "database",
-      "security",
-      "undertow",
-      "bcrypt",
-      "jpa",
-      "mockito",
-      "actuators"
-    ],
+    "tags": ["spring-boot", "jwt", "security", "undertow", "jpa"],
     "date": "2021-03-21",
     "duration": 25,
     "featured": true,
-    "description": "A ready to work Spring-Boot project with JWT authentication, user repository, Undertow, actuators, mockito, global exception handling ...",
+    "description": "A ready to work Spring-Boot project with JWT.",
     "thumbnail": "article4.jpg",
     "markdown": "article4.md",
     "repository": "https://github.com/creativeyann17/spring-boot-jwt-ready"
