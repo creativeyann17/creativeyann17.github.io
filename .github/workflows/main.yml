@@ -20,6 +20,7 @@ jobs:
         env:
           REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_GA_AD_CLIENT: ${{ secrets.REACT_APP_GA_AD_CLIENT }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v4
