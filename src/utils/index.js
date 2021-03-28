@@ -10,6 +10,7 @@ import find from 'lodash/find';
 import words from 'lodash/words';
 import size from 'lodash/size';
 import round from 'lodash/round';
+import { Link } from 'react-router-dom';
 import { ROUTES, ROUTER_PREFIX } from '../constants';
 import { DEV, ARTICLE_IS_NEW_UP_TO_DAYS, API_URL } from '../constants';
 
@@ -60,14 +61,30 @@ export const openExternalLink = (link, event) => {
 
 // render
 
+export const renderInternalLinkToArticleId = (article, className) => (
+  <Link className={className} title={'Open article ' + article} to={`${ROUTES.ARTICLE}/${article}`}>
+    article
+  </Link>
+);
+
 export const renderExternalLinkByUrlAndLabel = (url, label, className) => (
-  <a target="_blank" rel="noreferrer" href={url} className={className}>
+  <a
+    target="_blank"
+    rel="noreferrer"
+    href={url}
+    className={className}
+    title={'Open a new page to ' + url}>
     {label}
   </a>
 );
 
 export const renderExternalLinkByUrlAndIcon = (url, icon, className) => (
-  <a target="_blank" rel="noreferrer" href={url} className={className}>
+  <a
+    target="_blank"
+    rel="noreferrer"
+    href={url}
+    className={className}
+    title={'Open a new page to ' + url}>
     <img src={icon} alt={`external-links-to-${url}`} height={32} width={32} />
   </a>
 );

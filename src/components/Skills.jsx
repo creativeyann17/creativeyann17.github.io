@@ -85,7 +85,7 @@ const Skills = ({ className }) => {
             <BsCloud />
             <b>CI / CD / Cloud: </b>{' '}
           </span>
-          <span>Jenkins | Circle-ci | OpenShift | Heroku</span>
+          <span>Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud</span>
         </div>
         <div className="skills-item mb-3">
           <span>

@@ -52,6 +52,28 @@
     "description": "How to integrate websocket with redux-saga.",
     "thumbnail": "article5.jpg",
     "markdown": "article5.md",
-    "repository": null
+    "repository": "https://github.com/creativeyann17/creativeyann17.github.io"
+  },
+  {
+    "id": "micronaut-app-engine",
+    "tags": ["micronaut", "google", "cloud", "app engine"],
+    "date": "2021-03-28",
+    "duration": 10,
+    "featured": true,
+    "description": "Deploy Micronaut in Google Cloud App Engine.",
+    "thumbnail": "article6.jpg",
+    "markdown": "article6.md",
+    "repository": "https://github.com/creativeyann17/creativeyann17-github-cloud"
+  },
+  {
+    "id": "micronaut-graphql-react",
+    "tags": ["micronaut", "react", "graphql", "hooks"],
+    "date": "2021-03-25",
+    "duration": 15,
+    "featured": false,
+    "description": "Integrate GraphQl in Micronaut and React.js.",
+    "thumbnail": "article7.jpg",
+    "markdown": "article7.md",
+    "repository": "https://github.com/creativeyann17/creativeyann17-github-api"
   }
 ]

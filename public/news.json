@@ -27,11 +27,24 @@
   {
     "date": "2021-03-22",
     "title": "New feature: websocket + article",
+    "article": "websocket-redux-saga",
     "description": "The web-site will connect to the API websocket service with the possibility to retry after a delay for an amount of max attempts. This feature uses a classic javascript websocket object embedded inside a redux/saga."
   },
   {
     "date": "2021-03-22",
     "title": "Update web-site design",
-    "description": "After watching some Youtube videos it becomes clear that the site need some kind of makeover in term of UI/UX because it looks to much like default Boostrap design. It's done, with new font, reworked header, a dedicated About page + news feed, rework article structure and more ..."
+    "description": "After watching some Youtube videos it becomes clear that the site need some kind of makeover in term of UI/UX because it looks to much like default Bootstrap design. It's done, with new font, reworked header, a dedicated About page + news feed, rework article structure and more ..."
+  },
+  {
+    "date": "2021-03-25",
+    "title": "Add GraphQl support + article",
+    "article": "micronaut-graphql-react",
+    "description": "Proof of concept that the API can be used with GraphQL queries/mutations from the front-end using Apollo/Client. The result is satisfying and highlights this fact: using Hooks (context) + GraphQL may nullify the need of Redux + Saga. To be remember for my next React project."
+  },
+  {
+    "date": "2021-03-28",
+    "title": "Google Cloud App Engine + article",
+    "article": "micronaut-app-engine",
+    "description": "Time to play with the (limitless?) cloud features starting with Google Cloud. My plan is to migrate the existing Heroku API into App Engine using Firestore as database instead of PostgreSQL and see how to replace the websocket if possible."
   }
 ]

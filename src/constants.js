@@ -38,7 +38,7 @@ export const TAGS = {
   REACT: 'react',
 };
 
-export const NEWS_PAGINATION = 3;
+export const NEWS_PAGINATION = 5;
 
 export const ARTICLES_JSON = '/articles.json';
 export const NEWS_JSON = '/news.json';
