@@ -76,9 +76,10 @@ const Header = ({ className }) => {
             {renderNavLink(ROUTES.HOME, 'Home')}
             {renderNavLink(ROUTES.ARTICLES, 'Articles')}
             <NavDropdown title="Categories">
-              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.CLOUD, 'Cloud')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.REACT, 'React.js')}
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
             </NavDropdown>
             {renderNavLink(ROUTES.ABOUT, 'About')}
           </Nav>

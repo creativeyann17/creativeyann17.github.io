@@ -33,9 +33,10 @@ export const ROUTES = {
 };
 
 export const TAGS = {
-  SPRING_BOOT: 'spring-boot',
+  CLOUD: 'cloud',
   MICRONAUT: 'micronaut',
   REACT: 'react',
+  SPRING_BOOT: 'spring-boot',
 };
 
 export const NEWS_PAGINATION = 5;
