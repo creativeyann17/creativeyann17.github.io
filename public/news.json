@@ -56,5 +56,11 @@
     "date": "2021-04-04",
     "title": "Full GraphQL integration with Redux/Saga",
     "description": "After some difficulties with @apollo/client and the useQuery/useLazyQuery/useMutation hooks I decided to perform the GraphQL queries inside the saga directly. It also give me the possibility to switch between REST and GraphQL which is a feature I wanted since the beginning as a proof of concept."
+  },
+  {
+    "date": "2021-04-05",
+    "title": "New article: docker-image-api",
+    "article": "create-docker-image-api",
+    "description": "Create a Dockerfile with the build and run instructions for your java API and improve your deployments with containers."
   }
 ]
