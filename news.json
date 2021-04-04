@@ -46,5 +46,15 @@
     "title": "Google Cloud App Engine + article",
     "article": "micronaut-app-engine",
     "description": "Time to play with the (limitless?) cloud features starting with Google Cloud. My plan is to migrate the existing Heroku API into App Engine using Firestore as database instead of PostgreSQL and see how to replace the websocket if possible."
+  },
+  {
+    "date": "2021-04-03",
+    "title": "New feature: article likes",
+    "description": "Users have now the ability to like an article. Same as count of views, this feature uses websocket to be notified if another user liked the article too. Users can't like the same article twice and this state is saved in local storage (nothing on the server side)."
+  },
+  {
+    "date": "2021-04-04",
+    "title": "Full GraphQL integration with Redux/Saga",
+    "description": "After some difficulties with @apollo/client and the useQuery/useLazyQuery/useMutation hooks I decided to perform the GraphQL queries inside the saga directly. It also give me the possibility to switch between REST and GraphQL which is a feature I wanted since the beginning as a proof of concept."
   }
 ]
