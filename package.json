@@ -16,6 +16,7 @@
     "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.21",
     "node-sass": "^5.0.0",

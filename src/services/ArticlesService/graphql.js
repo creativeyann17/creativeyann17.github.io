@@ -17,3 +17,21 @@ export const postViewArticleQuery = gql`
     }
   }
 `;
+
+export const getLikeArticleQuery = gql`
+  query getLikeArticleQuery($article: String!) {
+    getLikeArticle(article: $article) {
+      article
+      count
+    }
+  }
+`;
+
+export const postLikeArticleQuery = gql`
+  mutation postLikeArticleQuery($article: String!) {
+    postLikeArticle(article: $article) {
+      article
+      count
+    }
+  }
+`;

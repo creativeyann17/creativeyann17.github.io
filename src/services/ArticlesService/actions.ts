@@ -65,3 +65,38 @@ export const articlesPushArticleContent = (content: ArticleContent): ArticlesSer
     content,
   };
 };
+
+export const articlesLikesFetchRequest = (id: string): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_LIKES_FETCH_REQUEST,
+    id,
+  };
+};
+
+export const articlesLikesFetchSuccess = (
+  id: string,
+  count: number,
+  liked: boolean
+): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_LIKES_FETCH_SUCCESS,
+    id,
+    count,
+    liked,
+  };
+};
+
+export const articlesLikesFetchFailure = (id: string, error: any): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_LIKES_FETCH_FAILURE,
+    id,
+    error,
+  };
+};
+
+export const articlesLikesIncRequest = (id: string): ArticlesServiceActionTypes => {
+  return {
+    type: actionTypes.ARTICLES_LIKES_INC_REQUEST,
+    id,
+  };
+};

@@ -6,3 +6,5 @@ export const getArticles = (state: State) => state.articlesServiceReducer.articl
 export const getSelected = (state: State) => state.articlesServiceReducer.selected;
 export const getTableOfContents = (state: State) => state.articlesServiceReducer.tableOfContents;
 export const getViews = (state: State) => state.articlesServiceReducer.views;
+export const getLikes = (state: State) => state.articlesServiceReducer.likes;
+export const getLiked = (state: State) => state.articlesServiceReducer.liked;

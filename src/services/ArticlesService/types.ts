@@ -43,6 +43,27 @@ interface ArticlesPushArticleContentsAction {
   type: typeof actionTypes.ARTICLES_PUSH_ARTICLE_CONTENT;
   content: ArticleContent;
 }
+interface ArticlesLikesGetRequestAction {
+  type: typeof actionTypes.ARTICLES_LIKES_FETCH_REQUEST;
+  id: string;
+}
+
+interface ArticlesLikesGetSuccessAction {
+  type: typeof actionTypes.ARTICLES_LIKES_FETCH_SUCCESS;
+  id: string;
+  count: number;
+  liked: boolean;
+}
+
+interface ArticlesLikesGetFailureAction {
+  type: typeof actionTypes.ARTICLES_LIKES_FETCH_FAILURE;
+  id: string;
+  error: null | any;
+}
+interface ArticlesLikesIncRequestAction {
+  type: typeof actionTypes.ARTICLES_LIKES_INC_REQUEST;
+  id: string;
+}
 
 export interface ArticlesType extends Array<ArticleType> {}
 
@@ -59,12 +80,16 @@ export interface ArticleContent {
 export interface Reducer {
   isFetching: boolean;
   isViewsFetching: boolean;
+  isLikesFetching: boolean;
   articles: null | ArticlesType;
   selected: null | string;
   views: null | any;
+  likes: null | any;
+  liked: null | any;
   tableOfContents: any | TableOfContents;
   error: null | any;
   viewsError: null | any;
+  likesError: null | any;
 }
 
 export type ArticlesServiceActionTypes =
@@ -75,5 +100,9 @@ export type ArticlesServiceActionTypes =
   | ArticlesViewsFetchRequestAction
   | ArticlesViewsFetchSuccessAction
   | ArticlesViewsFetchFailureAction
+  | ArticlesLikesGetRequestAction
+  | ArticlesLikesGetSuccessAction
+  | ArticlesLikesGetFailureAction
+  | ArticlesLikesIncRequestAction
   | ArticlesResetTableOfContentsAction
   | ArticlesPushArticleContentsAction;

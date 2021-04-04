@@ -67,7 +67,7 @@ const Article = ({ articles, setSelectedArticle }) => {
                   height={'auto'}
                 />
                 <div className="d-flex justify-content-between ">
-                  <ArticleDetails article={article} showViews />
+                  <ArticleDetails article={article} showViews showLikes />
                   <SocialIcons article={article} />
                 </div>
               </FadeIn>

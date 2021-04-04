@@ -4,12 +4,16 @@ import { Reducer } from './types';
 const initialState: Reducer = {
   isFetching: false,
   isViewsFetching: false,
+  isLikesFetching: false,
   articles: [],
   selected: null,
   views: {},
+  likes: {},
+  liked: {},
   tableOfContents: [],
   error: null,
   viewsError: null,
+  likesError: null,
 };
 
 function reducer(state = initialState, action: any): Reducer {
@@ -35,10 +39,26 @@ function reducer(state = initialState, action: any): Reducer {
       };
     case actionTypes.ARTICLES_VIEWS_FETCH_FAILURE:
       return { ...state, isViewsFetching: false, viewsError: action.error };
+
     case actionTypes.ARTICLES_RESET_TABLE_OF_CONTENTS:
       return { ...state, tableOfContents: [] };
     case actionTypes.ARTICLES_PUSH_ARTICLE_CONTENT:
       return { ...state, tableOfContents: [...state.tableOfContents, action.content] };
+
+    case actionTypes.ARTICLES_LIKES_INC_REQUEST:
+    case actionTypes.ARTICLES_LIKES_FETCH_REQUEST:
+      return { ...state, isLikesFetching: true, likesError: null };
+    case actionTypes.ARTICLES_LIKES_FETCH_SUCCESS:
+      return {
+        ...state,
+        isLikesFetching: false,
+        likesError: null,
+        likes: { ...state.views, [action.id]: action.count },
+        liked: { ...state.views, [action.id]: action.liked },
+      };
+    case actionTypes.ARTICLES_LIKES_FETCH_FAILURE:
+      return { ...state, isLikesFetching: false, likesError: action.error };
+
     default:
       return state;
   }
