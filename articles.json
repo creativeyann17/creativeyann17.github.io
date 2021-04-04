@@ -75,5 +75,16 @@
     "thumbnail": "article7.jpg",
     "markdown": "article7.md",
     "repository": "https://github.com/creativeyann17/creativeyann17-github-api"
+  },
+  {
+    "id": "create-docker-image-api",
+    "tags": ["micronaut", "spring-boot", "docker", "cloud"],
+    "date": "2021-04-05",
+    "duration": 5,
+    "featured": false,
+    "description": "Improve your deployments with containers.",
+    "thumbnail": "article8.jpg",
+    "markdown": "article8.md",
+    "repository": null
   }
 ]
