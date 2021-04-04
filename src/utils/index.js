@@ -46,7 +46,10 @@ export const openArticleById = (history, id, event) => {
 
 export const openSearchByFilter = (history, filter, event) => {
   stopEvent(event);
-  history.push(`${ROUTES.SEARCH}/${filter}`);
+  const searchFilter = trim(sanitizeText(filter));
+  if (!isEmpty(searchFilter)) {
+    history.push(`${ROUTES.SEARCH}/${searchFilter}`);
+  }
 };
 
 export const openInternalLink = (history, path, event) => {

@@ -13,7 +13,7 @@ const Search = ({ articles }) => {
   return (
     <Container className="page page-search">
       <Helmet>
-        <title>{filter}</title>
+        <title>Search: {filter}</title>
       </Helmet>
       {filter && (
         <Alert variant="light">
