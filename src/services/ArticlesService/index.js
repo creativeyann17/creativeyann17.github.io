@@ -43,8 +43,9 @@ export function* watchArticlesViewsFetchRequest(action) {
     if (alreadyVisitThisArticle) {
       debug('Article already visited');
       if (useGraphQL) {
-        const data = yield graphQLClient.request(getViewArticleQuery, { article: action.id });
-        views = data.getViewArticle;
+        views = yield graphQLClient
+          .request(getViewArticleQuery, { article: action.id })
+          .then((data) => data.getViewArticle);
       } else {
         views = yield axios.get(path).then((res) => res.data);
       }
@@ -52,14 +53,15 @@ export function* watchArticlesViewsFetchRequest(action) {
       debug('Article never visited');
 
       if (useGraphQL) {
-        const data = yield graphQLClient.request(postViewArticleQuery, { article: action.id });
-        views = data.postViewArticle;
+        views = yield graphQLClient
+          .request(postViewArticleQuery, { article: action.id })
+          .then((data) => data.postViewArticle);
       } else {
         views = yield axios.post(path).then((res) => res.data);
       }
     }
-    yield put(actions.articlesViewsFetchSuccess(views.article, views.count));
     ls.set(action.id, { ...localStorageArticle, viewed: true });
+    yield put(actions.articlesViewsFetchSuccess(views.article, views.count));
   } catch (e) {
     yield put(actions.articlesViewsFetchFailure(e.message));
   }
@@ -68,10 +70,11 @@ export function* watchArticlesViewsFetchRequest(action) {
 export function* watchArticlesLikesFetchRequest(action) {
   try {
     const path = buildAPIRequestUrl('/likes/' + action.id);
-    let likes = yield axios.get(path).then((res) => res.data);
+    let likes;
     if (useGraphQL) {
-      const data = yield graphQLClient.request(getLikeArticleQuery, { article: action.id });
-      likes = data.getLikeArticle;
+      likes = yield graphQLClient
+        .request(getLikeArticleQuery, { article: action.id })
+        .then((data) => data.getLikeArticle);
     } else {
       likes = yield axios.get(path).then((res) => res.data);
     }
@@ -86,8 +89,9 @@ export function* watchArticlesLikesIncRequest(action) {
     const path = buildAPIRequestUrl('/likes/' + action.id);
     let likes;
     if (useGraphQL) {
-      const data = yield graphQLClient.request(postLikeArticleQuery, { article: action.id });
-      likes = data.postLikeArticle;
+      likes = yield graphQLClient
+        .request(postLikeArticleQuery, { article: action.id })
+        .then((data) => data.postLikeArticle);
     } else {
       likes = yield axios.post(path).then((res) => res.data);
     }
