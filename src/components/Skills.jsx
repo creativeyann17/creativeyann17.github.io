@@ -50,7 +50,7 @@ const Skills = ({ className }) => {
             <SiJavascript />
             <b>Front-end: </b>
           </span>
-          <span>React.js | GraphQl | Redux | Saga | Hooks | Bootstrap</span>
+          <span>React.js | GraphQL | Redux | Saga | Hooks | Bootstrap</span>
         </div>
         <div className="skills-item mb-3">
           <span>
@@ -85,7 +85,7 @@ const Skills = ({ className }) => {
             <BsCloud />
             <b>CI / CD / Cloud: </b>{' '}
           </span>
-          <span>Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud</span>
+          <span>Docker | Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud</span>
         </div>
         <div className="skills-item mb-3">
           <span>

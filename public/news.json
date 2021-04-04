@@ -37,7 +37,7 @@
   },
   {
     "date": "2021-03-25",
-    "title": "Add GraphQl support + article",
+    "title": "Add GraphQL support + article",
     "article": "micronaut-graphql-react",
     "description": "Proof of concept that the API can be used with GraphQL queries/mutations from the front-end using Apollo/Client. The result is satisfying and highlights this fact: using Hooks (context) + GraphQL may nullify the need of Redux + Saga. To be remember for my next React project."
   },

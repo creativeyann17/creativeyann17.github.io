@@ -71,7 +71,7 @@
     "date": "2021-03-25",
     "duration": 15,
     "featured": false,
-    "description": "Integrate GraphQl in Micronaut and React.js.",
+    "description": "Integrate GraphQL in Micronaut and React.js.",
     "thumbnail": "article7.jpg",
     "markdown": "article7.md",
     "repository": "https://github.com/creativeyann17/creativeyann17-github-api"

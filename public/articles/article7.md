@@ -30,7 +30,7 @@ graphql:
 
 ## Schema definition
 
-GraphQl as a query language needs to know the **schema** of your queries. There are 3 types of schema:
+GraphQL as a query language needs to know the **schema** of your queries. There are 3 types of schema:
 
 - query (read-only <=> equivalent to GET)
 - mutation (modification <=> POST/PUT/PATCH/DELETE)
@@ -58,7 +58,7 @@ type View {
 }
 ```
 
-**Note:** more about **GraphQl schema definition** [here](https://graphql.org/learn/queries/).
+**Note:** more about **GraphQL schema definition** [here](https://graphql.org/learn/queries/).
 
 ## Map queries & mutations
 
@@ -168,7 +168,7 @@ Here is an example of test done with **GraphiQl**:
 
 # Front-end
 
-Now that our back-end is ready to receive **GraphQl** queries, we can setup the front-end to call it.
+Now that our back-end is ready to receive **GraphQL** queries, we can setup the front-end to call it.
 
 ## Package
 
