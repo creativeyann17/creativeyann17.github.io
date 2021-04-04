@@ -2,10 +2,6 @@
 
 Hello, this repository contains the source-code of my web-site [creativeyann17.github.io](https://creativeyann17.github.io/). The purpose of this web-site is to showcase some of my acquired skills and knowledge in web and software development. The following readme gives some details about of the choices done to develop it.
 
-# Changelog
-
-You can see the last changes here: [CHANGELOG.md](https://github.com/creativeyann17/creativeyann17.github.io/blob/main/CHANGELOG.md)
-
 # Technologies
 
 This project is built on the following stack:
