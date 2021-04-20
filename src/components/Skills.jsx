@@ -80,7 +80,7 @@ const Skills = ({ className }) => {
             <AiOutlineCode />
             <b>Tools: </b>{' '}
           </span>
-          <span>IntelliJ | VSCode | Github | Atlassian | npm | yarn | maven | bash</span>
+          <span>IntelliJ | VSCode | Git | Github | Atlassian | npm | yarn | maven | bash</span>
         </div>
         <div className="skills-item mb-3">
           <span>
@@ -94,7 +94,9 @@ const Skills = ({ className }) => {
             <BsCloud />
             <b>CI / CD / Cloud: </b>{' '}
           </span>
-          <span>Docker | Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud</span>
+          <span>
+            Docker | Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud | GitHub Actions
+          </span>
         </div>
         <div className="skills-item mb-3">
           <span>
