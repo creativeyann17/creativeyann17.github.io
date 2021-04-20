@@ -7,9 +7,10 @@ import { GiSkills } from 'react-icons/gi';
 import { BsCloud } from 'react-icons/bs';
 import { RiTempColdLine } from 'react-icons/ri';
 import { SiJavascript } from 'react-icons/si';
+import { AiFillFilePdf } from 'react-icons/ai';
 import cx from 'classnames';
 import { ROUTES } from '../constants';
-import { renderExternalLinkByUrlAndIcon } from '../utils';
+import { renderExternalLinkByUrlAndIcon, renderExternalLinkByUrlAndLabel } from '../utils';
 
 const Skills = ({ className }) => {
   return (
@@ -38,6 +39,14 @@ const Skills = ({ className }) => {
           Follow me on twitter and be notified first about new content.
         </p>
         <p>
+          <AiFillFilePdf />
+          <b>CV </b>
+          Français ({renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}/
+          {renderExternalLinkByUrlAndLabel('/cv/fr.pdf', 'PDF')})&nbsp;English (
+          {renderExternalLinkByUrlAndLabel('/cv/en.html', 'HTML')}/
+          {renderExternalLinkByUrlAndLabel('/cv/en.pdf', 'PDF')})
+        </p>
+        <p>
           <b>Have a nice day :&#41;</b>
         </p>
       </Col>
@@ -50,21 +59,21 @@ const Skills = ({ className }) => {
             <SiJavascript />
             <b>Front-end: </b>
           </span>
-          <span>React.js | GraphQL | Redux | Saga | Hooks | Bootstrap</span>
+          <span>React.js | GraphQL | Redux | Saga | Jest | Hooks | Bootstrap</span>
         </div>
         <div className="skills-item mb-3">
           <span>
             <AiOutlineCodeSandbox />
             <b>Back-end: </b>
           </span>
-          <span>Spring-boot | Micronaut | OpenAPI/Swagger</span>
+          <span>Spring-boot | Micronaut | JUnit | OpenAPI / Swagger</span>
         </div>
         <div className="skills-item mb-3">
           <span>
             <BiCode />
             <b>Languages: </b>
           </span>
-          <span>Java | JavaScript | HTML/CSS/SCSS</span>
+          <span>Java | JavaScript | HTML / CSS / SCSS</span>
         </div>
         <div className="skills-item mb-3">
           <span>
@@ -97,7 +106,7 @@ const Skills = ({ className }) => {
         <div className="skills-item mb-3">
           <span>
             <GiSkills />
-            <b>Extra skills: </b>{' '}
+            <b>Extra: </b>{' '}
           </span>
           <span>Tech lead | Shopify | Gimp | Blender | Agile methods</span>
         </div>
