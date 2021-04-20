@@ -128,6 +128,18 @@ a {
   color: #b1eaff;
 }
 
+.resume .resume_left .resume_os {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.resume .resume_left .resume_os i {
+  color: #b1eaff;
+  font-size: 35px;
+}
+
 .resume .resume_left .resume_skills ul li {
   display: flex;
   color: #b1eaff;
