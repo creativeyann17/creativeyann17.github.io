@@ -47,6 +47,9 @@ a {
     margin: 0 auto;
     background: white;
   }
+  body {
+    background: white;
+  }
 }
 
 .resume .resume_left {
