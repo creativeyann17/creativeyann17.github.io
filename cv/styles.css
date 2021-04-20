@@ -40,12 +40,13 @@ a {
   height: auto;
   display: flex;
   margin: 50px auto;
+  box-shadow: 5px 5px 15px -5px #000000;
 }
 
 @media print {
   .resume {
     margin: 0 auto;
-    background: white;
+    box-shadow: none;
   }
   body {
     background: white;
@@ -53,7 +54,7 @@ a {
 }
 
 .resume .resume_left {
-  width: 280px;
+  width: 35%;
   background: #2b5380;
   font-size: smaller;
 }
@@ -155,7 +156,7 @@ a {
 }
 
 .resume .resume_right {
-  width: 520px;
+  width: auto;
   background: #fff;
   padding: 15px;
 }
