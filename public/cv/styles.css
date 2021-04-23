@@ -54,7 +54,7 @@ a {
 }
 
 .resume .resume_left {
-  width: 35%;
+  min-width: 35%;
   background: #2b5380;
   font-size: smaller;
 }
