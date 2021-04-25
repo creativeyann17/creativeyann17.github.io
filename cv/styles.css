@@ -158,7 +158,7 @@ a {
 .resume .resume_right {
   width: auto;
   background: #fff;
-  padding: 15px;
+  padding: 0 15px;
 }
 
 .resume .resume_right .bold {
