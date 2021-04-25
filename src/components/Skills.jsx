@@ -80,7 +80,9 @@ const Skills = ({ className }) => {
             <AiOutlineCode />
             <b>Tools: </b>{' '}
           </span>
-          <span>IntelliJ | VSCode | Git | Github | Atlassian | npm | yarn | maven | bash</span>
+          <span>
+            IntelliJ | VSCode | Git | Github | Atlassian | npm | yarn | maven | bash | Postman
+          </span>
         </div>
         <div className="skills-item mb-3">
           <span>
