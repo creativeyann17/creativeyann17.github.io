@@ -29,8 +29,9 @@ export const ROUTES = {
     GITHUB_PAGE: 'https://github.com/creativeyann17/creativeyann17.github.io',
     GITHUB_PRIVACY: 'https://docs.github.com/en/github/site-policy/github-privacy-statement',
     GITHUB_TOS: 'https://docs.github.com/en/github/site-policy/github-terms-of-service',
-    LINKED_IN: 'https://www.linkedin.com/in/yann-marcou-21280267/',
+    LINKED_IN: 'https://www.linkedin.com/in/yann-marcou-21280267',
     TWITTER: 'https://twitter.com/CreativeYann17',
+    INSTAGRAM: 'https://www.instagram.com/yannou17',
   },
 };
 

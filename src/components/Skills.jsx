@@ -8,6 +8,7 @@ import { BsCloud } from 'react-icons/bs';
 import { RiTempColdLine } from 'react-icons/ri';
 import { SiJavascript } from 'react-icons/si';
 import { AiFillFilePdf } from 'react-icons/ai';
+import { FaMobileAlt } from 'react-icons/fa';
 import cx from 'classnames';
 import { ROUTES } from '../constants';
 import { renderExternalLinkByUrlAndIcon, renderExternalLinkByUrlAndLabel } from '../utils';
@@ -39,9 +40,13 @@ const Skills = ({ className }) => {
           Follow me on twitter and be notified first about new content.
         </p>
         <p>
+          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.INSTAGRAM, '/instagram128.png', 'mr-3')}
+          Developers also have pictures to share of their free time :)
+        </p>
+        <p>
           <AiFillFilePdf />
           <b>CV </b>
-          Français ({renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}/
+          Français&nbsp;({renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}/
           {renderExternalLinkByUrlAndLabel('/cv/fr.pdf', 'PDF')})&nbsp;English (
           {renderExternalLinkByUrlAndLabel('/cv/en.html', 'HTML')}/
           {renderExternalLinkByUrlAndLabel('/cv/en.pdf', 'PDF')})
@@ -67,6 +72,13 @@ const Skills = ({ className }) => {
             <b>Back-end: </b>
           </span>
           <span>Spring-boot | Micronaut | JUnit | OpenAPI / Swagger</span>
+        </div>
+        <div className="skills-item mb-3">
+          <span>
+            <FaMobileAlt />
+            <b>Mobile: </b>
+          </span>
+          <span>React Native | Expo | react-native-paper</span>
         </div>
         <div className="skills-item mb-3">
           <span>
