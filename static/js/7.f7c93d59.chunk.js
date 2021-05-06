@@ -1,0 +1,2 @@
+(this["webpackJsonpcreativeyann17.github.io"]=this["webpackJsonpcreativeyann17.github.io"]||[]).push([[7],{838:function(e,t,a){"use strict";a.r(t);a(1);var n=a(813),c=a(830),i=a(25),s=a(194),r=a(2);t.default=function(e){e.articles;var t=Object(i.g)();return Object(r.jsxs)(n.a,{className:"page page-not-found ",children:[Object(r.jsx)(s.a,{children:Object(r.jsx)("title",{children:"404"})}),Object(r.jsxs)(c.a,{variant:"warning",className:"mt-3",children:[Object(r.jsx)("b",{children:"Page not found:"})," ",t.pathname]})]})}}}]);
+//# sourceMappingURL=7.f7c93d59.chunk.js.map
