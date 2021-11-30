@@ -86,5 +86,16 @@
     "thumbnail": "article8.jpg",
     "markdown": "article8.md",
     "repository": null
+  },
+  {
+    "id": "minimal-secret-santa",
+    "tags": ["scala", "pico", "cli", "sbt", "csv"],
+    "date": "2021-11-30",
+    "duration": 5,
+    "featured": true,
+    "description": "Scala implementation of a command line secret-santa.",
+    "thumbnail": "article9.jpg",
+    "markdown": "article9.md",
+    "repository": "https://github.com/creativeyann17/minimal-secret-santa"
   }
 ]

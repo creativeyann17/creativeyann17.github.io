@@ -62,5 +62,11 @@
     "title": "New article: docker-image-api",
     "article": "create-docker-image-api",
     "description": "Create a Dockerfile with the build and run instructions for your java API and improve your deployments with containers."
+  },
+  {
+    "date": "2021-11-30",
+    "title": "New article: minimal-secret-santa",
+    "article": "minimal-secret-santa",
+    "description": "Hello! Today I'm really happy to feature a little implementation of a command line secret santa. This program is made in Scala (yesss that's a new skill yeahhh!) and PicoCLI library that is really fun to use, it's full of nice features and simplify a lot any script/program that may be in need of parameters."
   }
 ]
