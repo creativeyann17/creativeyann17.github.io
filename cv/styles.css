@@ -11,7 +11,6 @@
 body {
   background: #585c68;
   font-size: small;
-  line-height: 22px;
   color: #555555;
 }
 
@@ -55,6 +54,7 @@ a {
 
 .resume .resume_left {
   min-width: 35%;
+  line-height: 22px;
   background: #2b5380;
   font-size: smaller;
 }
@@ -89,7 +89,6 @@ a {
 
 .resume .resume_left .regular {
   font-weight: 700;
-  font-size: small;
   color: #b1eaff;
 }
 
@@ -159,6 +158,11 @@ a {
   width: auto;
   background: #fff;
   padding: 0 15px;
+  font-size: smaller;
+}
+
+.resume .resume_right p {
+  margin-bottom: 10px;
 }
 
 .resume .resume_right .bold {
@@ -166,7 +170,7 @@ a {
 }
 
 .resume .resume_right ul li .info {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .resume .resume_right ul li .info b {

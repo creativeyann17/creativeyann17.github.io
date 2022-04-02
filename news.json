@@ -68,5 +68,11 @@
     "title": "New article: minimal-secret-santa",
     "article": "minimal-secret-santa",
     "description": "Hello! Today I'm really happy to feature a little implementation of a command line secret santa. This program is made in Scala (yesss that's a new skill yeahhh!) and PicoCLI library that is really fun to use, it's full of nice features and simplify a lot any script/program that may be in need of parameters."
+  },
+  {
+    "date": "2022-04-02",
+    "title": "New article: localstack-docker-compose",
+    "article": "localstack-docker-compose",
+    "description": "In this article we are exploring a solution to manage the complexity of working with a local environment with your custom data while writing your code."
   }
 ]
