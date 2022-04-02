@@ -37,7 +37,7 @@
     "tags": ["spring-boot", "jwt", "security", "undertow", "jpa"],
     "date": "2021-03-21",
     "duration": 25,
-    "featured": true,
+    "featured": false,
     "description": "A ready to work Spring-Boot project with JWT.",
     "thumbnail": "article4.jpg",
     "markdown": "article4.md",
@@ -59,7 +59,7 @@
     "tags": ["micronaut", "google", "cloud", "app engine"],
     "date": "2021-03-28",
     "duration": 10,
-    "featured": true,
+    "featured": false,
     "description": "Deploy Micronaut in Google Cloud App Engine.",
     "thumbnail": "article6.jpg",
     "markdown": "article6.md",
@@ -92,10 +92,21 @@
     "tags": ["scala", "pico", "cli", "sbt", "csv"],
     "date": "2021-11-30",
     "duration": 5,
-    "featured": true,
+    "featured": false,
     "description": "Scala implementation of a command line secret-santa.",
     "thumbnail": "article9.jpg",
     "markdown": "article9.md",
     "repository": "https://github.com/creativeyann17/minimal-secret-santa"
+  },
+  {
+    "id": "localstack-docker-compose",
+    "tags": ["bash", "docker", "compose", "local"],
+    "date": "2022-04-02",
+    "duration": 5,
+    "featured": true,
+    "description": "Easy local env. setup using docker compose and a bash script.",
+    "thumbnail": "article10.jpg",
+    "markdown": "article10.md",
+    "repository": "https://github.com/creativeyann17/localstack-docker-compose"
   }
 ]
