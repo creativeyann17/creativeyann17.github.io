@@ -18,10 +18,9 @@ const Skills = ({ className }) => {
     <Row className={cx(className, 'skills')}>
       <Col sm={6}>
         <p>
-          <b>Hello, my name is Yann, French software developer.</b> Until today I have worked on
+          <b>Hello, my name is Yann, french software developer.</b> Until today I have worked on
           several personal/professional projects based on various kind of solutions: web, desktop
-          and embedded. Different technologies were used like JAVA, JavaScript/HTML/CSS, C#, C/C++.
-          I'm currently working abroad at <b>Montreal</b>.
+          and embedded. I'm currently working abroad at <b>Montreal</b>.
         </p>
         <p>
           This web-site acts as my blog / portfolio / showcase / poc ... or simply somewhere if I
@@ -85,7 +84,7 @@ const Skills = ({ className }) => {
             <BiCode />
             <b>Languages: </b>
           </span>
-          <span>Java | JavaScript | HTML / CSS / SCSS</span>
+          <span>Java | Scala / Spark | JS | HTML / CSS / SCSS</span>
         </div>
         <div className="skills-item mb-3">
           <span>
@@ -93,7 +92,7 @@ const Skills = ({ className }) => {
             <b>Tools: </b>{' '}
           </span>
           <span>
-            IntelliJ | VSCode | Git | Github | Atlassian | npm | yarn | maven | bash | Postman
+            IntelliJ | VSCode | Git | Github | Atlassian | npm | maven | Sbt | bash | Postman
           </span>
         </div>
         <div className="skills-item mb-3">
@@ -101,7 +100,7 @@ const Skills = ({ className }) => {
             <FiDatabase />
             <b>Databases: </b>{' '}
           </span>
-          <span>MongoDB | H2 | PostgreSQL | Oracle</span>
+          <span>MongoDB | PostgreSQL | S3 | ElasticSearch</span>
         </div>
         <div className="skills-item mb-3">
           <span>
@@ -109,7 +108,7 @@ const Skills = ({ className }) => {
             <b>CI / CD / Cloud: </b>{' '}
           </span>
           <span>
-            Docker | Jenkins | Circle-ci | OpenShift | Heroku | Google Cloud | GitHub Actions
+            Kubectl | Minikube | Docker / Compose | AWS CLI | OpenShift | Heroku | Google Cloud | GitHub Actions
           </span>
         </div>
         <div className="skills-item mb-3">
@@ -132,7 +131,7 @@ const Skills = ({ className }) => {
             <RiTempColdLine />
             <b>In need of a refresh: </b>{' '}
           </span>
-          <span>C/C++ | C# | Qt | Swing | Neo4j | Play Framework 1.x</span>
+          <span>C/C++ | C# | Qt | Swing | Neo4j | Play Framework 1.x | Jenkins | Circle-ci</span>
         </div>
       </Col>
     </Row>
