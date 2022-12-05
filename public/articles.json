@@ -108,5 +108,16 @@
     "thumbnail": "article10.jpg",
     "markdown": "article10.md",
     "repository": "https://github.com/creativeyann17/localstack-docker-compose"
+  },
+  {
+    "id": "minimal-secret-santa-go",
+    "tags": ["golang", "secret", "santa", "chatgpt"],
+    "date": "2022-12-05",
+    "duration": 15,
+    "featured": true,
+    "description": "GO implementation of a command line secret-santa with the help of ChatGPT.",
+    "thumbnail": "article11.jpg",
+    "markdown": "article11.md",
+    "repository": "https://github.com/creativeyann17/minimal-secret-santa-go"
   }
 ]

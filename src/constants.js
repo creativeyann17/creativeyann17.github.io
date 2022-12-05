@@ -40,6 +40,7 @@ export const TAGS = {
   MICRONAUT: 'micronaut',
   REACT: 'react',
   SPRING_BOOT: 'spring-boot',
+  GOLANG: 'golang',
 };
 
 export const NEWS_PAGINATION = 5;

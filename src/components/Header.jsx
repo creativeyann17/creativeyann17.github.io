@@ -77,6 +77,7 @@ const Header = ({ className }) => {
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.MICRONAUT, 'Micronaut')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.REACT, 'React.js')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.GOLANG, 'Golang')}
             </NavDropdown>
             {renderNavLink(ROUTES.ABOUT, 'About')}
           </Nav>
