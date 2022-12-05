@@ -20,17 +20,15 @@ AI Tools have become really powerful, they are no more fiction and it's time to 
 
 ## Secret-Santa CLI
 
-Once again after having done one in scala: [secret-santa CLI in Scala](https://creativeyann17.github.io/#/article/minimal-secret-santa) let us build a secret-santa CLI but this time in **GO** and most important ... we will ask **ChatGPT** to guide us along the process.
+Once again after having done one in scala: [secret-santa CLI in Scala](https://creativeyann17.github.io/#/article/minimal-secret-santa) lets build a secret-santa CLI but this time in **GO** and most important ... we will ask **ChatGPT** to guide us along the process.
 
 ### Do you know ?
 
 ![Image](articles/images/article11_1.jpg 'Image')
 
-### Let's write the code
+### Foundation of the program
 
 We will ask **ChatGPT** to write the code step by step.
-
-### Base of the program
 
 ![Image](articles/images/article11_2.jpg 'Image')
 
@@ -64,8 +62,13 @@ func main() {
 	fmt.Printf("%s gives a gift to %s\n", names[len(names)-1], names[0])
 }
 ```
+In a few seconds we already have a functional program! That's crazy ... and the code itself looks good! 
 
-Executing the code works perfectly:
+I leaned this syntax `names[i], names[j] = names[j], names[i]` never seen that before.
+
+The way the program *shuffle* the names to build some sort of linked array where every name will give to name + 1 is probably better than my own implementation in scala where I used a list of remaining people to give and it creates a **continuous chain between people** and not some block of people giving to each other ... really really good!
+
+Executing the code works perfectly `go run main.go`:
 
 ```
 Bob gives a gift to Dave
@@ -76,6 +79,8 @@ Carol gives a gift to Bob
 ```
 
 ### Extract the names from TSV
+
+Having hardcoded names isn't hat optimal, let's see how **ChatGPT** will handle a TSV file.
 
 ![Image](articles/images/article11_3.jpg 'Image')
 
@@ -130,10 +135,14 @@ func main() {
     fmt.Printf("%s gives a gift to %s\n", names[len(names)-1], names[0])
 }
 ```
+- The TSV extraction is done without additional library OK why not
+- I would complain about the lack of robustness if the first column is empty or missing but OK
 
-Once again executing the code work just fine, don't forget to create a *names.TSV' file.
+Once again executing the code work just fine, don't forget to create a *names.TSV* file.
 
 ### TSV file name as a CLI param
+
+Once again hardcoded elements are not what we want. Let's see how **ChatGPT** handle the TSV file name as an argument of the program.
 
 ![Image](articles/images/article11_4.jpg 'Image')
 
@@ -194,9 +203,11 @@ func main() {
     fmt.Printf("%s gives a gift to %s\n", names[len(names)-1], names[0])
 }
 ```
-I was expected the response to use **flag** which is common for command line in **GO** but the result is OK.
+I was expected the response to use **flag** which is common for command line in **GO** and probably in case of more params and better display of usage we could ask again to use a CLI library instead of parsing ourself the args. But the result is OK and this time we have a condition to handle robustness if missing param.
 
 ### Exclusion list
+
+One feature we also need is a list of participants that can't give a gift to each other. The solution in Scala was to add a second column to the input file and put the names here, lets ask the same logic to **ChatGPT**.
 
 ![Image](articles/images/article11_5.jpg 'Image')
 
@@ -271,21 +282,14 @@ func main() {
 	// The last person gives a gift to the first person
 	fmt.Printf("%s gives a gift to %s\n", names[len(names)-1], names[0])
 }
-
-// contains returns true if the slice contains the given value,
-// and false otherwise.
-func contains(slice []string, value string) bool {
-	for _, v := range slice {
-		if v == value {
-			return true
-		}
-	}
-	return false
-}
 ```
-I manually put the *if len(fields) >= 2* because I wanted this column to be optional.
+- I manually put the *if len(fields) >= 2* because I wanted this column to be optional.
+- `!strings.Contains(exclusions[names[i]], names[j])` technically it works ... even if I was expected something like a slice but if the names are 
+white spaces separated then yes why not it's simpler.
 
 ## Some Github actions too
+
+Our program is ready and need a Github action to create the release and build binaries for Windows, Linux and MacOS.
 
 ![Image](articles/images/article11_6.jpg 'Image')
 
@@ -327,12 +331,12 @@ jobs:
 ```
 Alright ... I have some doubts about this github action ... but at least I have the root structure of it that will probably be adapted.
 
+*Note: I had to change a lot of things in here to make it work*
+
 # Conclusion
 
-I had a lot of work to do on the github action which didn't work at all first, otherwise ...
+**ChatGPT** is amazing ... didn't expect to have a tools where I can literally *speak* with and understand what I would like it to do.
 
-**ChatGPT** is amazing ... didn't expect to have a tools where I can literally *speak* what I would like it to do.
+It will be a complement of stack-overflow and probably better because this capability the create something that doesn't exist yet from reading the doc (**ChatGPT** gives the references of documentation + comments in the responses) makes this tools like the **Jarvis** of Iron-Man in real-life.
 
-It will be a complement of stack-overflow for sure but also knowing that what's generated isn't perfect.
-
-Also the documentation and comment the results contain are a great addition to the tools itself, feels like it understand what it's doing.
+We have also seen that what's generated isn't perfect and the lack of robustness and validation (or maybe I put to much of those in my code) need to be addressed when reviewing the response.
