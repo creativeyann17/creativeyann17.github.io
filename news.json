@@ -74,5 +74,11 @@
     "title": "New article: localstack-docker-compose",
     "article": "localstack-docker-compose",
     "description": "In this article we are exploring a solution to manage the complexity of working with a local environment with your custom data while writing your code."
+  },
+  {
+    "date": "2022-12-05",
+    "title": "New article: Secret-Santa CLI in GO with the help of ChatGPT",
+    "article": "minimal-secret-santa-go",
+    "description": "After having my twitter been flooded with ChatGPT references all over the weekend, I had to investigate if all these new AI tools are really worth it or not."
   }
 ]
