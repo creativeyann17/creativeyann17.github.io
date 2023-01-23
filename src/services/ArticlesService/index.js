@@ -7,7 +7,7 @@ import * as selectors from './selectors';
 import axios from 'axios';
 import orderBy from 'lodash/orderBy';
 import get from 'lodash/get';
-import { ARTICLES_JSON, useGraphQL } from '../../constants';
+import { ARTICLES_JSON, useGraphQL, API_URL } from '../../constants';
 import { debug, buildAPIRequestUrl } from '../../utils';
 import {
   getLikeArticleQuery,
@@ -35,71 +35,77 @@ export function* watchArticlesSetSelected() {
 }
 
 export function* watchArticlesViewsFetchRequest(action) {
-  const localStorageArticle = ls.get(action.id);
-  const alreadyVisitThisArticle = get(localStorageArticle, 'viewed', false);
-  try {
-    const path = buildAPIRequestUrl('/views/' + action.id);
-    let views;
-    if (alreadyVisitThisArticle) {
-      debug('Article already visited');
-      if (useGraphQL) {
-        views = yield graphQLClient
-          .request(getViewArticleQuery, { article: action.id })
-          .then((data) => data.getViewArticle);
+  if (API_URL) {
+    const localStorageArticle = ls.get(action.id);
+    const alreadyVisitThisArticle = get(localStorageArticle, 'viewed', false);
+    try {
+      const path = buildAPIRequestUrl('/views/' + action.id);
+      let views;
+      if (alreadyVisitThisArticle) {
+        debug('Article already visited');
+        if (useGraphQL) {
+          views = yield graphQLClient
+            .request(getViewArticleQuery, { article: action.id })
+            .then((data) => data.getViewArticle);
+        } else {
+          views = yield axios.get(path).then((res) => res.data);
+        }
       } else {
-        views = yield axios.get(path).then((res) => res.data);
-      }
-    } else {
-      debug('Article never visited');
+        debug('Article never visited');
 
-      if (useGraphQL) {
-        views = yield graphQLClient
-          .request(postViewArticleQuery, { article: action.id })
-          .then((data) => data.postViewArticle);
-      } else {
-        views = yield axios.post(path).then((res) => res.data);
+        if (useGraphQL) {
+          views = yield graphQLClient
+            .request(postViewArticleQuery, { article: action.id })
+            .then((data) => data.postViewArticle);
+        } else {
+          views = yield axios.post(path).then((res) => res.data);
+        }
       }
+      ls.set(action.id, { ...localStorageArticle, viewed: true });
+      yield put(actions.articlesViewsFetchSuccess(views.article, views.count));
+    } catch (e) {
+      yield put(actions.articlesViewsFetchFailure(e.message));
     }
-    ls.set(action.id, { ...localStorageArticle, viewed: true });
-    yield put(actions.articlesViewsFetchSuccess(views.article, views.count));
-  } catch (e) {
-    yield put(actions.articlesViewsFetchFailure(e.message));
   }
 }
 
 export function* watchArticlesLikesFetchRequest(action) {
-  try {
-    const path = buildAPIRequestUrl('/likes/' + action.id);
-    let likes;
-    if (useGraphQL) {
-      likes = yield graphQLClient
-        .request(getLikeArticleQuery, { article: action.id })
-        .then((data) => data.getLikeArticle);
-    } else {
-      likes = yield axios.get(path).then((res) => res.data);
+  if (API_URL) {
+    try {
+      const path = buildAPIRequestUrl('/likes/' + action.id);
+      let likes;
+      if (useGraphQL) {
+        likes = yield graphQLClient
+          .request(getLikeArticleQuery, { article: action.id })
+          .then((data) => data.getLikeArticle);
+      } else {
+        likes = yield axios.get(path).then((res) => res.data);
+      }
+      yield put(actions.articlesLikesFetchSuccess(likes.article, likes.count, isLiked(action.id)));
+    } catch (e) {
+      yield put(actions.articlesLikesFetchFailure(e.message));
     }
-    yield put(actions.articlesLikesFetchSuccess(likes.article, likes.count, isLiked(action.id)));
-  } catch (e) {
-    yield put(actions.articlesLikesFetchFailure(e.message));
   }
 }
 
 export function* watchArticlesLikesIncRequest(action) {
-  try {
-    const path = buildAPIRequestUrl('/likes/' + action.id);
-    let likes;
-    if (useGraphQL) {
-      likes = yield graphQLClient
-        .request(postLikeArticleQuery, { article: action.id })
-        .then((data) => data.postLikeArticle);
-    } else {
-      likes = yield axios.post(path).then((res) => res.data);
+  if (API_URL) {
+    try {
+      const path = buildAPIRequestUrl('/likes/' + action.id);
+      let likes;
+      if (useGraphQL) {
+        likes = yield graphQLClient
+          .request(postLikeArticleQuery, { article: action.id })
+          .then((data) => data.postLikeArticle);
+      } else {
+        likes = yield axios.post(path).then((res) => res.data);
+      }
+      const localStorageArticle = ls.get(action.id);
+      ls.set(action.id, { ...localStorageArticle, liked: true });
+      yield put(actions.articlesLikesFetchSuccess(likes.article, likes.count, isLiked(action.id)));
+    } catch (e) {
+      yield put(actions.articlesLikesFetchFailure(e.message));
     }
-    const localStorageArticle = ls.get(action.id);
-    ls.set(action.id, { ...localStorageArticle, liked: true });
-    yield put(actions.articlesLikesFetchSuccess(likes.article, likes.count, isLiked(action.id)));
-  } catch (e) {
-    yield put(actions.articlesLikesFetchFailure(e.message));
   }
 }
 

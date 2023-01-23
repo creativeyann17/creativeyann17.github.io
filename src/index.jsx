@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import App from './App';
 import { initGA } from './utils/analytics';
-import { GA_TRACKING_ID } from './constants';
 import * as serviceWorker from './utils/serviceWorker';
 
 import './style.scss';
 
-initGA(GA_TRACKING_ID);
+initGA();
 
 ReactDOM.render(
   <React.Fragment>
@@ -18,7 +17,7 @@ ReactDOM.render(
       <meta
         name="description"
         property="og:description"
-        content="Personal blog and portfolio about software and web development with Spring-boot / Micronaut / React.js and more ..."
+        content="Personal blog and portfolio about software and web development."
       />
     </Helmet>
     <App />

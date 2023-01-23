@@ -45,10 +45,8 @@ const Skills = ({ className }) => {
         <p>
           <AiFillFilePdf />
           <b>CV </b>
-          Français&nbsp;({renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}/
-          {renderExternalLinkByUrlAndLabel('/cv/fr.pdf', 'PDF')})&nbsp;English (
-          {renderExternalLinkByUrlAndLabel('/cv/en.html', 'HTML')}/
-          {renderExternalLinkByUrlAndLabel('/cv/en.pdf', 'PDF')})
+          Français {renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}{' '}
+          English {renderExternalLinkByUrlAndLabel('/cv/en.html', 'HTML')}
         </p>
         <p>
           <b>Have a nice day :&#41;</b>
@@ -108,7 +106,7 @@ const Skills = ({ className }) => {
             <b>CI / CD / Cloud: </b>{' '}
           </span>
           <span>
-            Kubectl | Minikube | Docker / Compose | AWS CLI | OpenShift | Heroku | Google Cloud | GitHub Actions
+            Kubectl | Minikube | Docker / Compose | AWS | OpenShift | Heroku | Google Cloud | GitHub Actions
           </span>
         </div>
         <div className="skills-item mb-3">
