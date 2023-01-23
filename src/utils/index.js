@@ -34,7 +34,7 @@ export const stopEvent = (event) => {
 export const sanitizeText = (text) => replace(text, /[^a-zA-Z0-9-_@ ]/g, '');
 
 export const buildAPIRequestUrl = (path) => {
-  return new URL(path, window.location.protocol + '//' + API_URL).toString();
+  return API_URL ? new URL(path, window.location.protocol + '//' + API_URL).toString() : "";
 };
 
 // routing

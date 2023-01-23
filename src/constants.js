@@ -7,7 +7,10 @@ export const API_URL = process.env.REACT_APP_API_URL;
 export const BACK_TO_TOP_THRESHOLD = 100;
 export const GLOBAL_REQUEST_TIMEOUT = 5;
 
-export const useGraphQL = process.env.REACT_APP_USE_GRAPHQL;
+export const REDIRECT = process.env.REACT_APP_REDIRECT;
+export const AWS = process.env.REACT_APP_AWS === "true"
+
+export const useGraphQL = process.env.REACT_APP_USE_GRAPHQL === "true";
 
 export const WEBSOCKET_RETRY = {
   DELAY: 5000,
