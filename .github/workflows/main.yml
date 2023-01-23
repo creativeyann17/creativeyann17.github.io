@@ -21,10 +21,11 @@ jobs:
           npm install
           npm run build
         env:
-          REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-          REACT_APP_GA_SITE_VERIFICATION: ${{ secrets.REACT_APP_GA_SITE_VERIFICATION }}
-          REACT_APP_USE_GRAPHQL: ${{ secrets.REACT_APP_USE_GRAPHQL }}
+          #REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
+          #REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          #REACT_APP_GA_SITE_VERIFICATION: ${{ secrets.REACT_APP_GA_SITE_VERIFICATION }}
+          #REACT_APP_USE_GRAPHQL: ${{ secrets.REACT_APP_USE_GRAPHQL }}
+          REACT_APP_REDIRECT: ${{ secrets.REACT_APP_REDIRECT }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
