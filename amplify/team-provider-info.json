@@ -10,6 +10,11 @@
       "StackName": "amplify-creativeyann17github-dev-120008",
       "StackId": "arn:aws:cloudformation:us-east-1:624685465016:stack/amplify-creativeyann17github-dev-120008/653aca30-9b3f-11ed-8d7c-0eaae7fc6b75",
       "AmplifyAppId": "dp0l5wizjcmw6"
+    },
+    "categories": {
+      "api": {
+        "creativeyann17github": {}
+      }
     }
   }
 }
