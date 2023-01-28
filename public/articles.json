@@ -119,5 +119,16 @@
     "thumbnail": "article11.jpg",
     "markdown": "article11.md",
     "repository": "https://github.com/creativeyann17/minimal-secret-santa-go"
+  },
+  {
+    "id": "cy17-starter-react-app",
+    "tags": ["aws", "ecs", "cloud", "docker", "github", "react"],
+    "date": "2023-01-28",
+    "duration": 5,
+    "featured": true,
+    "description": "Starter for React App to be deployed on AWS cloud with github actions CI/CD/release.",
+    "thumbnail": "article12.jpg",
+    "markdown": "article12.md",
+    "repository": "https://github.com/creativeyann17/cy17-starter-react-app"
   }
 ]
