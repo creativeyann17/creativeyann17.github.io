@@ -2,6 +2,8 @@
 
 Hello, this repository contains the source-code of my web-site [creativeyann17.github.io](https://creativeyann17.github.io/). The purpose of this web-site is to showcase some of my acquired skills and knowledge in web and software development. The following readme gives some details about of the choices done to develop it.
 
+**Note: current github-page will redirect to AWS: https://perso.creativeyann17.com**
+
 # Technologies
 
 This project is built on the following stack:
