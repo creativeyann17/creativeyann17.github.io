@@ -5,7 +5,6 @@ import DefaultLayout from './layouts/DefaultLayout';
 import { articlesFetchRequest } from './services/ArticlesService/actions';
 import { newsFetchRequest } from './services/NewsService/actions';
 import { websocketServiceOpen } from './services/WebSocketService/actions';
-import { initRequest } from './services/AWSService/actions';
 import { REDIRECT } from './constants';
 import LoadingPage from './pages/LoadingPage';
 
@@ -17,7 +16,6 @@ function App() {
   store.dispatch(newsFetchRequest());
   store.dispatch(articlesFetchRequest());
   store.dispatch(websocketServiceOpen());
-  store.dispatch(initRequest());
 
   if (REDIRECT) {
     return (

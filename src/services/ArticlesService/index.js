@@ -4,7 +4,6 @@ import * as actionTypes from './actionTypes';
 import ls from 'local-storage';
 import { WEBSOCKET_SERVICE_ON_MESSAGE } from '../WebSocketService/actionTypes';
 import * as selectors from './selectors';
-import * as awsSelectors from '../AWSService/selectors'
 import axios from 'axios';
 import orderBy from 'lodash/orderBy';
 import get from 'lodash/get';
@@ -17,7 +16,6 @@ import {
   postViewArticleQuery,
 } from './graphql';
 import graphQLClient from '../../utils/graphql';
-import { fetchArticleById, updateArticleLikes, updateArticleViews } from './aws';
 
 export function* watchArticlesFetchRequest() {
   try {
@@ -52,9 +50,6 @@ export function* watchArticlesViewsFetchRequest(action) {
         } else {
           views =  yield axios.get(path).then((res) => res.data);
         }
-      } else if (yield select(awsSelectors.isReady)) {
-        const article = yield fetchArticleById(action.id);
-        views = {article: action.id, count: article.views};
       }
     } else {
       debug('Article never visited');
@@ -66,9 +61,6 @@ export function* watchArticlesViewsFetchRequest(action) {
         } else {
           views = yield axios.post(path).then((res) => res.data);
         }
-      } else if (yield select(awsSelectors.isReady)) {
-        const article = yield updateArticleViews(action.id);
-        views = {article: action.id, count: article.views};
       }
     }
     ls.set(action.id, { ...localStorageArticle, viewed: true });
@@ -90,9 +82,6 @@ export function* watchArticlesLikesFetchRequest(action) {
       } else {
         likes = yield axios.get(path).then((res) => res.data);
       }
-    } else if (yield select(awsSelectors.isReady)) {
-      const article = yield fetchArticleById(action.id);
-      likes = {article: action.id, count: article.likes};
     }
     yield put(actions.articlesLikesFetchSuccess(likes.article, likes.count, isLiked(action.id)));
   } catch (e) {
@@ -112,9 +101,6 @@ export function* watchArticlesLikesIncRequest(action) {
         } else {
           likes = yield axios.post(path).then((res) => res.data);
         }
-      } else if (yield select(awsSelectors.isReady)) {
-        const article = yield updateArticleLikes(action.id);
-        likes = {article: action.id, count: article.likes};
       }
       const localStorageArticle = ls.get(action.id);
       ls.set(action.id, { ...localStorageArticle, liked: true });

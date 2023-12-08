@@ -5,23 +5,19 @@ import createSagaMiddleware from 'redux-saga';
 import articlesServiceReducer from './ArticlesService/reducer';
 import newsServiceReducer from './NewsService/reducer';
 import websocketServiceReducer from './WebSocketService/reducer';
-import awsServiceReducer from './AWSService/reducer';
 // reducers types
 import { Reducer as ArticlesServiceReducerType } from './ArticlesService/types';
 import { Reducer as NewsServiceReducerType } from './NewsService/types';
-import { Reducer as AWSServiceReducerType } from './AWSService/types';
 // saga
 import articlesServiceSaga from './ArticlesService';
 import newsServiceSaga from './NewsService';
 import websocketServiceSaga from './WebSocketService';
-import awsServiceSage from './AWSService';
 
 import { DEV } from '../constants';
 
 export interface State {
   articlesServiceReducer: ArticlesServiceReducerType;
   newsServiceReducer: NewsServiceReducerType;
-  awsServiceReducer: AWSServiceReducerType;
 }
 
 export default function configureStore() {
@@ -29,10 +25,9 @@ export default function configureStore() {
     articlesServiceReducer,
     newsServiceReducer,
     websocketServiceReducer,
-    awsServiceReducer,
   });
   function* rootSaga() {
-    yield all([articlesServiceSaga(), newsServiceSaga(), websocketServiceSaga(), awsServiceSage()]);
+    yield all([articlesServiceSaga(), newsServiceSaga(), websocketServiceSaga()]);
   }
 
   const sagaMiddleware = createSagaMiddleware();

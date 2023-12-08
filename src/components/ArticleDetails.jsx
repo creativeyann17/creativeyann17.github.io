@@ -9,10 +9,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { getViews, getLikes, getLiked } from '../services/ArticlesService/selectors';
 import { articlesLikesIncRequest } from '../services/ArticlesService/actions';
-import { isReady } from '../services/AWSService/selectors';
 import { renderExternalLinkByUrlAndLabel, isArticleNew } from '../utils';
-import { DataStore } from 'aws-amplify';
-import {Article} from '../models'
 
 const ArticleDetails = ({
   className,
@@ -20,7 +17,6 @@ const ArticleDetails = ({
   views,
   likes,
   liked,
-  awsReady,
   showViews,
   showLikes,
   margin,
@@ -34,16 +30,6 @@ const ArticleDetails = ({
     setView(get(views, article.id, '...'))
     setLike(get(likes, article.id, '...'))
   }, [views, likes, article.id])
-
- 
-  if (awsReady) {
-    DataStore.observe(Article).subscribe(msg => {
-      if (msg.opType === 'UPDATE' && msg.element.name === article.id) {
-        setView(msg.element.views)
-        setLike(msg.element.likes)
-      }
-    });
-  }
 
   return (
     <div className={cx('article-details', className)}>
@@ -105,7 +91,6 @@ const mapStateToProps = (state) => {
     views: getViews(state),
     likes: getLikes(state),
     liked: getLiked(state),
-    awsReady: isReady(state), 
   };
 };
 
