@@ -80,5 +80,16 @@
     "title": "New article: Secret-Santa CLI in GO with the help of ChatGPT",
     "article": "minimal-secret-santa-go",
     "description": "After having my twitter been flooded with ChatGPT references all over the weekend, I had to investigate if all these new AI tools are really worth it or not."
+  },
+  {
+    "date": "2023-01-23",
+    "title": "Migration: the website has been moved to AWS",
+    "description": "The views/likes features were un-available since few months due to previous provider reduction of costs of their free plan. Took me a while but the site is now under AWS and all the previous API/WebSocket is replaced with data driven-events"
+  },
+  {
+    "date": "2023-01-28",
+    "title": "Full AWS ECS React starter with CI/CD/release pipelines",
+    "article": "cy17-starter-react-app",
+    "description": "Successfully built a React App. starter that deploy into AWS cloud for both dev/prod envs using github actions CI/CD/release"
   }
 ]
