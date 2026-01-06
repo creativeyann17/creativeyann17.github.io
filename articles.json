@@ -141,5 +141,16 @@
     "thumbnail": "article13.jpg",
     "markdown": "article13.md",
     "repository": "https://github.com/creativeyann17/creativeyann17.github.io"
+  },
+  {
+    "id": "golang-framework-db-imp",
+    "tags": ["golang", "fiber", "gin", "echo", "chi", "fasthttp", "benchmark", "api", "database", "postgres"],
+    "date": "2026-01-06",
+    "duration": 25,
+    "featured": true,
+    "description": "7 Go web frameworks implementations with Postgres and migration setup: Fiber, Gin, Echo, Chi, HttpRouter, Hertz, FastHTTP.",
+    "thumbnail": "article14.jpg",
+    "markdown": "article14.md",
+    "repository": "https://github.com/creativeyann17/GolangAPIsTest"
   }
 ]
