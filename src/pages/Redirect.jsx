@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
-import FadeIn from 'react-fade-in';
+import FadeIn from '../components/FadeIn';
 import {Alert} from 'react-bootstrap'
 
 const Redirect = ({ url }) => {

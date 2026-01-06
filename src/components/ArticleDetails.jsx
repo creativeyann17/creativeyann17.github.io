@@ -17,9 +17,9 @@ const ArticleDetails = ({
   views,
   likes,
   liked,
-  showViews,
-  showLikes,
-  margin,
+  showViews = false,
+  showLikes = false,
+  margin = 'me-3 mb-2',
   incLikes,
 }) => {
 
@@ -78,12 +78,6 @@ ArticleDetails.propTypes = {
   margin: PropTypes.string,
   showViews: PropTypes.bool,
   showLikes: PropTypes.bool,
-};
-
-ArticleDetails.defaultProps = {
-  margin: 'mr-3 mb-2',
-  showViews: false,
-  showLikes: false,
 };
 
 const mapStateToProps = (state) => {

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
 import { Helmet } from 'react-helmet';
-import FadeIn from 'react-fade-in';
+import FadeIn from '../components/FadeIn';
 import replace from 'lodash/replace';
 import { TableOfContents } from '../components';
 import { articlesSetSelected } from '../services/ArticlesService/actions';

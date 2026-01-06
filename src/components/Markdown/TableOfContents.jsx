@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { connect } from 'react-redux';
-import FadeIn from 'react-fade-in';
+import FadeIn from '../FadeIn';
 import { getTableOfContents } from '../../services/ArticlesService/selectors';
 import isEmpty from 'lodash/isEmpty';
 import map from 'lodash/map';

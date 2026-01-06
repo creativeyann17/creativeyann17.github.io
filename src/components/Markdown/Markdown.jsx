@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { articlesResetTableOfContents } from '../../services/ArticlesService/actions';
 import Loading from '../Loading';
 import CodeBlock from './CodeBlock';
-import Headings from './Headings';
+import { H1, H2, H3, H4, H5, H6 } from './Headings';
 
 import './style.css';
 
@@ -16,6 +16,7 @@ class Markdown extends Component {
   }
 
   componentDidMount() {
+    this.props.resetTableOfContents();
     fetch(this.props.source)
       .then((response) => {
         return response.text();
@@ -25,18 +26,21 @@ class Markdown extends Component {
       });
   }
 
+  componentWillUnmount() {
+    this.props.resetTableOfContents();
+  }
+
   render() {
     const { text } = this.state;
-    this.props.resetTableOfContents();
     return (
       <div className="markdown">
         {text ? (
           <ReactMarkdown
             className="markdown-body"
-            source={text}
-            linkTarget="_blank"
-            renderers={{ code: CodeBlock, heading: Headings }}
-          />
+            components={{ code: CodeBlock, h1: H1, h2: H2, h3: H3, h4: H4, h5: H5, h6: H6 }}
+          >
+            {text}
+          </ReactMarkdown>
         ) : (
           <Loading />
         )}

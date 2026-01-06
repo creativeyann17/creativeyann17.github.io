@@ -1,12 +1,21 @@
-// https://getbootstrap.com/docs/4.1/getting-started/theming/#css-variables
-$theme-colors: (
-  'primary': #222,
-  'secondary': #2b5380,
-  'light': #eee,
+// Import Bootstrap functions first (required for Bootstrap 5)
+@import 'bootstrap/scss/functions';
+
+// Override theme colors for Bootstrap 5
+$primary: #222;
+$secondary: #2b5380;
+$light: #eee;
+
+// Customize container max-widths to match Bootstrap 4 behavior
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
 );
 
-// Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+// Import the rest of Bootstrap
+@import 'bootstrap/scss/bootstrap.scss';
 
 // header font
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');

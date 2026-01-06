@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { getArticleUrl } from '../utils';
 
-const SocialIcons = ({ className, article, size, margin }) => {
+const SocialIcons = ({ className, article, size = 32, margin = 'ms-3 mb-2' }) => {
   const url = getArticleUrl(article);
   return (
     <div className={cx('social-icons', className)}>
@@ -38,11 +38,6 @@ const SocialIcons = ({ className, article, size, margin }) => {
 SocialIcons.propTypes = {
   size: PropTypes.number,
   margin: PropTypes.string,
-};
-
-SocialIcons.defaultProps = {
-  size: 32,
-  margin: 'ml-3 mb-2',
 };
 
 export default SocialIcons;

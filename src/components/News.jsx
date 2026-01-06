@@ -11,7 +11,7 @@ const News = ({ className, news }) => {
     <Alert variant="light" className={cx(className, 'news')}>
       <h5>{news.title}</h5>
       <div className="news-date mb-2">
-        <span className="mr-3">
+        <span className="me-3">
           <MdUpdate />
           &nbsp;{news.date}
         </span>

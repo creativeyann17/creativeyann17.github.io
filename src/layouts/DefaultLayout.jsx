@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Alert, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import ScrollToTop from 'react-router-scroll-top';
+import ScrollToTop from '../components/ScrollToTop';
 import { getError } from '../services/ArticlesService/selectors';
 import LoadingPage from '../pages/LoadingPage';
 import { Header, Footer, BackToTop } from '../components';
@@ -20,7 +20,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
   const withParam = (url, param) => `${url}/:${param}`;
 
   return (
-    <Router onUpdate={() => window.scrollTo(0, 0)}>
+    <Router>
       <RouterAnalyticsLayout>
         <Header />
         {articlesFetchError && (
@@ -34,27 +34,14 @@ const DefaultLayout = ({ articlesFetchError }) => {
         )}
         <Suspense fallback={<LoadingPage />}>
           <ScrollToTop>
-            <Switch>
-              <Route exact path={ROUTES.HOME}>
-                <Home />
-              </Route>
-              <Route path={ROUTES.ARTICLES}>
-                <Articles />
-              </Route>
-              <Route path={withParam(ROUTES.ARTICLE, 'id')}>
-                <ScrollToTop top={0} />
-                <Article />
-              </Route>
-              <Route path={withParam(ROUTES.SEARCH, 'filter')}>
-                <Search />
-              </Route>
-              <Route path={ROUTES.ABOUT}>
-                <About />
-              </Route>
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
+            <Routes>
+              <Route path={ROUTES.HOME} element={<Home />} />
+              <Route path={ROUTES.ARTICLES} element={<Articles />} />
+              <Route path={withParam(ROUTES.ARTICLE, 'id')} element={<Article />} />
+              <Route path={withParam(ROUTES.SEARCH, 'filter')} element={<Search />} />
+              <Route path={ROUTES.ABOUT} element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </ScrollToTop>
         </Suspense>
         <BackToTop />

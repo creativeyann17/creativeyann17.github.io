@@ -11,23 +11,24 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '15'
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
       - name: Build
-        run: |
-          npm install
-          npm run build
+        run: npm run build
         #env:
-          #REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
-          #REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-          #REACT_APP_GA_SITE_VERIFICATION: ${{ secrets.REACT_APP_GA_SITE_VERIFICATION }}
-          #REACT_APP_USE_GRAPHQL: ${{ secrets.REACT_APP_USE_GRAPHQL }}
-          #REACT_APP_REDIRECT: ${{ secrets.REACT_APP_REDIRECT }}
+          #VITE_REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
+          #VITE_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          #VITE_REACT_APP_GA_SITE_VERIFICATION: ${{ secrets.REACT_APP_GA_SITE_VERIFICATION }}
+          #VITE_REACT_APP_USE_GRAPHQL: ${{ secrets.REACT_APP_USE_GRAPHQL }}
+          #VITE_REACT_APP_REDIRECT: ${{ secrets.REACT_APP_REDIRECT }}
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: gh-pages
-          FOLDER: build
+          branch: gh-pages
+          folder: build

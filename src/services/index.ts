@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import { all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
+import { createLogger } from 'redux-logger';
 // reducers
 import articlesServiceReducer from './ArticlesService/reducer';
 import newsServiceReducer from './NewsService/reducer';
@@ -35,8 +36,8 @@ export default function configureStore() {
   let composeEnhancer = compose;
 
   if (DEV) {
-    const { logger } = require('redux-logger');
-    middlewares = [...middlewares, logger];
+    const logger = createLogger();
+    middlewares = [...middlewares, logger as any];
     composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   }
 

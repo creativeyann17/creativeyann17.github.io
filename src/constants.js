@@ -1,16 +1,16 @@
-export const PROD = process.env.NODE_ENV === 'production';
+export const PROD = import.meta.env.MODE === 'production';
 export const DEV = !PROD;
 
-export const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
-export const API_URL = process.env.REACT_APP_API_URL;
+export const GA_TRACKING_ID = import.meta.env.VITE_REACT_APP_GA_TRACKING_ID;
+export const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 export const BACK_TO_TOP_THRESHOLD = 100;
 export const GLOBAL_REQUEST_TIMEOUT = 5;
 
-export const REDIRECT = process.env.REACT_APP_REDIRECT;
-export const AWS = process.env.REACT_APP_AWS === "true"
+export const REDIRECT = import.meta.env.VITE_REACT_APP_REDIRECT;
+export const AWS = import.meta.env.VITE_REACT_APP_AWS === "true"
 
-export const useGraphQL = process.env.REACT_APP_USE_GRAPHQL === "true";
+export const useGraphQL = import.meta.env.VITE_REACT_APP_USE_GRAPHQL === "true";
 
 export const WEBSOCKET_RETRY = {
   DELAY: 5000,
@@ -44,6 +44,7 @@ export const TAGS = {
   REACT: 'react',
   SPRING_BOOT: 'spring-boot',
   GOLANG: 'golang',
+  AI: 'ai',
 };
 
 export const NEWS_PAGINATION = 5;

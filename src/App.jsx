@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, { Suspense, useEffect, useMemo } from 'react';
 import { Provider } from 'react-redux';
 import configureStore from './services';
 import DefaultLayout from './layouts/DefaultLayout';
@@ -11,11 +11,13 @@ import LoadingPage from './pages/LoadingPage';
 const Redirect = React.lazy(() => import('./pages/Redirect'));
 
 function App() {
-  const store = configureStore();
+  const store = useMemo(() => configureStore(), []);
 
-  store.dispatch(newsFetchRequest());
-  store.dispatch(articlesFetchRequest());
-  store.dispatch(websocketServiceOpen());
+  useEffect(() => {
+    store.dispatch(newsFetchRequest());
+    store.dispatch(articlesFetchRequest());
+    store.dispatch(websocketServiceOpen());
+  }, [store]);
 
   if (REDIRECT) {
     return (

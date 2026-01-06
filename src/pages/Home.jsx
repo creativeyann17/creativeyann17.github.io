@@ -6,7 +6,7 @@ import { getArticles } from '../services/ArticlesService/selectors';
 import { getNews } from '../services/NewsService/selectors';
 import map from 'lodash/map';
 import slice from 'lodash/slice';
-import FadeIn from 'react-fade-in';
+import FadeIn from '../components/FadeIn';
 import { ArticleCard, News } from '../components';
 import { findFeaturedArticle, renderPagination } from '../utils';
 import { NEWS_PAGINATION } from '../constants';

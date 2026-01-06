@@ -8,7 +8,7 @@ import {
   InputGroup,
   NavDropdown,
 } from 'react-bootstrap';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import cx from 'classnames';
 import { ROUTES, TAGS } from '../constants';
@@ -16,7 +16,7 @@ import { openSearchByFilter, openInternalLink } from '../utils';
 
 const Header = ({ className }) => {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const searchFilterWebRef = useRef();
   const searchFilterMobileRef = useRef();
 
@@ -24,30 +24,30 @@ const Header = ({ className }) => {
     <Nav.Link
       href={path}
       active={path === location.pathname}
-      onClick={(e) => openInternalLink(history, path, e)}>
+      onClick={(e) => openInternalLink(navigate, path, e)}>
       {name}
     </Nav.Link>
   );
 
   const renderNavDropdownItem = (path, name) => (
-    <NavDropdown.Item onClick={(e) => openInternalLink(history, path, e)}>{name}</NavDropdown.Item>
+    <NavDropdown.Item onClick={(e) => openInternalLink(navigate, path, e)}>{name}</NavDropdown.Item>
   );
 
   const handleSearchSubmit = (event, ref) => {
-    openSearchByFilter(history, ref.current.value, event);
+    openSearchByFilter(navigate, ref.current.value, event);
   };
 
   const renderSearchForm = (className, ref) => (
-    <Form inline onSubmit={(e) => handleSearchSubmit(e, ref)} className={className}>
+    <Form onSubmit={(e) => handleSearchSubmit(e, ref)} className={className}>
       <InputGroup>
         <FormControl placeholder="Search" ref={ref} />
-        <InputGroup.Append
+        <InputGroup.Text
           role="button"
-          aria-label="Search an article based on current filter text">
-          <InputGroup.Text onClick={(e) => handleSearchSubmit(e, ref)}>
-            <FaSearch />
-          </InputGroup.Text>
-        </InputGroup.Append>
+          aria-label="Search an article based on current filter text"
+          onClick={(e) => handleSearchSubmit(e, ref)}
+          style={{ cursor: 'pointer' }}>
+          <FaSearch />
+        </InputGroup.Text>
       </InputGroup>
     </Form>
   );
@@ -61,7 +61,7 @@ const Header = ({ className }) => {
       collapseOnSelect
       className={cx('header', className)}>
       <Container>
-        <Navbar.Brand href="/" className="mr-0">
+        <Navbar.Brand href="/" className="me-0">
           <img alt="logo" src="/title.png" height="32" width="auto" />
         </Navbar.Brand>
         <Nav className="mx-auto">
@@ -69,10 +69,11 @@ const Header = ({ className }) => {
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="mx-3">
-          <Nav className="mr-auto">
+          <Nav className="me-auto">
             {renderNavLink(ROUTES.HOME, 'Home')}
             {renderNavLink(ROUTES.ARTICLES, 'Articles')}
             <NavDropdown title="Categories">
+              {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.AI, 'AI')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.CLOUD, 'Cloud')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.REACT, 'React.js')}
               {renderNavDropdownItem(ROUTES.SEARCH + '/' + TAGS.SPRING_BOOT, 'Spring-boot')}

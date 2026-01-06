@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Helmet } from 'react-helmet';
 import App from './App';
 import { initGA } from './utils/analytics';
@@ -9,7 +9,8 @@ import './style.scss';
 
 initGA();
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.Fragment>
     <Helmet>
       <title>Welcome</title>
@@ -21,8 +22,7 @@ ReactDOM.render(
       />
     </Helmet>
     <App />
-  </React.Fragment>,
-  document.getElementById('root')
+  </React.Fragment>
 );
 
 serviceWorker.unregister();

@@ -27,19 +27,19 @@ const Skills = ({ className }) => {
           want to test an idea quickly.
         </p>
         <p>
-          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB_PAGE, '/github128.png', 'mr-3')}
+          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB_PAGE, '/github128.png', 'me-3')}
           The GitHub repository of this web-site and all my others personal projects.
         </p>
         <p>
-          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKED_IN, '/linkedin128.png', 'mr-3')}
+          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKED_IN, '/linkedin128.png', 'me-3')}
           If you want to contact me, please use LinkedIn.
         </p>
         <p>
-          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'mr-3')}
+          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'me-3')}
           Follow me on twitter and be notified first about new content.
         </p>
         <p>
-          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.INSTAGRAM, '/instagram128.png', 'mr-3')}
+          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.INSTAGRAM, '/instagram128.png', 'me-3')}
           Developers also have pictures to share of their free time :)
         </p>
         <p>

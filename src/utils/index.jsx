@@ -1,5 +1,5 @@
 import { Col, Pagination } from 'react-bootstrap';
-import FadeIn from 'react-fade-in';
+import FadeIn from '../components/FadeIn';
 import { ArticleCard } from '../components';
 import filter from 'lodash/filter';
 import toLower from 'lodash/toLower';
@@ -39,22 +39,22 @@ export const buildAPIRequestUrl = (path) => {
 
 // routing
 
-export const openArticleById = (history, id, event) => {
+export const openArticleById = (navigate, id, event) => {
   stopEvent(event);
-  history.push(`${ROUTES.ARTICLE}/${id}`);
+  navigate(`${ROUTES.ARTICLE}/${id}`);
 };
 
-export const openSearchByFilter = (history, filter, event) => {
+export const openSearchByFilter = (navigate, filter, event) => {
   stopEvent(event);
   const searchFilter = trim(sanitizeText(filter));
   if (!isEmpty(searchFilter)) {
-    history.push(`${ROUTES.SEARCH}/${searchFilter}`);
+    navigate(`${ROUTES.SEARCH}/${searchFilter}`);
   }
 };
 
-export const openInternalLink = (history, path, event) => {
+export const openInternalLink = (navigate, path, event) => {
   stopEvent(event);
-  history.push(path);
+  navigate(path);
 };
 
 export const openExternalLink = (link, event) => {
