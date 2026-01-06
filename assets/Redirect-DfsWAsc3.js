@@ -1,0 +1,2 @@
+import{j as e,C as s,H as i,R as a,a as o,F as n,A as c}from"./index-ECORI5os.js";import{a as l}from"./vendor-CGtar_wg.js";import"./redux-B5tavzqD.js";const j=({url:t})=>(l.useEffect(()=>{const r=setTimeout(()=>{window.location.replace(t)},3e3);return()=>clearTimeout(r)},[t]),e.jsxs(s,{className:"page",children:[e.jsx(i,{children:e.jsx("title",{children:"Redirect"})}),e.jsx(a,{children:e.jsx(o,{lg:12,children:e.jsx(n,{children:e.jsx(c,{variant:"info",children:"Will redirect in 3 seconds ..."})})})})]}));export{j as default};
+//# sourceMappingURL=Redirect-DfsWAsc3.js.map

@@ -130,5 +130,16 @@
     "thumbnail": "article12.jpg",
     "markdown": "article12.md",
     "repository": "https://github.com/creativeyann17/cy17-starter-react-app"
+  },
+  {
+    "id": "vite-migration-with-claude",
+    "tags": ["vite", "react", "migration", "claude", "ai", "cra", "bootstrap"],
+    "date": "2026-01-05",
+    "duration": 20,
+    "featured": true,
+    "description": "Migrating from Create React App to Vite with Claude Code - an honest look at the iterative feedback loop.",
+    "thumbnail": "article13.jpg",
+    "markdown": "article13.md",
+    "repository": "https://github.com/creativeyann17/creativeyann17.github.io"
   }
 ]
