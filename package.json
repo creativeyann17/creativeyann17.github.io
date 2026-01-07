@@ -43,6 +43,7 @@
     "eslint": "^9.18.0",
     "gh-pages": "^6.2.0",
     "husky": "^9.1.7",
+    "jsdom": "24",
     "prettier": "^3.4.2",
     "pretty-quick": "^4.0.0",
     "sass": "^1.87.0",
@@ -56,7 +57,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "predeploy": "npm run build",
+    "predeploy": "bun run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
