@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500">
+  <defs>
+    <linearGradient id="textGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4fc3f7"/>
+      <stop offset="50%" style="stop-color:#b388ff"/>
+      <stop offset="100%" style="stop-color:#81c784"/>
+    </linearGradient>
+    <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#b388ff"/>
+      <stop offset="100%" style="stop-color:#81c784;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="#0a0a0f"/>
+
+  <!-- Decorative lines -->
+  <line x1="1000" y1="150" x2="1500" y2="150" stroke="url(#lineGrad2)" stroke-width="2" opacity="0.8"/>
+  <line x1="0" y1="350" x2="500" y2="350" stroke="url(#lineGrad2)" stroke-width="2" opacity="0.8"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.05">
+    <line x1="300" y1="0" x2="300" y2="500" stroke="#ffffff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#ffffff" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="500" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1200" y2="500" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- Left side decoration -->
+  <g transform="translate(400, 250)">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#b388ff" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#81c784" stroke-width="1" opacity="0.1"/>
+  </g>
+
+  <!-- Right aligned content -->
+  <text x="1400" y="220" font-family="Arial, sans-serif" font-weight="700" font-size="140" fill="url(#textGrad2)" text-anchor="end">CY17</text>
+  <circle cx="1432" cy="145" r="16" fill="#81c784"/>
+
+  <!-- Subtitle -->
+  <text x="1400" y="290" font-family="Arial, sans-serif" font-weight="500" font-size="28" fill="#c8c8d0" text-anchor="end">CreativeYann17</text>
+  <text x="1400" y="340" font-family="Arial, sans-serif" font-weight="400" font-size="24" fill="#888899" text-anchor="end">Full Stack Developer</text>
+</svg>
