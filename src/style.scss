@@ -1,12 +1,19 @@
 // Import Bootstrap functions first (required for Bootstrap 5)
 @import 'bootstrap/scss/functions';
 
-// Override theme colors for Bootstrap 5
-$primary: #222;
-$secondary: #2b5380;
-$light: #eee;
+// Dark theme colors for Bootstrap 5 (inspired by cy17 welcome UI)
+$primary: #0a0a0f;
+$secondary: #4fc3f7;
+$light: #12121a;
+$dark: #0a0a0f;
+$body-bg: #0a0a0f;
+$body-color: #c8c8d0;
 
-// Customize container max-widths to match Bootstrap 4 behavior
+// Override link colors
+$link-color: #4fc3f7;
+$link-hover-color: #81c784;
+
+// Customize container max-widths
 $container-max-widths: (
   sm: 540px,
   md: 720px,
@@ -14,15 +21,29 @@ $container-max-widths: (
   xl: 1140px
 );
 
+// Navbar dark mode
+$navbar-dark-color: rgba(255, 255, 255, 0.85);
+$navbar-dark-hover-color: #4fc3f7;
+$navbar-dark-active-color: #4fc3f7;
+
 // Import the rest of Bootstrap
 @import 'bootstrap/scss/bootstrap.scss';
 
-// header font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');
+// Fonts - Montserrat for navbar, Inter for body content
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Inter:wght@400;500;600&display=swap');
 
+// Dark theme CSS variables (matching cy17 welcome UI)
 :root {
-  --secondary-background-color: #fafafa;
-  --secondary-background-border-color: #e5e7eb;
+  --bg-dark: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a25;
+  --text-primary: #c8c8d0;
+  --text-secondary: #888899;
+  --accent-blue: #4fc3f7;
+  --accent-green: #81c784;
+  --accent-purple: #b388ff;
+  --secondary-background-color: #12121a;
+  --secondary-background-border-color: rgba(255, 255, 255, 0.05);
 }
 
 .anchor {
@@ -39,18 +60,23 @@ $container-max-widths: (
 }
 
 .alert-light {
-  color: var(--primary);
-  background-color: white;
+  color: var(--text-primary);
+  background-color: var(--bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .news-date {
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: small;
 }
 
-a,
+a {
+  color: var(--accent-blue);
+  transition: color 0.3s ease;
+}
+
 a:hover {
-  color: var(--secondary);
+  color: var(--accent-green);
 }
 
 .page {
@@ -58,26 +84,107 @@ a:hover {
   min-height: calc(100vh - 200px);
 }
 
+.page-link {
+  border-color: rgba($color: #ffffff, $alpha: 0.1) !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 90%;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  background: url('./pages/images/background.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-position-y: 0;
-  background-position-x: 0;
-  background-attachment: fixed;
+// Keep Montserrat for navbar
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+}
+
+// CY17 Logo with gradient and pulsing dot
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none !important;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+// Animated background gradients
+.background-gradients {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  animation: float 20s ease-in-out infinite;
+}
+
+.gradient-1 {
+  background: var(--accent-blue);
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.gradient-2 {
+  background: var(--accent-purple);
+  bottom: -200px;
+  left: -100px;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+// Ensure content is above gradient background
+.app-content {
+  position: relative;
+  z-index: 1;
 }
 
 .footer {
-  background-color: var(--secondary-background-color);
-  border-top: 0.05rem solid var(--secondary-background-border-color);
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer .row {
@@ -86,12 +193,17 @@ body {
 }
 
 .footer a {
-  color: var(--dark);
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--accent-blue);
 }
 
 .footer-copyright {
   font-size: small;
-  color: var(--gray);
+  color: var(--text-secondary);
 }
 
 .table-of-contents {
@@ -111,22 +223,51 @@ body {
 .back-to-top svg {
   width: 50px;
   height: 50px;
-  background-color: var(--gray);
-  color: white;
-  border-radius: 10%;
-  opacity: 0.5;
+  background-color: var(--bg-card);
+  color: var(--accent-blue);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.back-to-top svg:hover {
+  background-color: var(--bg-card-hover);
+  transform: translateY(-2px);
 }
 
 .badge {
-  font-size: 100%;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  background: var(--bg-card-hover) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: var(--text-primary) !important;
+}
+
+.badge.bg-light {
+  background: var(--bg-card-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+.badge.bg-secondary {
+  background: rgba(79, 195, 247, 0.2) !important;
+  color: var(--accent-blue) !important;
+  border-color: rgba(79, 195, 247, 0.3);
+}
+
+.article-card-badge {
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .article-card-badge:hover {
-  text-decoration: underline;
+  background: rgba(79, 195, 247, 0.2) !important;
+  border-color: var(--accent-blue);
+  color: var(--accent-blue) !important;
 }
 
 .article-details {
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: small;
   display: flex;
   align-items: center;
@@ -134,11 +275,127 @@ body {
 }
 
 .skills svg {
-  color: var(--secondary);
+  color: var(--accent-blue);
   align-self: center;
   width: 32px;
   height: 32px;
   margin-right: 1rem;
+}
+
+// Card styling for dark theme
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.card-body {
+  background: transparent;
+}
+
+.card-title {
+  color: var(--text-primary);
+}
+
+.card-text {
+  color: var(--text-secondary);
+}
+
+// Form inputs for dark theme
+.form-control {
+  background-color: var(--bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.form-control:focus {
+  background-color: var(--bg-card-hover);
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(79, 195, 247, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+}
+
+.input-group-text {
+  background-color: var(--bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+// Dropdown dark theme
+.dropdown-menu {
+  background-color: var(--bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+  color: var(--text-primary);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: var(--bg-card-hover);
+  color: var(--accent-blue);
+}
+
+// Card header for dark theme
+.card-header {
+  background-color: var(--bg-card-hover);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+
+// Table of contents dark theme
+.table-of-contents {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.table-of-contents a {
+  color: var(--text-secondary);
+}
+
+.table-of-contents a:hover {
+  color: var(--accent-blue);
+}
+
+// Alert for dark theme
+.alert {
+  background-color: var(--bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-color: rgba(220, 53, 69, 0.3);
+}
+
+// Navbar dark overrides
+.navbar {
+  background-color: var(--bg-card) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .search-form-mobile {

@@ -61,8 +61,9 @@ const Header = ({ className }) => {
       collapseOnSelect
       className={cx('header', className)}>
       <Container>
-        <Navbar.Brand href="/" className="me-0">
-          <img alt="logo" src="/title.png" height="32" width="auto" />
+        <Navbar.Brand href="/" className="me-0 logo">
+          <span className="logo-text">CY17</span>
+          <span className="logo-dot"></span>
         </Navbar.Brand>
         <Nav className="mx-auto">
           {renderSearchForm('search-form-mobile', searchFilterMobileRef)}

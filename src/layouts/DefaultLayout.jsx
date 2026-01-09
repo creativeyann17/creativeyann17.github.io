@@ -22,6 +22,12 @@ const DefaultLayout = ({ articlesFetchError }) => {
   return (
     <Router>
       <RouterAnalyticsLayout>
+        {/* Animated background gradients */}
+        <div className="background-gradients">
+          <div className="gradient gradient-1"></div>
+          <div className="gradient gradient-2"></div>
+        </div>
+        <div className="app-content">
         <Header />
         {articlesFetchError && (
           <div>
@@ -46,6 +52,7 @@ const DefaultLayout = ({ articlesFetchError }) => {
         </Suspense>
         <BackToTop />
         <Footer />
+        </div>
       </RouterAnalyticsLayout>
     </Router>
   );
