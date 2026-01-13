@@ -1,0 +1,2 @@
+import{j as t,C as s,H as e,A as n}from"./index-65a0wP9J.js";import{u as o}from"./vendor-CGtar_wg.js";import"./redux-B5tavzqD.js";const m=({articles:r})=>{const a=o();return t.jsxs(s,{className:"page page-not-found ",children:[t.jsx(e,{children:t.jsx("title",{children:"404"})}),t.jsxs(n,{variant:"warning",className:"mt-3",children:[t.jsx("b",{children:"Page not found:"})," ",a.pathname]})]})};export{m as default};
+//# sourceMappingURL=NotFound-BbiAUKrk.js.map

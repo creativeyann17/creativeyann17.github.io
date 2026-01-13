@@ -103,5 +103,11 @@
     "title": "Go web frameworks implementations with Postgres and migration setup: Fiber, Gin, Echo, Chi, HttpRouter, Hertz, FastHTTP.",
     "article": "golang-framework-db-imp",
     "description": "Built a benchmark project comparing 7 popular Go web frameworks. Including a database + migration for postgres part. While the /hello benchmarks aren't realistic for production, having each implementation side by side is great for learning."
+  },
+  {
+    "date": "2026-01-13",
+    "title": "New article: go-delta - Fast compression with content-defined chunking",
+    "article": "go-delta",
+    "description": "Released go-delta, a multi-threaded ZIP and delta compressor with content-defined chunking and deduplication. Uses FastCDC + BLAKE3 hashing for smart dedup, Zstandard compression (levels 1-22), and folder-based parallelism for true concurrency without mutex contention."
   }
 ]

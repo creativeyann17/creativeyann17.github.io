@@ -1,0 +1,2 @@
+import{i as r,j as e,C as a,H as i,R as l,m as o,o as c}from"./index-65a0wP9J.js";import"./vendor-CGtar_wg.js";import{e as n}from"./redux-B5tavzqD.js";const m=({articles:t})=>e.jsxs(a,{className:"page page-articles ",children:[e.jsx(i,{children:e.jsx("title",{children:"Articles"})}),e.jsx(l,{children:o(t,s=>c(s))})]}),p=t=>({articles:r(t)}),j=n(p)(m);export{j as default};
+//# sourceMappingURL=Articles-5IG_fFN4.js.map
