@@ -27,3 +27,30 @@
   line-height: 1.45 !important;
   border-radius: 5px;
 }
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-body table thead {
+  background-color: var(--secondary-background-color, #f6f8fa);
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--secondary-background-border-color, #d0d7de);
+  text-align: left;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table tbody tr:nth-child(even) {
+  background-color: var(--secondary-background-color, #f6f8fa);
+}

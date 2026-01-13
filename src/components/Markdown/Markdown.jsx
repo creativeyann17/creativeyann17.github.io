@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { connect } from 'react-redux';
 import { articlesResetTableOfContents } from '../../services/ArticlesService/actions';
 import Loading from '../Loading';
@@ -37,6 +38,7 @@ class Markdown extends Component {
         {text ? (
           <ReactMarkdown
             className="markdown-body"
+            remarkPlugins={[remarkGfm]}
             components={{ code: CodeBlock, h1: H1, h2: H2, h3: H3, h4: H4, h5: H5, h6: H6 }}
           >
             {text}

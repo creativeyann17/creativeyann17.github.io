@@ -152,5 +152,16 @@
     "thumbnail": "article14.jpg",
     "markdown": "article14.md",
     "repository": "https://github.com/creativeyann17/GolangAPIsTest"
+  },
+  {
+    "id": "go-delta",
+    "tags": ["golang", "compression", "deduplication", "cli", "zstd", "backup"],
+    "date": "2026-01-13",
+    "duration": 10,
+    "featured": true,
+    "description": "A fast, multi-threaded ZIP and delta compressor with content-defined chunking and deduplication. Pure Go, zstd backed.",
+    "thumbnail": "article15.jpg",
+    "markdown": "article15.md",
+    "repository": "https://github.com/creativeyann17/go-delta"
   }
 ]

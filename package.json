@@ -28,7 +28,8 @@
     "react-syntax-highlighter": "^15.6.6",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.4.2"
+    "redux-saga": "^1.4.2",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
