@@ -39,10 +39,6 @@ const Skills = ({ className }) => {
           Follow me on twitter and be notified first about new content.
         </p>
         <p>
-          {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.INSTAGRAM, '/instagram128.png', 'me-3')}
-          Developers also have pictures to share of their free time :)
-        </p>
-        <p>
           <AiFillFilePdf />
           <b>CV </b>
           Français {renderExternalLinkByUrlAndLabel('/cv/fr.html', 'HTML')}{' '}

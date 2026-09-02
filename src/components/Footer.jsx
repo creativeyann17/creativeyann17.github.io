@@ -18,8 +18,7 @@ const Footer = ({ className }) => {
           <Col xs="auto" className="mb-3">
             {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.GITHUB, '/github128.png', 'me-3')}
             {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.LINKED_IN, '/linkedin128.png', 'me-3')}
-            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png', 'me-3')}
-            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.INSTAGRAM, '/instagram128.png')}
+            {renderExternalLinkByUrlAndIcon(ROUTES.EXTERNALS.TWITTER, '/twitter128.png')}
           </Col>
         </Row>
         <Row className="g-0 justify-content-end align-items-center">
